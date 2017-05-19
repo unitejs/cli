@@ -1,0 +1,35 @@
+{
+  "name": "unitejs-cli",
+  "version": "0.0.1",
+  "description": "Command line interface to the UniteJS JavaScript framework management tool",
+  "main": "dist/unitejs-cli.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unitejs/cli.git"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "scaffolding"
+  ],
+  "author": "martyn@unitejs.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unitejs/cli/issues"
+  },
+  "homepage": "https://github.com/unitejs/cli#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^4.3.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-tslint": "^8.0.0",
+    "gulp-typescript": "^3.1.6",
+    "merge2": "^1.0.3",
+    "tslint": "^5.2.0",
+    "tslint-microsoft-contrib": "^5.0.0",
+    "typescript": "^2.3.2",
+    "@types/mocha": "^2.2.41"
+  }
+}

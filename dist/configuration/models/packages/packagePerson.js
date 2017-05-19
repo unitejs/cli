@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Model of Package Person (package.json - author, contributors).
+ */
+class PackagePerson {
+}
+exports.PackagePerson = PackagePerson;
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbmZpZ3VyYXRpb24vbW9kZWxzL3BhY2thZ2VzL3BhY2thZ2VQZXJzb24udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7R0FFRztBQUNIO0NBSUM7QUFKRCxzQ0FJQyIsImZpbGUiOiJjb25maWd1cmF0aW9uL21vZGVscy9wYWNrYWdlcy9wYWNrYWdlUGVyc29uLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXHJcbiAqIE1vZGVsIG9mIFBhY2thZ2UgUGVyc29uIChwYWNrYWdlLmpzb24gLSBhdXRob3IsIGNvbnRyaWJ1dG9ycykuXHJcbiAqL1xyXG5leHBvcnQgY2xhc3MgUGFja2FnZVBlcnNvbiB7XHJcbiAgICBwdWJsaWMgbmFtZTogc3RyaW5nO1xyXG4gICAgcHVibGljIGVtYWlsPzogc3RyaW5nO1xyXG4gICAgcHVibGljIHdlYj86IHN0cmluZztcclxufSJdfQ==

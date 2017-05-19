@@ -1,0 +1,30 @@
+/**
+ * Enum for TypeScript Configuration lib.
+ */
+export declare enum TypeScriptLib {
+    es5 = 0,
+    es6 = 1,
+    es2015 = 2,
+    es7 = 3,
+    es2016 = 4,
+    es2017 = 5,
+    esnext = 6,
+    dom = 7,
+    "dom.iterable" = 8,
+    webworker = 9,
+    scripthost = 10,
+    "es2015.core" = 11,
+    "es2015.collection" = 12,
+    "es2015.generator" = 13,
+    "es2015.iterable" = 14,
+    "es2015.promise" = 15,
+    "es2015.proxy" = 16,
+    "es2015.reflect" = 17,
+    "es2015.symbol" = 18,
+    "es2015.symbol.wellknown" = 19,
+    "es2016.array.include" = 20,
+    "es2017.object" = 21,
+    "es2017.sharedmemory" = 22,
+    "es2017.string" = 23,
+    "esnext.asynciterable" = 24,
+}

@@ -1,0 +1,82 @@
+import { TypeScriptJsx } from "./typeScriptJsx";
+import { TypeScriptLib } from "./typeScriptLib";
+import { TypeScriptModule } from "./typeScriptModule";
+import { TypeScriptModuleResolution } from "./typeScriptModuleResolution";
+import { TypeScriptNewLine } from "./typeScriptNewLine";
+import { TypeScriptTarget } from "./typeScriptTarget";
+/**
+ * Model of TypeScript Configuration (tsconfig.json) file.
+ * The properties defined here are sourced from https://github.com/Microsoft/TypeScript/blob/master/src/compiler/commandLineParser.ts
+ */
+export declare class TypeScriptConfiguration {
+    target?: TypeScriptTarget;
+    module?: TypeScriptModule;
+    lib?: TypeScriptLib[];
+    allowJs?: boolean;
+    checkJs?: boolean;
+    jsx?: TypeScriptJsx;
+    declaration?: boolean;
+    sourceMap?: boolean;
+    outFile?: string;
+    outDir?: string;
+    rootDir?: string;
+    removeComments?: boolean;
+    noEmit?: boolean;
+    importHelpers?: boolean;
+    downlevelIteration?: boolean;
+    isolatedModules?: boolean;
+    strict?: boolean;
+    noImplicitAny?: boolean;
+    strictNullChecks?: boolean;
+    noImplicitThis?: boolean;
+    alwaysStrict?: boolean;
+    noUnusedLocals?: boolean;
+    noUnusedParameters?: boolean;
+    noImplicitReturns?: boolean;
+    noFallthroughCasesInSwitch?: boolean;
+    moduleResolution?: TypeScriptModuleResolution;
+    baseUrl?: string;
+    paths?: {
+        [id: string]: string[];
+    };
+    rootDirs?: string[];
+    typeRoots?: string[];
+    types?: string[];
+    allowSyntheticDefaultImports?: boolean;
+    sourceRoot?: string;
+    mapRoot?: string;
+    inlineSourceMap?: boolean;
+    inlineSources?: boolean;
+    experimentalDecorators?: boolean;
+    emitDecoratorMetadata?: boolean;
+    jsxFactory?: string;
+    diagnostics?: boolean;
+    extendedDiagnostics?: boolean;
+    traceResolution?: boolean;
+    listFiles?: boolean;
+    listEmittedFiles?: boolean;
+    out?: string;
+    reactNamespace?: string;
+    skipDefaultLibCheck?: boolean;
+    charset?: string;
+    emitBOM?: boolean;
+    locale?: string;
+    newLine?: TypeScriptNewLine;
+    noErrorTruncation?: boolean;
+    noLib?: boolean;
+    noResolve?: boolean;
+    stripInternal?: boolean;
+    disableSizeLimit?: boolean;
+    noImplicitUseStrict?: boolean;
+    noEmitHelpers?: boolean;
+    noEmitOnError?: boolean;
+    preserveConstEnums?: boolean;
+    declarationDir?: string;
+    skipLibCheck?: boolean;
+    allowUnusedLabels?: boolean;
+    allowUnreachableCode?: boolean;
+    suppressExcessPropertyErrors?: boolean;
+    suppressImplicitAnyIndexErrors?: boolean;
+    forceConsistentCasingInFileNames?: boolean;
+    maxNodeModuleJsDepth?: number;
+}

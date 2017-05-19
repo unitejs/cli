@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "declaration": true,
+        "module": "commonjs",
+        "sourceMap": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "strict": true
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

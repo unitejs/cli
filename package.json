@@ -30,6 +30,10 @@
     "tslint": "^5.2.0",
     "tslint-microsoft-contrib": "^5.0.0",
     "typescript": "^2.3.2",
-    "@types/mocha": "^2.2.41"
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.18"
+  },
+  "bin": {
+    "unitejs": "bin/unitejs-cli.js"
   }
 }

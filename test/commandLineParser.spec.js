@@ -9,13 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Tests for TypeScriptConfiguration.
+ * Tests for CommandLineParser.
  */
 const Chai = require("chai");
-const typeScriptConfiguration_1 = require("../../../../dist/configuration/models/typeScript/typeScriptConfiguration");
-describe("TypeScriptConfiguration", () => {
+const commandLineParser_1 = require("../dist/commandLineParser");
+describe("CommandLineParser", () => {
     it("can be created", (done) => __awaiter(this, void 0, void 0, function* () {
-        const obj = new typeScriptConfiguration_1.TypeScriptConfiguration();
+        const obj = new commandLineParser_1.CommandLineParser();
         Chai.should().exist(obj);
         done();
     }));

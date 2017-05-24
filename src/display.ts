@@ -5,8 +5,8 @@ export class Display {
     private _colorsOn: boolean;
     private _colors: { [id: string]: { start: number, stop: number } };
 
-    constructor(process: NodeJS.Process) {
-        this._colorsOn = this.calculateColors(process);
+    constructor(process: NodeJS.Process, noColor: boolean) {
+        this._colorsOn = this.calculateColors(process, noColor);
         this._colors = {
             reset: { start: 0, stop: 0 },
 
@@ -48,6 +48,10 @@ export class Display {
         console.log(this.colorStart("cyan") + message + this.colorStop("cyan"));
     }
 
+    public diagnostics(message: string): void {
+        console.log(this.colorStart("yellow") + message + this.colorStop("yellow"));
+    }
+
     private colorStart(color: string): string {
         return this._colorsOn ? "\u001b[" + this._colors[color].start + "m" : "";
     }
@@ -56,14 +60,14 @@ export class Display {
         return this._colorsOn ? "\u001b[" + this._colors[color].stop + "m" : "";
     }
 
-    private calculateColors(process: NodeJS.Process): boolean {
-        if (process.argv.indexOf("--no-color") !== -1) {
+    private calculateColors(process: NodeJS.Process, noColor: boolean): boolean {
+        if (noColor === true) {
             return false;
         }
 
-        if (process.stdout && !process.stdout.isTTY) {
-            return false;
-        }
+        // if (process.stdout && !process.stdout.isTTY) {
+        //     return false;
+        // }
 
         if (process.platform === "win32") {
             return true;

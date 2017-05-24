@@ -34,17 +34,13 @@ gulp.task('lint-build', ['clean-build'], function () {
 });
 
 gulp.task('build', ['lint-build'], function () {
-    var tsResult = gulp.src(tsSrcGlob)
+    var tsResult = gulp.src(tsSrcGlob, { base: srcFolder })
         .pipe(sourcemaps.init())
         .pipe(tsProject());
 
-    return merge([
-        tsResult.dts.pipe(gulp.dest(distFolder)),
-        tsResult.js.pipe(sourcemaps.write({
-            includeContent: true
-        }))
-        .pipe(gulp.dest(distFolder))
-    ]);
+    return tsResult.js
+            .pipe(sourcemaps.write({includeContent: false, sourceRoot: '../src'}))
+            .pipe(gulp.dest(distFolder))
 });
 
 gulp.task('clean-test', function (cb) {

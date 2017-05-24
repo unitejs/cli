@@ -1,0 +1,60 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch (No Args)",
+            "program": "${workspaceRoot}\\bin\\unitejs-cli",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "args": [
+            ],
+            "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch (No Colour)",
+            "program": "${workspaceRoot}\\bin\\unitejs-cli",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "args": [
+                "no-color"
+            ],
+            "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch (No Colour, Some Arg)",
+            "program": "${workspaceRoot}\\bin\\unitejs-cli",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "args": [
+                "no-color",
+                "someArg=1"
+            ],
+            "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch (Some Arg)",
+            "program": "${workspaceRoot}\\bin\\unitejs-cli",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "args": [
+                "someArg=1"
+            ],
+            "sourceMaps": true
+        }
+    ]
+}

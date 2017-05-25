@@ -110,6 +110,7 @@
         "object-literal-sort-keys": false, // turn object-literal-sort-keys off and sort keys in a meaningful manner
         "one-variable-per-declaration": true,
         "prefer-array-literal": true,
+        "array-type": [true, "array"],
         "prefer-const": true,
         "typedef": [true, "call-signature", "parameter", "property-declaration", "member-variable-declaration"],
         "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],

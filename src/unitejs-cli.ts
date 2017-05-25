@@ -67,8 +67,8 @@ export class CLI {
             case CommandLineCommandConstants.INIT: {
                 const engine: IEngine = new Engine(logger, display);
 
-                let name = this.ask("What is the name of your package");
-                let language = this.askEnumeration<UniteLanguage>("Which development language do you want to use", engine.getAvailableLanguages());
+                const name = this.ask("What is the name of your package");
+                const language = this.askEnumeration<UniteLanguage>("Which development language do you want to use", engine.getAvailableLanguages());
                 engine.init(name, language);
                 break;
             }
@@ -110,6 +110,6 @@ export class CLI {
     }
 
     private askEnumeration<T>(question: string, values: IKeyValue<T>[]): T {
-        return values[0];
+        return values[0].value;
     }
 }

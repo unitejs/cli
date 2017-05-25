@@ -1,0 +1,8 @@
+INFO: Session Started
+INFO: UniteJS Version
+		version: "0.0.1"
+INFO: Command Line
+		command: "init"
+		args: {}
+INFO: Session Ended
+		returnCode: 0

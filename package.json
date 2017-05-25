@@ -33,6 +33,9 @@
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18"
   },
+  "dependencies": {
+    "unitejs-core": "^0.0.1"
+  },
   "bin": {
     "unitejs": "bin/unitejs-cli.js"
   }

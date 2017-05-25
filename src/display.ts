@@ -1,7 +1,9 @@
 /**
  * Display class
  */
-export class Display {
+import {IDisplay} from "unitejs-core/dist/interfaces/IDisplay";
+
+export class Display implements IDisplay {
     private _colorsOn: boolean;
     private _colors: { [id: string]: { start: number, stop: number } };
 
@@ -41,14 +43,27 @@ export class Display {
     }
 
     public banner(message: string): void {
+        // tslint:disable-next-line:no-console
         console.log(this.colorStart("green") + message + this.colorStop("green"));
     }
 
+    public log(message: string): void {
+        // tslint:disable-next-line:no-console
+        console.log(this.colorStart("white") + message + this.colorStop("white"));
+    }
+
     public info(message: string): void {
+        // tslint:disable-next-line:no-console
         console.log(this.colorStart("cyan") + message + this.colorStop("cyan"));
     }
 
+    public error(message: string): void {
+        // tslint:disable-next-line:no-console
+        console.log(this.colorStart("red") + message + this.colorStop("red"));
+    }
+
     public diagnostics(message: string): void {
+        // tslint:disable-next-line:no-console
         console.log(this.colorStart("yellow") + message + this.colorStop("yellow"));
     }
 

@@ -5,8 +5,11 @@
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "noImplicitAny": false,
-        "strict": true
+        "strict": true,
+        "baseUrl": ".",
+        "paths": {
+            "unitejs-core": [ "node_modules/unitjs-core/dist" ]
+        }
     },
     "exclude": [
         "node_modules",

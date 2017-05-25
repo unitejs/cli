@@ -25,34 +25,46 @@
                 "${workspaceRoot}/dist/**/*.js"
             ],
             "args": [
-                "no-color"
+                "--no-color"
             ],
             "sourceMaps": true
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch (No Colour, Some Arg)",
+            "name": "Launch (version)",
             "program": "${workspaceRoot}\\bin\\unitejs-cli",
             "outFiles": [
                 "${workspaceRoot}/dist/**/*.js"
             ],
             "args": [
-                "no-color",
-                "someArg=1"
+                "version"
             ],
             "sourceMaps": true
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch (Some Arg)",
+            "name": "Launch (help)",
             "program": "${workspaceRoot}\\bin\\unitejs-cli",
             "outFiles": [
                 "${workspaceRoot}/dist/**/*.js"
             ],
             "args": [
-                "someArg=1"
+                "help"
+            ],
+            "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch (init)",
+            "program": "${workspaceRoot}\\bin\\unitejs-cli",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "args": [
+                "init"
             ],
             "sourceMaps": true
         }

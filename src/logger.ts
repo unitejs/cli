@@ -10,7 +10,7 @@ export class Logger implements ILogger {
     private _logLevel: number;
     private _logFile: string;
 
-    constructor(logLevel: number | undefined, logFile: string | undefined, defaultLogName: string) {
+    constructor(logLevel: number | undefined | null, logFile: string | undefined | null, defaultLogName: string) {
         this._logLevel = logLevel || 0;
         this._logFile = logFile || path.join(path.resolve("./"), defaultLogName);
         try {
@@ -36,6 +36,11 @@ export class Logger implements ILogger {
     // tslint:disable-next-line:no-any
     public error(message: string, args?: { [id: string]: any }): void {
         this.write("ERROR", message, args);
+    }
+
+    // tslint:disable-next-line:no-any
+    public exception(message: string, exception: any, args?: { [id: string]: any }): void {
+        this.write("EXCEPTION", message, { exception, args });
     }
 
     // tslint:disable-next-line:no-any

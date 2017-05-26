@@ -64,7 +64,10 @@
                 "${workspaceRoot}/dist/**/*.js"
             ],
             "args": [
-                "init"
+                "init",
+                "--packageName=fred",
+                "--language=ES5",
+                "--outputDirectory=d:\\@@@@@\\\\"
             ],
             "sourceMaps": true
         }

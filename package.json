@@ -18,6 +18,7 @@
     "url": "https://github.com/unitejs/cli/issues"
   },
   "homepage": "https://github.com/unitejs/cli#readme",
+  "preferGlobal": true,
   "devDependencies": {
     "chai": "^3.5.0",
     "del": "^2.2.2",

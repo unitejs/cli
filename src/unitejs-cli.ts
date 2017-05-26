@@ -1,18 +1,19 @@
 /**
  * Main entry point.
  */
-import { Engine, IDisplay, IEngine, IKeyValue, ILogger, UniteLanguage } from "unitejs-core/dist/unitejs-core";
+import { Engine, IDisplay, IEngine, ILogger } from "unitejs-core/dist/unitejs-core";
 import { CommandLineArgConstants } from "./commandLineArgConstants";
 import { CommandLineCommandConstants } from "./commandLineCommandConstants";
 import { CommandLineParser } from "./commandLineParser";
 import { Display } from "./display";
+import { FileSystem } from "./fileSystem";
 import { Logger } from "./logger";
 
 export class CLI {
     private static APP_NAME: string = "UniteJS";
     private static DEFAULT_LOG: string = "unite.log";
 
-    public run(process: NodeJS.Process): number {
+    public async run(process: NodeJS.Process): Promise<number> {
         let logger: ILogger | undefined;
         let ret: number;
 
@@ -27,7 +28,7 @@ export class CLI {
 
             const display: IDisplay = new Display(process, commandLineParser.hasArgument(CommandLineArgConstants.NO_COLOR));
 
-            ret = this.handleCommand(logger, display, commandLineParser);
+            ret = await this.handleCommand(logger, display, commandLineParser);
 
             logger.info("Session Ended", { returnCode: ret });
         } catch (err) {
@@ -35,7 +36,7 @@ export class CLI {
             // tslint:disable-next-line:no-console
             console.log("An unhandled error occurred: ", err);
             if (logger !== undefined) {
-                logger.error("Unhandled Exception", { exception: err } );
+                logger.exception("Unhandled Exception", err);
                 logger.info("Session Ended",  { returnCode: ret });
             }
         }
@@ -43,7 +44,9 @@ export class CLI {
         return ret;
     }
 
-    private handleCommand(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): number {
+    private async handleCommand(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): Promise<number> {
+        let ret: number = 0;
+
         this.displayBanner(logger, display, commandLineParser.getCommand() !== CommandLineCommandConstants.VERSION);
 
         const command = commandLineParser.getCommand();
@@ -65,11 +68,14 @@ export class CLI {
             }
 
             case CommandLineCommandConstants.INIT: {
-                const engine: IEngine = new Engine(logger, display);
+                display.info("command: init");
 
-                const name = this.ask("What is the name of your package");
-                const language = this.askEnumeration<UniteLanguage>("Which development language do you want to use", engine.getAvailableLanguages());
-                engine.init(name, language);
+                const engine: IEngine = new Engine(logger, display, new FileSystem());
+
+                const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
+                const language = commandLineParser.getStringArgument(CommandLineArgConstants.LANGUAGE);
+                const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
+                ret = await engine.init(packageName, language, outputDirectory);
                 break;
             }
 
@@ -84,7 +90,7 @@ export class CLI {
             }
         }
 
-        return 0;
+        return ret;
     }
 
     private displayBanner(logger: ILogger, display: IDisplay, includeTitle: boolean): void {
@@ -103,13 +109,5 @@ export class CLI {
         display.info("This is the help");
 
         return 0;
-    }
-
-    private ask(question: string): string {
-        return "";
-    }
-
-    private askEnumeration<T>(question: string, values: IKeyValue<T>[]): T {
-        return values[0].value;
     }
 }

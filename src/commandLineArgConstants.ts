@@ -2,7 +2,11 @@
  * Constants for the command line arguments.
  */
 export class CommandLineArgConstants {
-    public static NO_COLOR: string = "no-color";
-    public static LOG_LEVEL: string = "log-level";
-    public static LOG_FILE: string = "log-file";
+    public static NO_COLOR: string = "noColor";
+    public static LOG_LEVEL: string = "logLevel";
+    public static LOG_FILE: string = "logFile";
+
+    public static PACKAGE_NAME: string = "packageName";
+    public static LANGUAGE: string = "language";
+    public static OUTPUT_DIRECTORY: string = "outputDirectory";
 }

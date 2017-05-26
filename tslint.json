@@ -91,6 +91,7 @@
         "member-ordering": [true, { "order": "fields-first" }],
         "missing-jsdoc": true,
         "new-parens": true,
+        "arrow-parens": false,
         "no-construct": true,
         "no-default-export": true,
         "no-empty-interfaces": true,

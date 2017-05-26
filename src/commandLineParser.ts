@@ -67,13 +67,13 @@ export class CommandLineParser {
         return this._arguments ? this._arguments[argumentName] : undefined;
     }
 
-    public getNumberArgument(argumentName: string): number | undefined {
+    public getNumberArgument(argumentName: string): number | undefined | null {
         const arg = this.getArgument(argumentName);
 
         if (arg === undefined) {
             return undefined;
         } else if (arg === null) {
-            return 0;
+            return null;
         } else {
             const val = parseInt(arg, 10);
 
@@ -81,18 +81,18 @@ export class CommandLineParser {
         }
     }
 
-    public getStringArgument(argumentName: string): string | undefined {
+    public getStringArgument(argumentName: string): string | undefined | null {
         const arg = this.getArgument(argumentName);
 
         if (arg === undefined) {
             return undefined;
         } else if (arg === null) {
-            return "";
+            return null;
         } else {
             if (arg.length >= 2 && arg.startsWith("\"") && arg.endsWith("\"")) {
-                return arg.substring(1, arg.length - 2);
+                return arg.substring(1, arg.length - 2).trim();
             } else {
-                return arg;
+                return arg.trim();
             }
         }
     }

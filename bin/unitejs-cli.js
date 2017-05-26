@@ -6,7 +6,8 @@ process.title = 'unite';
 const cliMod = require('../dist/unitejs-cli');
 
 const cli = new cliMod.CLI();
-process.exit(cli.run(process));
-
-
+cli.run(process)
+    .then((result) => {
+        process.exit(result);
+    });
 

@@ -65,9 +65,9 @@
             ],
             "args": [
                 "init",
-                "--packageName=fred",
+                "--packageName=test-es5",
                 "--language=ES5",
-                "--outputDirectory=d:\\@@@@@\\\\"
+                "--outputDirectory=d:\\unite\\test-es5"
             ],
             "sourceMaps": true
         }

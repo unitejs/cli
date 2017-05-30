@@ -7,15 +7,22 @@ import * as path from "path";
 import {IFileSystem} from "unitejs-core/dist/unitejs-core";
 
 export class FileSystem implements IFileSystem {
+    public directoryPathCombine(directoryName: string, additional: string): string {
+        directoryName = this.directoryPathFormat(directoryName);
+        additional = this.cleanupSeparators(additional);
+        return path.join(directoryName, additional);
+    }
+
     public directoryPathFormat(directoryName: string): string {
         if (directoryName === undefined || directoryName === null) {
             return directoryName;
         } else {
-            return path.resolve(directoryName.replace(path.sep === "\\" ? /\//g : /\\/g, path.sep));
+            return path.resolve(this.cleanupSeparators(directoryName));
         }
     }
 
     public directoryExists(directoryName: string): Promise<boolean> {
+        directoryName = this.directoryPathFormat(directoryName);
         return new Promise<boolean>((resolve, reject) => {
             fs.lstat(directoryName, (err, stats) => {
                 if (err) {
@@ -27,6 +34,7 @@ export class FileSystem implements IFileSystem {
     }
 
     public directoryCreate(directoryName: string): Promise<void> {
+        directoryName = this.directoryPathFormat(directoryName);
         return new Promise<void>((resolve, reject) => {
             fs.lstat(directoryName, (err, stats) => {
                 if (err && err.code !== "ENOENT") {
@@ -58,6 +66,8 @@ export class FileSystem implements IFileSystem {
     }
 
     public fileWriteJson(directoryName: string, fileName: string, object: any): Promise<void> {
+        directoryName = this.directoryPathFormat(directoryName);
+
         return new Promise<void>((resolve, reject) => {
             fs.writeFile(path.join(directoryName, fileName), JSON.stringify(object, null, "\t"), (err) => {
                 if (err) {
@@ -70,6 +80,8 @@ export class FileSystem implements IFileSystem {
     }
 
     public fileWriteLines(directoryName: string, fileName: string, lines: string[]): Promise<void> {
+        directoryName = this.directoryPathFormat(directoryName);
+
         return new Promise<void>((resolve, reject) => {
             fs.writeFile(path.join(directoryName, fileName), lines ? lines.join(os.EOL) : "", (err) => {
                 if (err) {
@@ -79,5 +91,13 @@ export class FileSystem implements IFileSystem {
                 }
             });
         });
+    }
+
+    private cleanupSeparators(directoryName: string): string {
+        if (directoryName === undefined || directoryName === null) {
+            return directoryName;
+        } else {
+            return directoryName.replace(path.sep === "\\" ? /\//g : /\\/g, path.sep);
+        }
     }
 }

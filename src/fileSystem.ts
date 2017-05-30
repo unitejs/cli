@@ -2,6 +2,7 @@
  * File system class
  */
 import * as fs from "fs";
+import * as os from "os";
 import * as path from "path";
 import {IFileSystem} from "unitejs-core/dist/unitejs-core";
 
@@ -56,9 +57,21 @@ export class FileSystem implements IFileSystem {
         });
     }
 
-    public fileWrite(directoryName: string, fileName: string, contents: string): Promise<void> {
+    public fileWriteJson(directoryName: string, fileName: string, object: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            fs.writeFile(path.join(directoryName, fileName), contents, (err) => {
+            fs.writeFile(path.join(directoryName, fileName), JSON.stringify(object, null, "\t"), (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+    }
+
+    public fileWriteLines(directoryName: string, fileName: string, lines: string[]): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+            fs.writeFile(path.join(directoryName, fileName), lines ? lines.join(os.EOL) : "", (err) => {
                 if (err) {
                     reject(err);
                 } else {

@@ -23,34 +23,28 @@ export class Logger implements ILogger {
         }
     }
 
-    // tslint:disable-next-line:no-any
     public log(message: string, args?: { [id: string]: any }): void {
         this.write("LOG", message, args);
     }
 
-    // tslint:disable-next-line:no-any
     public info(message: string, args?: { [id: string]: any }): void {
         this.write("INFO", message, args);
     }
 
-    // tslint:disable-next-line:no-any
     public error(message: string, args?: { [id: string]: any }): void {
         this.write("ERROR", message, args);
     }
 
-    // tslint:disable-next-line:no-any
     public exception(message: string, exception: any, args?: { [id: string]: any }): void {
         this.write("EXCEPTION", message, { exception, args });
     }
 
-    // tslint:disable-next-line:no-any
     private write(type: string, message: string, args?: { [id: string]: any }): void {
         if (this._logLevel > 0) {
             try {
                 let output = type + ": " + message + os.EOL;
                 if (args) {
                     Object.keys(args).forEach((argKey) => {
-                        // tslint:disable-next-line:no-any
                         const cache: any[] = [];
 
                         const objectJson = JSON.stringify(args[argKey], (key, value) => {

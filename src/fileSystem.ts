@@ -26,9 +26,14 @@ export class FileSystem implements IFileSystem {
         return new Promise<boolean>((resolve, reject) => {
             fs.lstat(directoryName, (err, stats) => {
                 if (err) {
-                    reject(err);
+                    if (err.code === "ENOENT") {
+                        resolve(false);
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(stats.isDirectory());
                 }
-                resolve(stats.isDirectory());
             });
         });
     }
@@ -60,6 +65,23 @@ export class FileSystem implements IFileSystem {
                         .catch((err3) => {
                             reject(err3);
                         });
+                }
+            });
+        });
+    }
+
+    public fileExists(directoryName: string, fileName: string): Promise<boolean> {
+        directoryName = this.directoryPathFormat(directoryName);
+        return new Promise<boolean>((resolve, reject) => {
+            fs.lstat(path.join(directoryName, fileName), (err, stats) => {
+                if (err) {
+                    if (err.code === "ENOENT") {
+                        resolve(false);
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(stats.isFile());
                 }
             });
         });

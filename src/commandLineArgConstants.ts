@@ -10,5 +10,9 @@ export class CommandLineArgConstants {
     public static TITLE: string = "title";
     public static SOURCE_LANGUAGE: string = "sourceLanguage";
     public static MODULE_LOADER: string = "moduleLoader";
+    public static SOURCE_MAPS: string = "sourceMaps";
     public static OUTPUT_DIRECTORY: string = "outputDirectory";
+
+    public static OPERATION: string = "operation";
+    public static NAME: string = "name";
 }

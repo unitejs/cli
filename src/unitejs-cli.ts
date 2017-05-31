@@ -73,10 +73,11 @@ export class CLI {
                 const engine: IEngine = new Engine(logger, display, new FileSystem());
 
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
-                const language = commandLineParser.getStringArgument(CommandLineArgConstants.LANGUAGE);
+                const title = commandLineParser.getStringArgument(CommandLineArgConstants.TITLE);
+                const sourceLanguage = commandLineParser.getStringArgument(CommandLineArgConstants.SOURCE_LANGUAGE);
                 const moduleLoader = commandLineParser.getStringArgument(CommandLineArgConstants.MODULE_LOADER);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                ret = await engine.init(packageName, language, moduleLoader, outputDirectory);
+                ret = await engine.init(packageName, title, sourceLanguage, moduleLoader, outputDirectory);
                 break;
             }
 

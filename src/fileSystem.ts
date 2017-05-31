@@ -93,6 +93,34 @@ export class FileSystem implements IFileSystem {
         });
     }
 
+    public fileReadJson<T>(directoryName: string, fileName: string): Promise<T> {
+        directoryName = this.directoryPathFormat(directoryName);
+
+        return new Promise<T>((resolve, reject) => {
+            fs.readFile(path.join(directoryName, fileName), (err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(JSON.parse(data.toString()));
+                }
+            });
+        });
+    }
+
+    public fileReadLines(directoryName: string, fileName: string): Promise<string[]> {
+        directoryName = this.directoryPathFormat(directoryName);
+
+        return new Promise<string[]>((resolve, reject) => {
+            fs.readFile(path.join(directoryName, fileName), (err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data.toString().replace(/\r/g, "").split("\n"));
+                }
+            });
+        });
+    }
+
     private cleanupSeparators(directoryName: string): string {
         if (directoryName === undefined || directoryName === null) {
             return directoryName;

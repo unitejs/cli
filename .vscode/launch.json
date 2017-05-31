@@ -65,9 +65,11 @@
             ],
             "args": [
                 "init",
-                "--packageName=test-es5",
-                "--language=ES5",
-                "--outputDirectory=d:\\unite\\test-es5"
+                "--packageName=test-javascript-requirejs",
+                "--title=\"Test JavaScript RequireJS\"",
+                "--sourceLanguage=JavaScript",
+                "--moduleLoader=RequireJS",
+                "--outputDirectory=d:\\unite\\test-javascript-requirejs"
             ],
             "sourceMaps": true
         }

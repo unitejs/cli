@@ -7,7 +7,8 @@ export class CommandLineArgConstants {
     public static LOG_FILE: string = "logFile";
 
     public static PACKAGE_NAME: string = "packageName";
-    public static LANGUAGE: string = "language";
+    public static TITLE: string = "title";
+    public static SOURCE_LANGUAGE: string = "sourceLanguage";
     public static MODULE_LOADER: string = "moduleLoader";
     public static OUTPUT_DIRECTORY: string = "outputDirectory";
 }

@@ -76,9 +76,11 @@ export class CLI {
                 const title = commandLineParser.getStringArgument(CommandLineArgConstants.TITLE);
                 const sourceLanguage = commandLineParser.getStringArgument(CommandLineArgConstants.SOURCE_LANGUAGE);
                 const moduleLoader = commandLineParser.getStringArgument(CommandLineArgConstants.MODULE_LOADER);
+                const unitTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_RUNNER);
+                const unitTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_FRAMEWORK);
                 const sourceMaps = commandLineParser.hasArgument(CommandLineArgConstants.SOURCE_MAPS);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                ret = await engine.init(packageName, title, sourceLanguage, moduleLoader, sourceMaps, outputDirectory);
+                ret = await engine.init(packageName, title, sourceLanguage, moduleLoader, unitTestRunner, unitTestFramework, sourceMaps, outputDirectory);
                 break;
             }
 

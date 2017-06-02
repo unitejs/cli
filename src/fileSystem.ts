@@ -7,22 +7,26 @@ import * as path from "path";
 import {IFileSystem} from "unitejs-core/dist/unitejs-core";
 
 export class FileSystem implements IFileSystem {
-    public directoryPathCombine(directoryName: string, additional: string): string {
-        directoryName = this.directoryPathFormat(directoryName);
+    public pathCombine(pathName: string, additional: string): string {
+        pathName = this.pathFormat(pathName);
         additional = this.cleanupSeparators(additional);
-        return path.join(directoryName, additional);
+        return path.join(pathName, additional);
     }
 
-    public directoryPathFormat(directoryName: string): string {
-        if (directoryName === undefined || directoryName === null) {
-            return directoryName;
+    public pathRelative(pathName1: string, pathName2: string): string {
+        return "." + path.sep + path.relative(pathName1, pathName2) + path.sep;
+    }
+
+    public pathFormat(pathName: string): string {
+        if (pathName === undefined || pathName === null) {
+            return pathName;
         } else {
-            return path.resolve(this.cleanupSeparators(directoryName));
+            return path.resolve(this.cleanupSeparators(pathName));
         }
     }
 
     public directoryExists(directoryName: string): Promise<boolean> {
-        directoryName = this.directoryPathFormat(directoryName);
+        directoryName = this.pathFormat(directoryName);
         return new Promise<boolean>((resolve, reject) => {
             fs.lstat(directoryName, (err, stats) => {
                 if (err) {
@@ -39,7 +43,7 @@ export class FileSystem implements IFileSystem {
     }
 
     public directoryCreate(directoryName: string): Promise<void> {
-        directoryName = this.directoryPathFormat(directoryName);
+        directoryName = this.pathFormat(directoryName);
         return new Promise<void>((resolve, reject) => {
             fs.lstat(directoryName, (err, stats) => {
                 if (err && err.code !== "ENOENT") {
@@ -71,7 +75,7 @@ export class FileSystem implements IFileSystem {
     }
 
     public fileExists(directoryName: string, fileName: string): Promise<boolean> {
-        directoryName = this.directoryPathFormat(directoryName);
+        directoryName = this.pathFormat(directoryName);
         return new Promise<boolean>((resolve, reject) => {
             fs.lstat(path.join(directoryName, fileName), (err, stats) => {
                 if (err) {
@@ -88,7 +92,7 @@ export class FileSystem implements IFileSystem {
     }
 
     public fileWriteJson(directoryName: string, fileName: string, object: any): Promise<void> {
-        directoryName = this.directoryPathFormat(directoryName);
+        directoryName = this.pathFormat(directoryName);
 
         return new Promise<void>((resolve, reject) => {
             fs.writeFile(path.join(directoryName, fileName), JSON.stringify(object, null, "\t"), (err) => {
@@ -102,7 +106,7 @@ export class FileSystem implements IFileSystem {
     }
 
     public fileWriteLines(directoryName: string, fileName: string, lines: string[]): Promise<void> {
-        directoryName = this.directoryPathFormat(directoryName);
+        directoryName = this.pathFormat(directoryName);
 
         return new Promise<void>((resolve, reject) => {
             fs.writeFile(path.join(directoryName, fileName), lines ? lines.join(os.EOL) : "", (err) => {
@@ -116,7 +120,7 @@ export class FileSystem implements IFileSystem {
     }
 
     public fileReadJson<T>(directoryName: string, fileName: string): Promise<T> {
-        directoryName = this.directoryPathFormat(directoryName);
+        directoryName = this.pathFormat(directoryName);
 
         return new Promise<T>((resolve, reject) => {
             fs.readFile(path.join(directoryName, fileName), (err, data) => {
@@ -130,7 +134,7 @@ export class FileSystem implements IFileSystem {
     }
 
     public fileReadLines(directoryName: string, fileName: string): Promise<string[]> {
-        directoryName = this.directoryPathFormat(directoryName);
+        directoryName = this.pathFormat(directoryName);
 
         return new Promise<string[]>((resolve, reject) => {
             fs.readFile(path.join(directoryName, fileName), (err, data) => {
@@ -143,11 +147,11 @@ export class FileSystem implements IFileSystem {
         });
     }
 
-    private cleanupSeparators(directoryName: string): string {
-        if (directoryName === undefined || directoryName === null) {
-            return directoryName;
+    private cleanupSeparators(pathName: string): string {
+        if (pathName === undefined || pathName === null) {
+            return pathName;
         } else {
-            return directoryName.replace(path.sep === "\\" ? /\//g : /\\/g, path.sep);
+            return pathName.replace(path.sep === "\\" ? /\//g : /\\/g, path.sep);
         }
     }
 }

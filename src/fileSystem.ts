@@ -13,8 +13,16 @@ export class FileSystem implements IFileSystem {
         return path.join(pathName, additional);
     }
 
-    public pathRelative(pathName1: string, pathName2: string): string {
+    public pathDirectoryRelative(pathName1: string, pathName2: string): string {
         return "." + path.sep + path.relative(pathName1, pathName2) + path.sep;
+    }
+
+    public pathFileRelative(pathName1: string, pathName2: string): string {
+        return "." + path.sep + path.relative(pathName1, pathName2);
+    }
+
+    public pathToWeb(pathName: string): string {
+        return pathName.replace(/\\/g, "/");
     }
 
     public pathFormat(pathName: string): string {

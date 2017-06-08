@@ -1,6 +1,6 @@
 {
   "name": "unitejs-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Command line interface to the UniteJS JavaScript framework management tool",
   "main": "dist/unitejs-cli.js",
   "repository": {

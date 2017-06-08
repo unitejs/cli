@@ -12,7 +12,6 @@ export class CommandLineArgConstants {
     public static MODULE_LOADER: string = "moduleLoader";
     public static UNIT_TEST_RUNNER: string = "unitTestRunner";
     public static UNIT_TEST_FRAMEWORK: string = "unitTestFramework";
-    public static SOURCE_MAPS: string = "sourceMaps";
     public static OUTPUT_DIRECTORY: string = "outputDirectory";
 
     public static OPERATION: string = "operation";

@@ -13,3 +13,5 @@ node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-webpack-moc
 node bin\unitejs-cli init --logLevel=1 --packageName=test-typescript-webpack-jasmine --title="Test TypeScript Jasmine Webpack" --sourceLanguage=TypeScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=d:\unite\test-typescript-webpack-jasmine
 node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-webpack-jasmine --title="Test JavaScript Jasmine Webpack" --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=d:\unite\test-javascript-webpack-jasmine
 
+node bin\unitejs-cli init --logLevel=1 --packageName=test-typescript-requirejs --title="Test TypeScript RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=None --outputDirectory=d:\unite\test-typescript-requirejs
+node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-requirejs --title="Test JavaScript RequireJS" --sourceLanguage=JavaScript --moduleLoader=RequireJS --unitTestRunner=None --outputDirectory=d:\unite\test-javascript-requirejs

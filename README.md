@@ -15,6 +15,8 @@ Unite is best installed as a global package
 
 ## Command init
 
+If there is already a unite.json in the outputDirectory then all of the arguments are optional.
+
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | --packageName       | Plain text, package.json name rules apply | Name to be used for your package                 |
@@ -24,6 +26,45 @@ Unite is best installed as a global package
 | --unitTestRunner    | Karma/None (for no unit testing)          | The unit test runner                             |
 | --unitTestFramework | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
 | --outputDirectory   | "path"                                    | The location that you want the package generated |
+|                     |                                           | optional - defaults to current directory         |
+
+# Example
+
+unitejs-cli init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+
+## Command clientPackage
+
+Perform operations on client packages.
+
+### Add
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| --operation         | add                                       |                                                  |
+| --packageName       | Plain text                                | Name of the package to add                       |
+| --version           | 1.23.4 [optional]                         | Fixed version to install, or optional defaults   |
+|                     |                                           | to latest                                        |
+| --preload           | [optional]                                | Should the package be preloaded at app startup   |
+| --outputDirectory   | "path"                                    | Location of the unite.json generated from init   |
+|                     |                                           | optional - defaults to current directory         |
+
+# Example
+
+unitejs-cli clientPackage --operation=add --packageName=moment
+unitejs-cli clientPackage --operation=add --packageName=moment --version=2.0.0
+
+### --operation=remove
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| --operation         | remove                                    |                                                  |
+| --packageName       | Plain text                                | Name of the package to remove                    |
+| --outputDirectory   | "path"                                    | Location of the unite.json generated from init   |
+|                     |                                           | optional - defaults to current directory         |
+
+# Example
+
+unitejs-cli clientPackage --operation=remove --packageName=moment
 
 ## global arguments
 

@@ -8,6 +8,7 @@ import { CommandLineParser } from "./commandLineParser";
 import { Display } from "./display";
 import { FileSystem } from "./fileSystem";
 import { Logger } from "./logger";
+import { NpmPackageManager } from "./packageManagers/npmPackageManager";
 
 export class CLI {
     private static APP_NAME: string = "UniteJS";
@@ -44,6 +45,13 @@ export class CLI {
         return ret;
     }
 
+    private createEngine(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): IEngine {
+        const fileSystem = new FileSystem();
+        const scriptLocation = fileSystem.pathCombine(fileSystem.pathGetDirectory(commandLineParser.getScript()), "../");
+        const packageManager = new NpmPackageManager(logger, display);
+        return new Engine(logger, display, fileSystem, packageManager, scriptLocation);
+    }
+
     private async handleCommand(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): Promise<number> {
         let ret: number = 0;
 
@@ -68,9 +76,9 @@ export class CLI {
             }
 
             case CommandLineCommandConstants.INIT: {
-                display.info("command: init");
+                display.info("command: " + command);
 
-                const engine: IEngine = new Engine(logger, display, new FileSystem());
+                const engine: IEngine = this.createEngine(logger, display, commandLineParser);
 
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
                 const title = commandLineParser.getStringArgument(CommandLineArgConstants.TITLE);
@@ -83,14 +91,17 @@ export class CLI {
                 break;
             }
 
-            case CommandLineCommandConstants.MODULE: {
-                display.info("command: module");
+            case CommandLineCommandConstants.CLIENT_PACKAGE: {
+                display.info("command: " + command);
 
-                const engine: IEngine = new Engine(logger, display, new FileSystem());
+                const engine: IEngine = this.createEngine(logger, display, commandLineParser);
 
                 const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
-                const name = commandLineParser.getStringArgument(CommandLineArgConstants.NAME);
-                ret = await engine.module(operation, name);
+                const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
+                const version = commandLineParser.getStringArgument(CommandLineArgConstants.VERSION);
+                const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
+                const preload = commandLineParser.hasArgument(CommandLineArgConstants.PRELOAD);
+                ret = await engine.clientPackage(operation, packageName, version, preload, outputDirectory);
                 break;
             }
 
@@ -98,7 +109,7 @@ export class CLI {
                 if (command === undefined) {
                     display.error("Error: No command specified");
                 } else {
-                    display.error("Error: Unknown command");
+                    display.error("Error: Unknown command - " + command);
                 }
                 display.info("Command line format: <command> [--arg1] [--arg2] ... [--argn]");
                 break;

@@ -2,4 +2,4 @@
 
 Add dependency on core
 Handle commands:
-    init - which will create an unite.json
+    Test on UNIX/OSX to make sure path manipulation is working

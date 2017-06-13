@@ -15,3 +15,8 @@ node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-webpack-jas
 
 node bin\unitejs-cli init --logLevel=1 --packageName=test-typescript-requirejs --title="Test TypeScript RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=None --outputDirectory=d:\unite\test-typescript-requirejs
 node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-requirejs --title="Test JavaScript RequireJS" --sourceLanguage=JavaScript --moduleLoader=RequireJS --unitTestRunner=None --outputDirectory=d:\unite\test-javascript-requirejs
+
+
+
+
+node D:\Workarea\unitejs\cli\bin\unitejs-cli init --packageName=no-output-test --title="No Output Test" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine

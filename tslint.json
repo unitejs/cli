@@ -165,7 +165,7 @@
         "no-unexternalized-strings": false, // the VS Code team has a specific localization process that this rule enforces
         // pick one of the two following type-cast formats and use it consistently
         "prefer-type-cast": false,
-        "no-angle-bracket-type-assertion": true,
+        "no-angle-bracket-type-assertion": false,
 
         /**
          * Deprecated rules.  The following rules are deprecated for various reasons.

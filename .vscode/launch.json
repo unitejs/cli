@@ -72,6 +72,21 @@
                 "--outputDirectory=d:\\unite\\test-javascript-requirejs"
             ],
             "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch (package add)",
+            "program": "${workspaceRoot}\\bin\\unitejs-cli",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "args": [
+                "package",
+                "--operation=add",
+                "--packageName=moment"
+            ],
+            "sourceMaps": true
         }
     ]
 }

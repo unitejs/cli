@@ -33,6 +33,14 @@ export class FileSystem implements IFileSystem {
         }
     }
 
+    public pathGetDirectory(pathName: string): string {
+        if (pathName === undefined || pathName === null) {
+            return pathName;
+        } else {
+            return path.dirname(this.cleanupSeparators(pathName));
+        }
+    }
+
     public directoryExists(directoryName: string): Promise<boolean> {
         directoryName = this.pathFormat(directoryName);
         return new Promise<boolean>((resolve, reject) => {

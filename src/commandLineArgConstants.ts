@@ -15,5 +15,6 @@ export class CommandLineArgConstants {
     public static OUTPUT_DIRECTORY: string = "outputDirectory";
 
     public static OPERATION: string = "operation";
-    public static NAME: string = "name";
+    public static VERSION: string = "version";
+    public static PRELOAD: string = "preload";
 }

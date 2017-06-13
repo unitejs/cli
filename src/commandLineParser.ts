@@ -43,6 +43,10 @@ export class CommandLineParser {
         }
     }
 
+    public getScript(): string {
+        return this._script;
+    }
+
     public getCommand(): string {
         return this._command;
     }

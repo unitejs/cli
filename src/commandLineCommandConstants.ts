@@ -5,5 +5,5 @@ export class CommandLineCommandConstants {
     public static VERSION: string = "version";
     public static HELP: string = "help";
     public static INIT: string = "init";
-    public static MODULE: string = "module";
+    public static CLIENT_PACKAGE: string = "clientPackage";
 }

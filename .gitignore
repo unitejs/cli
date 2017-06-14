@@ -4,3 +4,4 @@ test/**/*.js
 yarn.lock
 unite.log
 hardlink.bat
+*.lock

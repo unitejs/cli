@@ -51,6 +51,7 @@ Perform operations on client packages.
 # Example
 
 unitejs-cli clientPackage --operation=add --packageName=moment
+
 unitejs-cli clientPackage --operation=add --packageName=moment --version=2.0.0
 
 ### --operation=remove
@@ -73,10 +74,6 @@ unitejs-cli clientPackage --operation=remove --packageName=moment
 | --logLevel          | 0/1 = no logging/logging                  | The level of logging to generate                 |
 | --logFile           | "filename"                                | The log file to store the logging in             |
 |                     | default = unite.log                       |                                                  |
-
-# Example
-
-unitejs-cli init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
 
 # Scaffold App
 

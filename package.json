@@ -1,6 +1,6 @@
 {
   "name": "unitejs-cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Command line interface to the UniteJS JavaScript framework management tool",
   "main": "dist/unitejs-cli.js",
   "repository": {
@@ -10,7 +10,17 @@
   "keywords": [
     "javascript",
     "typescript",
-    "scaffolding"
+    "babel",
+    "browserify",
+    "webpack",
+    "requirejs",
+    "systemjs",
+    "karma",
+    "mocha",
+    "jasmine",
+    "chai",
+    "scaffolding",
+    "boilerplate"
   ],
   "author": "martyn@unitejs.com",
   "license": "MIT",
@@ -37,7 +47,8 @@
   },
   "dependencies": {
     "npm": "^5.0.3",
-    "unitejs-core": "^0.0.4"
+    "unitejs-core": "^0.0.4",
+    "yarn": "^0.24.5"
   },
   "bin": {
     "unitejs": "bin/unitejs-cli.js"

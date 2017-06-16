@@ -17,4 +17,5 @@ export class CommandLineArgConstants {
     public static OPERATION: string = "operation";
     public static VERSION: string = "version";
     public static PRELOAD: string = "preload";
+    public static PACKAGE_MANAGER: string = "packageManager";
 }

@@ -45,6 +45,7 @@ Perform operations on client packages.
 | --version           | 1.23.4 [optional]                         | Fixed version to install, or optional defaults   |
 |                     |                                           | to latest                                        |
 | --preload           | [optional]                                | Should the package be preloaded at app startup   |
+| --packageManager    | npm/yarn [optional]                       | The package manager to use for the add           |
 | --outputDirectory   | "path"                                    | Location of the unite.json generated from init   |
 |                     |                                           | optional - defaults to current directory         |
 
@@ -60,6 +61,7 @@ unitejs-cli clientPackage --operation=add --packageName=moment --version=2.0.0
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | --operation         | remove                                    |                                                  |
 | --packageName       | Plain text                                | Name of the package to remove                    |
+| --packageManager    | npm/yarn [optional]                       | The package manager to use for the remove        |
 | --outputDirectory   | "path"                                    | Location of the unite.json generated from init   |
 |                     |                                           | optional - defaults to current directory         |
 

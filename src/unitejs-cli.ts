@@ -9,6 +9,7 @@ import { Display } from "./display";
 import { FileSystem } from "./fileSystem";
 import { Logger } from "./logger";
 import { NpmPackageManager } from "./packageManagers/npmPackageManager";
+import { YarnPackageManager } from "./packageManagers/yarnPackageManager";
 
 export class CLI {
     private static APP_NAME: string = "UniteJS";
@@ -45,11 +46,20 @@ export class CLI {
         return ret;
     }
 
-    private createEngine(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): IEngine {
-        const fileSystem = new FileSystem();
-        const scriptLocation = fileSystem.pathCombine(fileSystem.pathGetDirectory(commandLineParser.getScript()), "../");
-        const packageManager = new NpmPackageManager(logger, display);
-        return new Engine(logger, display, fileSystem, packageManager, scriptLocation);
+    private createEngine(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser, packageManager: string | null | undefined): IEngine | undefined {
+        if (packageManager === null || packageManager === undefined || packageManager.length === 0) {
+            packageManager = "npm";
+        }
+
+        if (packageManager! !== "npm" && packageManager! !== "yarn") {
+            display.error("packageManager: Must be npm or yarn");
+            return undefined;
+        } else {
+            const fileSystem = new FileSystem();
+            const scriptLocation = fileSystem.pathCombine(fileSystem.pathGetDirectory(commandLineParser.getScript()), "../");
+            const pm = packageManager === "npm" ? new NpmPackageManager(logger, display) : new YarnPackageManager(logger, display);
+            return new Engine(logger, display, fileSystem, pm, scriptLocation);
+        }
     }
 
     private async handleCommand(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): Promise<number> {
@@ -78,8 +88,6 @@ export class CLI {
             case CommandLineCommandConstants.INIT: {
                 display.info("command: " + command);
 
-                const engine: IEngine = this.createEngine(logger, display, commandLineParser);
-
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
                 const title = commandLineParser.getStringArgument(CommandLineArgConstants.TITLE);
                 const sourceLanguage = commandLineParser.getStringArgument(CommandLineArgConstants.SOURCE_LANGUAGE);
@@ -87,21 +95,30 @@ export class CLI {
                 const unitTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_RUNNER);
                 const unitTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_FRAMEWORK);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                ret = await engine.init(packageName, title, sourceLanguage, moduleLoader, unitTestRunner, unitTestFramework, outputDirectory);
+                const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser, "");
+                if (engine) {
+                    ret = await engine.init(packageName, title, sourceLanguage, moduleLoader, unitTestRunner, unitTestFramework, outputDirectory);
+                } else {
+                    ret = 1;
+                }
                 break;
             }
 
             case CommandLineCommandConstants.CLIENT_PACKAGE: {
                 display.info("command: " + command);
 
-                const engine: IEngine = this.createEngine(logger, display, commandLineParser);
-
                 const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
                 const version = commandLineParser.getStringArgument(CommandLineArgConstants.VERSION);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
+                const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const preload = commandLineParser.hasArgument(CommandLineArgConstants.PRELOAD);
-                ret = await engine.clientPackage(operation, packageName, version, preload, outputDirectory);
+                const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser, packageManager);
+                if (engine) {
+                    ret = await engine.clientPackage(operation, packageName, version, preload, outputDirectory);
+                } else {
+                    ret = 1;
+                }
                 break;
             }
 

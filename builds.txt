@@ -13,6 +13,11 @@ node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-webpack-moc
 node bin\unitejs-cli init --logLevel=1 --packageName=test-typescript-webpack-jasmine --title="Test TypeScript Jasmine Webpack" --sourceLanguage=TypeScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=d:\unite\test-typescript-webpack-jasmine
 node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-webpack-jasmine --title="Test JavaScript Jasmine Webpack" --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=d:\unite\test-javascript-webpack-jasmine
 
+node bin\unitejs-cli init --logLevel=1 --packageName=test-typescript-browserify-mocha-chai --title="Test TypeScript Mocha-Chai Browserify" --sourceLanguage=TypeScript --moduleLoader=Browserify --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --outputDirectory=d:\unite\test-typescript-browserify-mocha-chai
+node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-browserify-mocha-chai --title="Test JavaScript Mocha-Chai Browserify" --sourceLanguage=JavaScript --moduleLoader=Browserify --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --outputDirectory=d:\unite\test-javascript-browserify-mocha-chai
+node bin\unitejs-cli init --logLevel=1 --packageName=test-typescript-browserify-jasmine --title="Test TypeScript Jasmine Browserify" --sourceLanguage=TypeScript --moduleLoader=Browserify --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=d:\unite\test-typescript-browserify-jasmine
+node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-browserify-jasmine --title="Test JavaScript Jasmine Browserify" --sourceLanguage=JavaScript --moduleLoader=Browserify --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=d:\unite\test-javascript-browserify-jasmine
+
 node bin\unitejs-cli init --logLevel=1 --packageName=test-typescript-requirejs --title="Test TypeScript RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=None --outputDirectory=d:\unite\test-typescript-requirejs
 node bin\unitejs-cli init --logLevel=1 --packageName=test-javascript-requirejs --title="Test JavaScript RequireJS" --sourceLanguage=JavaScript --moduleLoader=RequireJS --unitTestRunner=None --outputDirectory=d:\unite\test-javascript-requirejs
 

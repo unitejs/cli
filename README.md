@@ -45,6 +45,8 @@ Perform operations on client packages.
 | --version           | 1.23.4 [optional]                         | Fixed version to install, or optional defaults   |
 |                     |                                           | to latest                                        |
 | --preload           | [optional]                                | Should the package be preloaded at app startup   |
+| --includeMode       | app | test | both                         | When should the package be loaded                |
+|                     |                                           | optional - defaults to both                      |
 | --packageManager    | npm/yarn [optional]                       | The package manager to use for the add           |
 | --outputDirectory   | "path"                                    | Location of the unite.json generated from init   |
 |                     |                                           | optional - defaults to current directory         |

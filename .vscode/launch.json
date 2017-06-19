@@ -76,15 +76,34 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch (package add)",
+            "name": "Launch (clientPackage add)",
             "program": "${workspaceRoot}\\bin\\unitejs-cli",
             "outFiles": [
                 "${workspaceRoot}/dist/**/*.js"
             ],
             "args": [
-                "package",
+                "clientPackage",
                 "--operation=add",
-                "--packageName=moment"
+                "--packageName=moment",
+                "--packageManager=yarn",
+                "--outputDirectory=d:\\unite\\test-javascript-requirejs-mocha-chai"
+            ],
+            "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch (clientPackage remove)",
+            "program": "${workspaceRoot}\\bin\\unitejs-cli",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "args": [
+                "clientPackage",
+                "--operation=remove",
+                "--packageName=moment",
+                "--packageManager=yarn",
+                "--outputDirectory=d:\\unite\\test-javascript-requirejs-mocha-chai"
             ],
             "sourceMaps": true
         }

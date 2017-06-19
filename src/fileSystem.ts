@@ -163,6 +163,20 @@ export class FileSystem implements IFileSystem {
         });
     }
 
+    public fileDelete(directoryName: string, fileName: string): Promise<void> {
+        directoryName = this.pathFormat(directoryName);
+
+        return new Promise<void>((resolve, reject) => {
+            fs.unlink(path.join(directoryName, fileName), (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+    }
+
     private cleanupSeparators(pathName: string): string {
         if (pathName === undefined || pathName === null) {
             return pathName;

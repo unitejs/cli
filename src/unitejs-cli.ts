@@ -57,7 +57,7 @@ export class CLI {
         } else {
             const fileSystem = new FileSystem();
             const scriptLocation = fileSystem.pathCombine(fileSystem.pathGetDirectory(commandLineParser.getScript()), "../");
-            const pm = packageManager === "npm" ? new NpmPackageManager(logger, display) : new YarnPackageManager(logger, display);
+            const pm = packageManager === "npm" ? new NpmPackageManager(logger, display, fileSystem) : new YarnPackageManager(logger, display, fileSystem);
             return new Engine(logger, display, fileSystem, pm, scriptLocation);
         }
     }
@@ -113,9 +113,10 @@ export class CLI {
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const preload = commandLineParser.hasArgument(CommandLineArgConstants.PRELOAD);
+                const includeMode = commandLineParser.getStringArgument(CommandLineArgConstants.INCLUDE_MODE);
                 const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser, packageManager);
                 if (engine) {
-                    ret = await engine.clientPackage(operation, packageName, version, preload, outputDirectory);
+                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, outputDirectory);
                 } else {
                     ret = 1;
                 }

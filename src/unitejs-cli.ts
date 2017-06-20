@@ -56,9 +56,8 @@ export class CLI {
             return undefined;
         } else {
             const fileSystem = new FileSystem();
-            const scriptLocation = fileSystem.pathCombine(__dirname, "../");
             const pm = packageManager === "npm" ? new NpmPackageManager(logger, display, fileSystem) : new YarnPackageManager(logger, display, fileSystem);
-            return new Engine(logger, display, fileSystem, pm, scriptLocation);
+            return new Engine(logger, display, fileSystem, pm);
         }
     }
 

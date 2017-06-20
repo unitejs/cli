@@ -7,7 +7,7 @@ This will generate a scaffold app with the options you specify.
 
 Unite is best installed as a global package
 
-    npm install -g unitejs-cli / yarn global unitejs-cli
+    npm install -g unitejs-cli / yarn global add unitejs-cli
 
 # Usage
 

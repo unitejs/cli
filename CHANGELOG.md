@@ -1,3 +1,6 @@
+# v0.0.9
+* Core Update
+
 # v0.0.8
 Updated README
 

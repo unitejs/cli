@@ -1,6 +1,6 @@
 {
   "name": "unitejs-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Command line interface to the UniteJS JavaScript framework management tool",
   "main": "dist/unitejs-cli.js",
   "repository": {
@@ -47,10 +47,10 @@
   },
   "dependencies": {
     "npm": "^5.0.3",
-    "unitejs-core": "^0.0.6",
-    "yarn": "^0.24.5"
+    "unitejs-core": "^0.0.7",
+    "yarn": "^0.24.6"
   },
   "bin": {
-    "unitejs": "bin/unitejs-cli.js"
+    "unite": "bin/unite.js"
   }
 }

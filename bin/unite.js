@@ -10,4 +10,3 @@ cli.run(process)
     .then((result) => {
         process.exit(result);
     });
-

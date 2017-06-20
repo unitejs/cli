@@ -1,3 +1,6 @@
+# v0.0.10
+* Fix script line endings
+
 # v0.0.9
 * Core Update
 

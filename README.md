@@ -7,11 +7,11 @@ This will generate a scaffold app with the options you specify.
 
 Unite is best installed as a global package
 
-    npm install -g unitejs-cli
+    npm install -g unitejs-cli / yarn global unitejs-cli
 
 # Usage
 
-    unitejs-cli "command" [args0] [args1] ... [argsn]
+    unite "command" [args0] [args1] ... [argsn]
 
 ## Command init
 
@@ -30,7 +30,7 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
 # Example
 
-unitejs-cli init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
 
 ## Command clientPackage
 
@@ -53,9 +53,11 @@ Perform operations on client packages.
 
 # Example
 
-unitejs-cli clientPackage --operation=add --packageName=moment
+unite clientPackage --operation=add --packageName=moment
 
-unitejs-cli clientPackage --operation=add --packageName=moment --version=2.0.0
+unite clientPackage --operation=add --packageName=moment --version=2.0.0
+
+unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
 ### --operation=remove
 
@@ -69,7 +71,7 @@ unitejs-cli clientPackage --operation=add --packageName=moment --version=2.0.0
 
 # Example
 
-unitejs-cli clientPackage --operation=remove --packageName=moment
+unite clientPackage --operation=remove --packageName=moment
 
 ## global arguments
 

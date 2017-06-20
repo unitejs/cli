@@ -1,7 +1,5 @@
 .vscode
 node_modules
-test/**/*.js
-yarn.lock
-unite.log
-hardlink.bat
+*.bat
 *.lock
+*.log

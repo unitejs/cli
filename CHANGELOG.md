@@ -1,3 +1,6 @@
+# v0.0.8
+Updated README
+
 # v0.0.7
 
 * Command line bin renamed to unite

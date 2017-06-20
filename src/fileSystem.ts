@@ -4,7 +4,7 @@
 import * as fs from "fs";
 import * as os from "os";
 import * as path from "path";
-import {IFileSystem} from "unitejs-core/dist/unitejs-core";
+import { IFileSystem } from "unitejs-core/dist/interfaces/IFileSystem";
 
 export class FileSystem implements IFileSystem {
     public pathCombine(pathName: string, additional: string): string {

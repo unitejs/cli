@@ -1,3 +1,9 @@
+# v0.1.0
+* Added linting option
+
+# v0.0.11
+* Core Update
+
 # v0.0.10
 * Fix script line endings
 

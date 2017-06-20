@@ -1,7 +1,7 @@
 /**
  * Display class
  */
-import {IDisplay} from "unitejs-core/dist/interfaces/IDisplay";
+import { IDisplay } from "unitejs-core/dist/interfaces/IDisplay";
 
 // tslint:disable:no-console
 export class Display implements IDisplay {

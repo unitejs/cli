@@ -1,7 +1,10 @@
 /**
  * Main entry point.
  */
-import { Engine, IDisplay, IEngine, ILogger } from "unitejs-core/dist/unitejs-core";
+import { Engine } from "unitejs-core/dist/engine/engine";
+import { IDisplay } from "unitejs-core/dist/interfaces/IDisplay";
+import { IEngine } from "unitejs-core/dist/interfaces/IEngine";
+import { ILogger } from "unitejs-core/dist/interfaces/ILogger";
 import { CommandLineArgConstants } from "./commandLineArgConstants";
 import { CommandLineCommandConstants } from "./commandLineCommandConstants";
 import { CommandLineParser } from "./commandLineParser";
@@ -93,10 +96,11 @@ export class CLI {
                 const moduleLoader = commandLineParser.getStringArgument(CommandLineArgConstants.MODULE_LOADER);
                 const unitTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_RUNNER);
                 const unitTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_FRAMEWORK);
+                const linter = commandLineParser.getStringArgument(CommandLineArgConstants.LINTER);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser, "");
                 if (engine) {
-                    ret = await engine.init(packageName, title, sourceLanguage, moduleLoader, unitTestRunner, unitTestFramework, outputDirectory);
+                    ret = await engine.init(packageName, title, sourceLanguage, moduleLoader, unitTestRunner, unitTestFramework, linter, outputDirectory);
                 } else {
                     ret = 1;
                 }

@@ -25,12 +25,15 @@ If there is already a unite.json in the outputDirectory then all of the argument
 | --moduleLoader      | RequireJS/SystemJS/Webpack                | The module loader you want to use                |
 | --unitTestRunner    | Karma/None (for no unit testing)          | The unit test runner                             |
 | --unitTestFramework | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
+| --linter            | ESLint/TSLint/None (for no linting)       | The linter                                       |
 | --outputDirectory   | "path"                                    | The location that you want the package generated |
 |                     |                                           | optional - defaults to current directory         |
 
 # Example
 
-unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --linter=TSLint --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+
+unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --linter=ESLint --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
 
 ## Command clientPackage
 

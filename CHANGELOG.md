@@ -1,3 +1,6 @@
+# v0.1.2
+* Core Update
+
 # v0.1.1
 * Core Update
 

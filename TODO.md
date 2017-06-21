@@ -1,5 +1,4 @@
 # To Do
 
-Add dependency on core
-Handle commands:
+Create help page for command line
     

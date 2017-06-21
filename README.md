@@ -15,20 +15,21 @@ Unite is best installed as a global package
 
 ## Command init
 
-If there is already a unite.json in the outputDirectory then all of the arguments are optional.
+If there is already a unite.json in the outputDirectory then all of the arguments will be read from the file and are optional. You only need specify the ones that you want to change.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
-| --packageName       | Plain text, package.json name rules apply | Name to be used for your package                 |
-| --title             | Plain text                                | Used on the web index page                       |
-| --license           | Plain text                                | See [SPDX](https://spdx.org/licenses/) for options|
-| --sourceLanguage    | JavaScript/TypeScript                     | The language you want to code in                 |
-| --moduleLoader      | RequireJS/SystemJS/Webpack                | The module loader you want to use                |
-| --unitTestRunner    | Karma/None (for no unit testing)          | The unit test runner                             |
-| --unitTestFramework | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
-| --linter            | ESLint/TSLint/None (for no linting)       | The linter                                       |
-| --packageManager    | npm/yarn [optional]                       | The package manager to use for the add           |
-| --outputDirectory   | "path"                                    | The location that you want the package generated |
+| packageName         | Plain text, package.json name rules apply | Name to be used for your package                 |
+| title               | Plain text                                | Used on the web index page                       |
+| license             | Plain text                                | See [SPDX](https://spdx.org/licenses/) for options|
+| sourceLanguage      | JavaScript/TypeScript                     | The language you want to code in                 |
+| moduleLoader        | RequireJS/SystemJS/Webpack                | The module loader you want to use                |
+| unitTestRunner      | Karma/None (for no unit testing)          | The unit test runner                             |
+| unitTestFramework   | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
+| linter              | ESLint/TSLint/None (for no linting)       | The linter                                       |
+| packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
+|                     |                                           | optional - defaults to npm if not already set    |
+| outputDirectory     | "path"                                    | The location that you want the package generated |
 |                     |                                           | optional - defaults to current directory         |
 
 # Example
@@ -45,22 +46,24 @@ Perform operations on client packages.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
-| --operation         | add                                       |                                                  |
-| --packageName       | Plain text                                | Name of the package to add                       |
-| --version           | 1.23.4 [optional]                         | Fixed version to install, or optional defaults   |
-|                     |                                           | to latest                                        |
-| --preload           | [optional]                                | Should the package be preloaded at app startup   |
-| --includeMode       | app | test | both                         | When should the package be loaded                |
+| operation           | add                                       |                                                  |
+| packageName         | Plain text                                | Name of the package to add                       |
+| version             | 1.23.4 [optional]                         | Fixed version to install                         |
+|                     |                                           | optional - defaults to latest                    |
+| preload             | [optional]                                | Should the package be preloaded at app startup   |
+|                     |                                           | optional - defaults to not preload               |
+| includeMode         | app/test/both [optional]                  | When should the package be loaded                |
 |                     |                                           | optional - defaults to both                      |
-| --packageManager    | npm/yarn [optional]                       | The package manager to use for the add           |
-| --outputDirectory   | "path"                                    | Location of the unite.json generated from init   |
+| packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
+|                     |                                           | optional - defaults to npm if not already set    |
+| outputDirectory     | "path" [optional]                         | Location of the unite.json generated from init   |
 |                     |                                           | optional - defaults to current directory         |
 
 # Example
 
 unite clientPackage --operation=add --packageName=moment
 
-unite clientPackage --operation=add --packageName=moment --version=2.0.0
+unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload
 
 unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
@@ -68,10 +71,11 @@ unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
-| --operation         | remove                                    |                                                  |
-| --packageName       | Plain text                                | Name of the package to remove                    |
-| --packageManager    | npm/yarn [optional]                       | The package manager to use for the remove        |
-| --outputDirectory   | "path"                                    | Location of the unite.json generated from init   |
+| operation           | remove                                    |                                                  |
+| packageName         | Plain text                                | Name of the package to remove                    |
+| packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
+|                     |                                           | optional - defaults to npm if not already set    |
+| outputDirectory     | "path" [optional]                         | Location of the unite.json generated from init   |
 |                     |                                           | optional - defaults to current directory         |
 
 # Example
@@ -82,8 +86,8 @@ unite clientPackage --operation=remove --packageName=moment
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
-| --logLevel          | 0/1 = no logging/logging                  | The level of logging to generate                 |
-| --logFile           | "filename"                                | The log file to store the logging in             |
+| logLevel            | 0/1 = no logging/logging                  | The level of logging to generate                 |
+| logFile             | "filename"                                | The log file to store the logging in             |
 |                     | default = unite.log                       |                                                  |
 
 # Scaffold App

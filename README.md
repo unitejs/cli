@@ -21,19 +21,21 @@ If there is already a unite.json in the outputDirectory then all of the argument
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | --packageName       | Plain text, package.json name rules apply | Name to be used for your package                 |
 | --title             | Plain text                                | Used on the web index page                       |
+| --license           | Plain text                                | See [SPDX](https://spdx.org/licenses/) for options|
 | --sourceLanguage    | JavaScript/TypeScript                     | The language you want to code in                 |
 | --moduleLoader      | RequireJS/SystemJS/Webpack                | The module loader you want to use                |
 | --unitTestRunner    | Karma/None (for no unit testing)          | The unit test runner                             |
 | --unitTestFramework | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
 | --linter            | ESLint/TSLint/None (for no linting)       | The linter                                       |
+| --packageManager    | npm/yarn [optional]                       | The package manager to use for the add           |
 | --outputDirectory   | "path"                                    | The location that you want the package generated |
 |                     |                                           | optional - defaults to current directory         |
 
 # Example
 
-unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --linter=TSLint --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --linter=TSLint --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
 
-unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --linter=ESLint --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
+unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --linter=ESLint --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
 
 ## Command clientPackage
 
@@ -88,21 +90,24 @@ unite clientPackage --operation=remove --packageName=moment
 
 The following pre-requisities are needed
 
-    npm install -g gulp
+    npm -g install gulp [or] yarn global add gulp
 
 Once the above are installed you can install the npm packages for the scaffold app with
 
-    npm install
+    npm install [or] yarn install
 
 
 The following gulp commands are then available for the scaffold app.
 
 * build
 * unit
+* serve
 
 ### build
 This will transpile and build the app.
 
 ### unit
-
 This will run unit tests for the app and generate unit and coverage reports in the reports folder.
+
+### serve
+This will serve the app for you to view in a browser.

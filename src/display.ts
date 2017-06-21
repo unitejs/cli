@@ -1,6 +1,7 @@
 /**
  * Display class
  */
+import { ErrorHandler } from "unitejs-core/dist/core/errorHandler";
 import { IDisplay } from "unitejs-core/dist/interfaces/IDisplay";
 
 // tslint:disable:no-console
@@ -47,24 +48,39 @@ export class Display implements IDisplay {
         console.log(this.colorStart("green") + message + this.colorStop("green"));
     }
 
-    public log(message: string, args?: string): void {
+    public log(message: string, args?: { [id: string]: any }): void {
         if (args) {
-            console.log(this.colorStart("white") + message + ": " + this.colorStop("white") + this.colorStart("cyan") + args + this.colorStop("cyan"));
+            console.log(this.colorStart("white") + message + ": " + this.colorStop("white") + this.colorStart("cyan") + this.arrayToReadable(args) + this.colorStop("cyan"));
         } else {
             console.log(this.colorStart("white") + message + this.colorStop("white"));
         }
     }
 
-    public info(message: string): void {
-        console.log(this.colorStart("cyan") + message + this.colorStop("cyan"));
+    public info(message: string, args?: { [id: string]: any }): void {
+        if (args) {
+            console.log(this.colorStart("cyan") + message + ": " + this.arrayToReadable(args) + this.colorStop("cyan"));
+        } else {
+            console.log(this.colorStart("cyan") + message + this.colorStop("cyan"));
+        }
     }
 
-    public error(message: string): void {
-        console.log(this.colorStart("red") + message + this.colorStop("red"));
+    public error(message: string, err?: any, args?: { [id: string]: any }): void {
+        if (args) {
+            console.log(this.colorStart("red") + message + ": " + this.arrayToReadable(args) + this.colorStop("red"));
+        } else {
+            console.log(this.colorStart("red") + message + this.colorStop("red"));
+        }
+        if (err) {
+            console.log(this.colorStart("red") + ErrorHandler.format(err) + this.colorStop("red"));
+        }
     }
 
-    public diagnostics(message: string): void {
-        console.log(this.colorStart("yellow") + message + this.colorStop("yellow"));
+    public diagnostics(message: string, args?: { [id: string]: any }): void {
+        if (args) {
+            console.log(this.colorStart("yellow") + message + ": " + this.arrayToReadable(args) + this.colorStop("yellow"));
+        } else {
+            console.log(this.colorStart("yellow") + message + this.colorStop("yellow"));
+        }
     }
 
     private colorStart(color: string): string {
@@ -73,6 +89,15 @@ export class Display implements IDisplay {
 
     private colorStop(color: string): string {
         return this._colorsOn ? "\u001b[" + this._colors[color].stop + "m" : "";
+    }
+
+    private arrayToReadable(args?: { [id: string]: any}): string {
+        if (!args) {
+            return "";
+        } else {
+            const objKeys = Object.keys(args);
+            return (objKeys.length === 0 ? "" : (objKeys.length === 1 ? args[objKeys[0]] : JSON.stringify(args)));
+        }
     }
 
     private calculateColors(process: NodeJS.Process, noColor: boolean): boolean {

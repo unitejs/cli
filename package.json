@@ -1,6 +1,6 @@
 {
   "name": "unitejs-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Command line interface to the UniteJS JavaScript framework management tool",
   "main": "dist/unitejs-cli.js",
   "repository": {
@@ -8,6 +8,7 @@
     "url": "https://github.com/unitejs/cli.git"
   },
   "keywords": [
+    "unite",
     "javascript",
     "typescript",
     "babel",
@@ -21,6 +22,7 @@
     "chai",
     "eslint",
     "tslint",
+    "spdx",
     "scaffolding",
     "boilerplate"
   ],
@@ -48,9 +50,7 @@
     "typescript": "^2.3.2"
   },
   "dependencies": {
-    "npm": "^5.0.3",
-    "unitejs-core": "^0.1.0",
-    "yarn": "^0.24.6"
+    "unitejs-core": "^0.1.1"
   },
   "bin": {
     "unite": "bin/unite.js"

@@ -9,6 +9,7 @@ export class CommandLineArgConstants {
     public static PACKAGE_NAME: string = "packageName";
     public static TITLE: string = "title";
     public static SOURCE_LANGUAGE: string = "sourceLanguage";
+    public static LICENSE: string = "license";
     public static MODULE_LOADER: string = "moduleLoader";
     public static UNIT_TEST_RUNNER: string = "unitTestRunner";
     public static UNIT_TEST_FRAMEWORK: string = "unitTestFramework";

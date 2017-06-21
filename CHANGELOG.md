@@ -1,3 +1,6 @@
+# v0.1.1
+* Core Update
+
 # v0.1.0
 * Added linting option
 

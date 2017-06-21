@@ -143,7 +143,12 @@ export class FileSystem implements IFileSystem {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(JSON.parse(data.toString()));
+                    try {
+                        const obj = JSON.parse(data.toString());
+                        resolve(obj);
+                    } catch (e) {
+                        reject(e);
+                    }
                 }
             });
         });

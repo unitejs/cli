@@ -27,6 +27,8 @@ If there is already a unite.json in the outputDirectory then all of the argument
 | unitTestRunner      | Karma/None (for no unit testing)          | The unit test runner                             |
 | unitTestFramework   | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
 | linter              | ESLint/TSLint/None (for no linting)       | The linter                                       |
+| cssPre              | Css/Less/Sass/Stylus                      | The css preprocessor to use                      |
+| cssPost             | None/PostCss                              | The css postprocessor to use                      |
 | packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
 |                     |                                           | optional - defaults to npm if not already set    |
 | outputDirectory     | "path"                                    | The location that you want the package generated |
@@ -34,9 +36,9 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
 # Example
 
-unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --linter=TSLint --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
 
-unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --linter=ESLint --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
+unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
 
 ## Command clientPackage
 

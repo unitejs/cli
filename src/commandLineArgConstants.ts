@@ -14,6 +14,8 @@ export class CommandLineArgConstants {
     public static UNIT_TEST_RUNNER: string = "unitTestRunner";
     public static UNIT_TEST_FRAMEWORK: string = "unitTestFramework";
     public static LINTER: string = "linter";
+    public static CSS_PRE_PROCESSOR: string = "cssPre";
+    public static CSS_POST_PROCESSOR: string = "cssPost";
     public static OUTPUT_DIRECTORY: string = "outputDirectory";
 
     public static OPERATION: string = "operation";

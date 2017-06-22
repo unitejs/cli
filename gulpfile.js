@@ -19,11 +19,11 @@ const jsTestGlob = testFolder + '**/*.spec.js';
 
 const tsProject = tsc.createProject(tsConfigFile);
 
-gulp.task('clean-build', function (cb) {
+gulp.task('clean-build', (cb) => {
   return del(distFolder, cb);
 });
 
-gulp.task('lint-build', ['clean-build'], function () {
+gulp.task('lint-build', ['clean-build'], () => {
     var program = tslint.Linter.createProgram(tsConfigFile);
 
     return gulp.src(tsSrcGlob)
@@ -33,7 +33,7 @@ gulp.task('lint-build', ['clean-build'], function () {
         .pipe(gulpTslint.report());
 });
 
-gulp.task('build', ['lint-build'], function () {
+gulp.task('build', ['lint-build'], () => {
     var tsResult = gulp.src(tsSrcGlob, { base: srcFolder })
         .pipe(sourcemaps.init())
         .pipe(tsProject());
@@ -43,11 +43,11 @@ gulp.task('build', ['lint-build'], function () {
             .pipe(gulp.dest(distFolder))
 });
 
-gulp.task('clean-test', function (cb) {
+gulp.task('clean-test', (cb) => {
   return del(cleanTestGlob, cb);
 });
 
-gulp.task('lint-test', ['clean-test'], function () {
+gulp.task('lint-test', ['clean-test'], () => {
     var program = tslint.Linter.createProgram(tsConfigFile);
 
     return gulp.src(tsTestGlob)
@@ -57,7 +57,7 @@ gulp.task('lint-test', ['clean-test'], function () {
         .pipe(gulpTslint.report());
 });
 
-gulp.task('test', ['lint-test'], function () {
+gulp.task('test', ['lint-test'], () => {
     var tsResult = gulp.src(tsTestGlob)
     .pipe(tsProject());
 

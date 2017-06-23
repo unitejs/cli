@@ -90,6 +90,61 @@ export class FileSystem implements IFileSystem {
         });
     }
 
+    public directoryDelete(directoryName: string): Promise<void> {
+        directoryName = this.pathFormat(directoryName);
+        return new Promise<void>((resolve, reject) => {
+            if (fs.existsSync(directoryName)) {
+                fs.readdir(directoryName, (err, files) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        const allPromises: Promise<void>[] = [];
+                        files.forEach((file, index) => {
+                            const curPath = path.join(directoryName, file);
+                            allPromises.push(new Promise<void>((resolve2, reject2) => {
+                                fs.lstat(curPath, (err2, stats) => {
+                                    if (err2) {
+                                        reject2(err2);
+                                    } else {
+                                        if (stats.isDirectory()) {
+                                            this.directoryDelete(curPath)
+                                                .then(() => {
+                                                    resolve2();
+                                                })
+                                                .catch((err5) => {
+                                                    reject2(err5);
+                                                });
+                                        } else {
+                                            fs.unlink(curPath, (err3) => {
+                                                if (err3) {
+                                                    reject2(err3);
+                                                } else {
+                                                    resolve2(err3);
+                                                }
+                                            });
+                                        }
+                                    }
+                                });
+                            }));
+                        });
+                        Promise.all(allPromises)
+                            .then(() => {
+                                fs.rmdir(directoryName, (err4) => {
+                                    if (err4) {
+                                        reject(err4);
+                                    } else {
+                                        resolve();
+                                    }
+                                });
+                            });
+                    }
+                });
+            } else {
+                resolve();
+            }
+        });
+    }
+
     public fileExists(directoryName: string, fileName: string): Promise<boolean> {
         directoryName = this.pathFormat(directoryName);
         return new Promise<boolean>((resolve, reject) => {

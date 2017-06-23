@@ -1,3 +1,6 @@
+# v0.2.1
+* Core Refactoring and Improvements
+
 # v0.2.0
 * Core Update for CSS/Less/Sass/Stylus/PostCss Support
 

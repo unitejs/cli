@@ -38,9 +38,9 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
 # Example
 
-unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+    unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
 
-unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
+    unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
 
 ## Command clientPackage
 
@@ -65,11 +65,11 @@ Perform operations on client packages.
 
 # Example
 
-unite clientPackage --operation=add --packageName=moment
+    unite clientPackage --operation=add --packageName=moment
 
-unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload
+    unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload
 
-unite clientPackage --operation=add --packageName=sinon --includeMode=test
+    unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
 ### --operation=remove
 
@@ -84,7 +84,7 @@ unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
 # Example
 
-unite clientPackage --operation=remove --packageName=moment
+    unite clientPackage --operation=remove --packageName=moment
 
 ## global arguments
 

@@ -1,3 +1,6 @@
+# v0.3.0
+* Core Update for E2E Testing
+
 # v0.2.1
 * Core Refactoring and Improvements
 

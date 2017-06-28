@@ -13,6 +13,8 @@ export class CommandLineArgConstants {
     public static MODULE_LOADER: string = "moduleLoader";
     public static UNIT_TEST_RUNNER: string = "unitTestRunner";
     public static UNIT_TEST_FRAMEWORK: string = "unitTestFramework";
+    public static E2E_TEST_RUNNER: string = "e2eTestRunner";
+    public static E2E_TEST_FRAMEWORK: string = "e2eTestFramework";
     public static LINTER: string = "linter";
     public static CSS_PRE_PROCESSOR: string = "cssPre";
     public static CSS_POST_PROCESSOR: string = "cssPost";

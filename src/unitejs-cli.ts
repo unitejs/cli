@@ -85,6 +85,8 @@ export class CLI {
                 const moduleLoader = commandLineParser.getStringArgument(CommandLineArgConstants.MODULE_LOADER);
                 const unitTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_RUNNER);
                 const unitTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_FRAMEWORK);
+                const e2eTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.E2E_TEST_RUNNER);
+                const e2eTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.E2E_TEST_FRAMEWORK);
                 const linter = commandLineParser.getStringArgument(CommandLineArgConstants.LINTER);
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const cssPreProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
@@ -99,6 +101,8 @@ export class CLI {
                                             moduleLoader,
                                             unitTestRunner,
                                             unitTestFramework,
+                                            e2eTestRunner,
+                                            e2eTestFramework,
                                             linter,
                                             cssPreProcessor,
                                             cssPostProcessor,

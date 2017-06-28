@@ -26,9 +26,11 @@ If there is already a unite.json in the outputDirectory then all of the argument
 | moduleLoader        | RequireJS/SystemJS/Webpack                | The module loader you want to use                |
 | unitTestRunner      | Karma/None (for no unit testing)          | The unit test runner                             |
 | unitTestFramework   | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
+| e2eTestRunner       | Protractor/WebdriverIO/None               | The e2e test runner                              |
+| e2eTestFramework    | Jasmine/Mocha-Chai                        | The e2e test framework to use                    |
 | linter              | ESLint/TSLint/None (for no linting)       | The linter                                       |
 | cssPre              | Css/Less/Sass/Stylus                      | The css preprocessor to use                      |
-| cssPost             | None/PostCss                              | The css postprocessor to use                      |
+| cssPost             | None/PostCss                              | The css postprocessor to use                     |
 | packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
 |                     |                                           | optional - defaults to npm if not already set    |
 | outputDirectory     | "path"                                    | The location that you want the package generated |
@@ -36,9 +38,9 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
 # Example
 
-unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
 
-unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
+unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
 
 ## Command clientPackage
 
@@ -107,6 +109,8 @@ The following gulp commands are then available for the scaffold app.
 
 * build
 * unit
+* e2e-install
+* e2e
 * serve
 
 ### build
@@ -114,6 +118,12 @@ This will transpile and build the app.
 
 ### unit
 This will run unit tests for the app and generate unit and coverage reports in the reports folder.
+
+### e2e-install
+This will install all the necessary components required for the e2e tests, it need only be run once.
+
+### e2e
+This will run e2e tests for the app and generate reports in the reports folder.
 
 ### serve
 This will serve the app for you to view in a browser.

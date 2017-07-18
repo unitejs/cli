@@ -1,3 +1,6 @@
+# v0.4.0
+* Core Update for Environment configurations and separation of module type/bundling
+
 # v0.3.0
 * Core Update for E2E Testing
 

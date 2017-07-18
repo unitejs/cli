@@ -72,7 +72,7 @@ export class FileSystem implements IFileSystem {
                     const parts = directoryName.split(path.sep);
                     parts.pop();
                     const parentFolder = parts.join(path.sep);
-                    return this.directoryCreate(parentFolder)
+                    this.directoryCreate(parentFolder)
                         .then(() => {
                             fs.mkdir(directoryName, (err2) => {
                                 if (err2) {
@@ -119,7 +119,7 @@ export class FileSystem implements IFileSystem {
                                                 if (err3) {
                                                     reject2(err3);
                                                 } else {
-                                                    resolve2(err3);
+                                                    resolve2();
                                                 }
                                             });
                                         }

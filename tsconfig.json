@@ -5,12 +5,19 @@
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "strictNullChecks": false,
         "baseUrl": ".",
         "paths": {
             "unitejs-core": [ "node_modules/unitjs-core/dist" ]
-        }
+        },
+        "outDir": "./dist"
     },
+    "include": [
+        "src/**/*"
+    ],
     "exclude": [
         "node_modules",
         "dist"

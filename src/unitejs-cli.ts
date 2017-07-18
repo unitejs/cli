@@ -82,7 +82,8 @@ export class CLI {
                 const title = commandLineParser.getStringArgument(CommandLineArgConstants.TITLE);
                 const license = commandLineParser.getStringArgument(CommandLineArgConstants.LICENSE);
                 const sourceLanguage = commandLineParser.getStringArgument(CommandLineArgConstants.SOURCE_LANGUAGE);
-                const moduleLoader = commandLineParser.getStringArgument(CommandLineArgConstants.MODULE_LOADER);
+                const moduleType = commandLineParser.getStringArgument(CommandLineArgConstants.MODULE_TYPE);
+                const bundler = commandLineParser.getStringArgument(CommandLineArgConstants.BUNDLER);
                 const unitTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_RUNNER);
                 const unitTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_FRAMEWORK);
                 const e2eTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.E2E_TEST_RUNNER);
@@ -98,7 +99,8 @@ export class CLI {
                                             title,
                                             license,
                                             sourceLanguage,
-                                            moduleLoader,
+                                            moduleType,
+                                            bundler,
                                             unitTestRunner,
                                             unitTestFramework,
                                             e2eTestRunner,
@@ -127,6 +129,24 @@ export class CLI {
                 const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser);
                 if (engine) {
                     ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, packageManager, outputDirectory);
+                } else {
+                    ret = 1;
+                }
+                break;
+            }
+
+            case CommandLineCommandConstants.BUILD_CONFIGURATION: {
+                display.info("command: " + command);
+
+                const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
+                const configurationName = commandLineParser.getStringArgument(CommandLineArgConstants.CONFIGURATION_NAME);
+                const bundle = commandLineParser.hasArgument(CommandLineArgConstants.BUNDLE);
+                const minify = commandLineParser.hasArgument(CommandLineArgConstants.MINIFY);
+                const sourceMaps = commandLineParser.hasArgument(CommandLineArgConstants.SOURCE_MAPS);
+                const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
+                const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser);
+                if (engine) {
+                    ret = await engine.buildConfiguration(operation, configurationName, bundle, minify, sourceMaps, outputDirectory);
                 } else {
                     ret = 1;
                 }

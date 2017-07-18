@@ -10,7 +10,8 @@ export class CommandLineArgConstants {
     public static TITLE: string = "title";
     public static SOURCE_LANGUAGE: string = "sourceLanguage";
     public static LICENSE: string = "license";
-    public static MODULE_LOADER: string = "moduleLoader";
+    public static MODULE_TYPE: string = "moduleType";
+    public static BUNDLER: string = "bundler";
     public static UNIT_TEST_RUNNER: string = "unitTestRunner";
     public static UNIT_TEST_FRAMEWORK: string = "unitTestFramework";
     public static E2E_TEST_RUNNER: string = "e2eTestRunner";
@@ -25,4 +26,9 @@ export class CommandLineArgConstants {
     public static PRELOAD: string = "preload";
     public static INCLUDE_MODE: string = "includeMode";
     public static PACKAGE_MANAGER: string = "packageManager";
+
+    public static CONFIGURATION_NAME: string = "configurationName";
+    public static BUNDLE: string = "bundle";
+    public static MINIFY: string = "minify";
+    public static SOURCE_MAPS: string = "sourcemaps";
 }

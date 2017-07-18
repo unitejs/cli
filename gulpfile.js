@@ -7,8 +7,9 @@ const del = require('del');
 const mocha = require('gulp-mocha');
 const path = require('path');
 const merge = require('merge2');
+const runSequence = require('run-sequence');
 
-const tsConfigFile = 'tsconfig.json';
+const tsConfigFile = './tsconfig.json';
 const srcFolder = './src/';
 const distFolder = './dist/';
 const testFolder = 'test/';
@@ -19,11 +20,11 @@ const jsTestGlob = testFolder + '**/*.spec.js';
 
 const tsProject = tsc.createProject(tsConfigFile);
 
-gulp.task('clean-build', (cb) => {
+gulp.task('build-clean', (cb) => {
   return del(distFolder, cb);
 });
 
-gulp.task('lint-build', ['clean-build'], () => {
+gulp.task('build-lint', () => {
     var program = tslint.Linter.createProgram(tsConfigFile);
 
     return gulp.src(tsSrcGlob)
@@ -33,7 +34,7 @@ gulp.task('lint-build', ['clean-build'], () => {
         .pipe(gulpTslint.report());
 });
 
-gulp.task('build', ['lint-build'], () => {
+gulp.task('build-transpile', () => {
     var tsResult = gulp.src(tsSrcGlob, { base: srcFolder })
         .pipe(sourcemaps.init())
         .pipe(tsProject());
@@ -41,6 +42,10 @@ gulp.task('build', ['lint-build'], () => {
     return tsResult.js
             .pipe(sourcemaps.write({includeContent: false, sourceRoot: '../src'}))
             .pipe(gulp.dest(distFolder))
+});
+
+gulp.task('build', (cb) => {
+    runSequence('build-clean', 'build-transpile', 'build-lint', cb);
 });
 
 gulp.task('clean-test', (cb) => {

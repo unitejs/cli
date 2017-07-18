@@ -17,30 +17,31 @@ Unite is best installed as a global package
 
 If there is already a unite.json in the outputDirectory then all of the arguments will be read from the file and are optional. You only need specify the ones that you want to change.
 
-| Argument            | Value                                     | Used For                                         |
-|---------------------|-------------------------------------------|--------------------------------------------------|
-| packageName         | Plain text, package.json name rules apply | Name to be used for your package                 |
-| title               | Plain text                                | Used on the web index page                       |
-| license             | Plain text                                | See [SPDX](https://spdx.org/licenses/) for options|
-| sourceLanguage      | JavaScript/TypeScript                     | The language you want to code in                 |
-| moduleLoader        | RequireJS/SystemJS/Webpack                | The module loader you want to use                |
-| unitTestRunner      | Karma/None (for no unit testing)          | The unit test runner                             |
-| unitTestFramework   | Jasmine/Mocha-Chai                        | The unit test framework to use                   |
-| e2eTestRunner       | Protractor/WebdriverIO/None               | The e2e test runner                              |
-| e2eTestFramework    | Jasmine/Mocha-Chai                        | The e2e test framework to use                    |
-| linter              | ESLint/TSLint/None (for no linting)       | The linter                                       |
-| cssPre              | Css/Less/Sass/Stylus                      | The css preprocessor to use                      |
-| cssPost             | None/PostCss                              | The css postprocessor to use                     |
-| packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
-|                     |                                           | optional - defaults to npm if not already set    |
-| outputDirectory     | "path"                                    | The location that you want the package generated |
-|                     |                                           | optional - defaults to current directory         |
+| Argument            | Value                                        | Used For                                         |
+|---------------------|----------------------------------------------|--------------------------------------------------|
+| packageName         | Plain text, package.json name rules apply    | Name to be used for your package                 |
+| title               | Plain text                                   | Used on the web index page                       |
+| license             | Plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|
+| sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
+| moduleType          | AMD/RequireJS/SystemJS                       | The module type you want to use                  |
+| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use when enabled         |
+| unitTestRunner      | Karma/None (for no unit testing)             | The unit test runner                             |
+| unitTestFramework   | Jasmine/Mocha-Chai                           | The unit test framework to use                   |
+| e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |
+| e2eTestFramework    | Jasmine/Mocha-Chai                           | The e2e test framework to use                    |
+| linter              | ESLint/TSLint/None (for no linting)          | The linter                                       |
+| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
+| cssPost             | None/PostCss                                 | The css postprocessor to use                     |
+| packageManager      | npm/yarn [optional]                          | The package manager to use for the add           |
+|                     |                                              | optional - defaults to npm if not already set    |
+| outputDirectory     | "path"                                       | The location that you want the package generated |
+|                     |                                              | optional - defaults to current directory         |
 
 # Example
 
-    unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleLoader=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+    unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
 
-    unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleLoader=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
+    unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
 
 ## Command clientPackage
 

@@ -180,8 +180,114 @@ export class CLI {
     }
 
     private displayHelp(display: IDisplay): number {
-        display.info("This is the help");
+        display.diagnostics("Commands");
+        display.info("  help, init, clientPackage, buildConfiguration");
+        display.info("");
+
+        display.diagnostics("init");
+        display.info("");
+        this.markdownTableToCli(display, "| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |");
+        this.markdownTableToCli(display, "| title               | plain text                                   | Used on the web index page                       |");
+        this.markdownTableToCli(display, "| license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|");
+        this.markdownTableToCli(display, "| sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |");
+        this.markdownTableToCli(display, "| moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |");
+        this.markdownTableToCli(display, "| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |");
+        this.markdownTableToCli(display, "| linter              | ESLint/TSLint/None                           | The linter                                       |");
+        this.markdownTableToCli(display, "|                     |                                              |   None - means no linting                        |");
+        this.markdownTableToCli(display, "| unitTestRunner      | Karma/None                                   | The unit test runner                             |");
+        this.markdownTableToCli(display, "|                     |                                              |   None - means no unit testing                   |");
+        this.markdownTableToCli(display, "| unitTestFramework   | Jasmine/Mocha-Chai                           | The unit test framework to use                   |");
+        this.markdownTableToCli(display, "| e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |");
+        this.markdownTableToCli(display, "| e2eTestFramework    | Jasmine/Mocha-Chai                           | The e2e test framework to use                    |");
+        this.markdownTableToCli(display, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");
+        this.markdownTableToCli(display, "| cssPost             | PostCss/None                                 | The css postprocessor to use                     |");
+        this.markdownTableToCli(display, "|                     |                                              |   None - means no css post processor             |");
+        this.markdownTableToCli(display, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");
+        this.markdownTableToCli(display, "|                     |                                              |   optional - defaults to npm if not already set  |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                       | The location that you want the project generated |");
+        this.markdownTableToCli(display, "|                     |                                              |   optional - defaults to current directory       |");
+        display.info("");
+
+        display.diagnostics("buildConfiguration --operation=add");
+        display.info("");
+        this.markdownTableToCli(display, "| configurationName   | plain text                                | Name of the configuration to modify              |");
+        this.markdownTableToCli(display, "| bundle              |                                           | Should the final output be bundled               |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to off                     |");
+        this.markdownTableToCli(display, "| minify              |                                           | Should the final output be minified              |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to off                     |");
+        this.markdownTableToCli(display, "| sourcemaps          |                                           | Should the final output include sourcemaps       |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to on                      |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
+        display.info("");
+
+        display.diagnostics("buildConfiguration --operation=remove");
+        display.info("");
+        this.markdownTableToCli(display, "| configurationName   | plain text                                | Name of the configuration to modify              |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
+        display.info("");
+
+        display.diagnostics("clientPackage --operation=add");
+        display.info("");
+        this.markdownTableToCli(display, "| configurationName   | plain text                                | Name of the configuration to modify              |");
+        this.markdownTableToCli(display, "| bundle              |                                           | Should the final output be bundled               |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to off                     |");
+        this.markdownTableToCli(display, "| minify              |                                           | Should the final output be minified              |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to off                     |");
+        this.markdownTableToCli(display, "| sourcemaps          |                                           | Should the final output include sourcemaps       |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to on                      |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
+        display.info("");
+
+        display.diagnostics("clientPackage --operation=remove");
+        display.info("");
+        this.markdownTableToCli(display, "| configurationName   | plain text                                | Name of the configuration to modify              |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
+        display.info("");
+
+        display.diagnostics("Examples");
+        display.info("");
+        display.info("  unite init --packageName=test-project --title=\"Test TypeScript Jasmine RequireJS\"");
+        display.info("   --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma");
+        display.info("   --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint");
+        display.info("   --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=/unite/test-project");
+        display.info("");
+        display.info("  unite init --packageName=test-project --title=\"Test JavaScript Mocha Chai Webpack\"");
+        display.info("    --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=Webpack --unitTestRunner=Karma");
+        display.info("    --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None");
+        display.info("    --packageManager=Npm --outputDirectory=/unite/test-project");
+        display.info("");
+        display.info("  unite buildConfiguration --operation=add --configurationName=dev --sourcemaps");
+        display.info("  unite buildConfiguration --operation=add --configurationName=prod --bundle --minify");
+        display.info("  unite buildConfiguration --operation=add --configurationName=prod-debug --bundle --minify --sourcemaps");
+        display.info("");
+        display.info("  unite buildConfiguration --operation=remove --configurationName=prod-debug");
+        display.info("");
+        display.info("  unite clientPackage --operation=add --packageName=moment");
+        display.info("  unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload");
+        display.info("  unite clientPackage --operation=add --packageName=sinon --includeMode=test");
+        display.info("");
+        display.info("  unite clientPackage --operation=remove --packageName=moment");
+        display.info("");
+
+        display.diagnostics("More Information");
+        display.info("");
+        display.info("  See https://github.com/unitejs/cli#readme for further details.");
 
         return 0;
+    }
+
+    private markdownTableToCli(display: IDisplay, row: string): void {
+        if (row.length > 2) {
+            row = row.substring(0, row.length - 1).trim().replace(/\|/g, "");
+            if (row[2] === " ") {
+                display.info("   " + row.substring(1));
+            } else {
+                display.info(" --" + row.substring(1));
+            }
+        }
     }
 }

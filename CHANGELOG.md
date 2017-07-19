@@ -1,3 +1,6 @@
+# v0.4.1
+* Help improvements and tidy up
+
 # v0.4.0
 * Core Update for Environment configurations and separation of module type/bundling
 

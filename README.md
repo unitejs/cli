@@ -13,56 +13,128 @@ Unite is best installed as a global package
 
     unite "command" [args0] [args1] ... [argsn]
 
+## Command help
+
+Display the help on the command line.
+
 ## Command init
 
 If there is already a unite.json in the outputDirectory then all of the arguments will be read from the file and are optional. You only need specify the ones that you want to change.
 
 | Argument            | Value                                        | Used For                                         |
 |---------------------|----------------------------------------------|--------------------------------------------------|
-| packageName         | Plain text, package.json name rules apply    | Name to be used for your package                 |
-| title               | Plain text                                   | Used on the web index page                       |
-| license             | Plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|
+| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
+| title               | plain text                                   | Used on the web index page                       |
+| license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
-| moduleType          | AMD/RequireJS/SystemJS                       | The module type you want to use                  |
-| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use when enabled         |
-| unitTestRunner      | Karma/None (for no unit testing)             | The unit test runner                             |
+| moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |
+| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |
+| linter              | ESLint/TSLint/None                           | The linter                                       |
+|                     |                                              |   None - means no linting                        |
+| unitTestRunner      | Karma/None                                   | The unit test runner                             |
+|                     |                                              |   None - means no unit testing                   |
 | unitTestFramework   | Jasmine/Mocha-Chai                           | The unit test framework to use                   |
 | e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |
 | e2eTestFramework    | Jasmine/Mocha-Chai                           | The e2e test framework to use                    |
-| linter              | ESLint/TSLint/None (for no linting)          | The linter                                       |
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
-| cssPost             | None/PostCss                                 | The css postprocessor to use                     |
-| packageManager      | npm/yarn [optional]                          | The package manager to use for the add           |
-|                     |                                              | optional - defaults to npm if not already set    |
-| outputDirectory     | "path"                                       | The location that you want the package generated |
-|                     |                                              | optional - defaults to current directory         |
+| cssPost             | PostCss/None                                 | The css postprocessor to use                     |
+|                     |                                              |   None - means no css post processor             |
+| packageManager      | Npm/Yarn                                     | The package manager to use                       |
+|                     |                                              |   optional - defaults to Npm if not already set  |
+| outputDirectory     | 'path'                                       | The location that you want the project generated |
+|                     |                                              |   optional - defaults to current directory       |
 
 # Example
 
-    unite init --packageName=test-typescript-requirejs-jasmine --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=c:\unite\test-typescript-requirejs-jasmine
+    unite init --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=/unite/test-project
 
-    unite init --packageName=test-javascript-webpack-mocha-chai --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=c:\unite\test-javascript-webpack-mocha-chai
+    unite init --packageName=test-project --title="Test JavaScript Mocha Chai Webpack" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=Webpack --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --packageManager=Npm --outputDirectory=/unite/test-project
+
+## Command buildConfiguration
+
+By default you are created dev and prod configurations with sensible defaults. You can add or remove configurations with this command.
+
+The configuration sections created in unite.json have a variables property which you can modify manually to add your own values that will be include in the build. The values are then available in the window.unite.config namespace at runtime. As this is just JSON your value can be any data that can be JSON serialized.
+
+# Example
+
+unite.json
+
+	"buildConfigurations": {
+		"myconfiguration": {
+			...
+			"variables": {
+                "value1": 12345,
+                "someFlag: true
+            }
+		}
+	}
+
+at runtime
+
+    console.log(window.unite.config["value1"]);
+    console.log(window.unite.config["someFlag"]);
+
+### Add
+
+This will also update any existing configurations.
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| operation           | add                                       |                                                  |
+| configurationName   | plain text                                | Name of the configuration to modify              |
+| bundle              |                                           | Should the final output be bundled               |
+|                     |                                           |   optional - defaults to off                     |
+| minify              |                                           | Should the final output be minified              |
+|                     |                                           |   optional - defaults to off                     |
+| sourcemaps          |                                           | Should the final output include sourcemaps       |
+|                     |                                           |   optional - defaults to on                      |
+| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |
+|                     |                                           |   optional - defaults to current directory       |
+
+# Example
+
+    unite buildConfiguration --operation=add --configurationName=dev --sourcemaps
+
+    unite buildConfiguration --operation=add --configurationName=prod --bundle --minify
+
+    unite buildConfiguration --operation=add --configurationName=prod-debug --bundle --minify --sourcemaps
+
+
+### Remove
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| operation           | remove                                    |                                                  |
+| configurationName   | plain text                                | Name of the configuration to modify              |
+| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |
+|                     |                                           |   optional - defaults to current directory       |
+
+# Example
+
+    unite buildConfiguration --operation=remove --configurationName=prod-debug
+
 
 ## Command clientPackage
 
-Perform operations on client packages.
+Perform operations to add or remove client packages. These operations will perform the npm/yarn package operations as well as updating all the neccesary configuration files.
 
 ### Add
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | operation           | add                                       |                                                  |
-| packageName         | Plain text                                | Name of the package to add                       |
-| version             | 1.23.4 [optional]                         | Fixed version to install                         |
-|                     |                                           | optional - defaults to latest                    |
-| preload             | [optional]                                | Should the package be preloaded at app startup   |
-|                     |                                           | optional - defaults to not preload               |
-| includeMode         | app/test/both [optional]                  | When should the package be loaded                |
-|                     |                                           | optional - defaults to both                      |
-| packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
-|                     |                                           | optional - defaults to npm if not already set    |
-| outputDirectory     | "path" [optional]                         | Location of the unite.json generated from init   |
-|                     |                                           | optional - defaults to current directory         |
+| packageName         | plain text                                | Name of the package to add                       |
+| version             | 1.23.4                                    | Fixed version to install                         |
+|                     |                                           |   optional - defaults to latest version          |
+| preload             |                                           | Should the package be preloaded at app startup   |
+|                     |                                           |   optional - defaults to not preload             |
+| includeMode         | app/test/both                             | When should the package be loaded                |
+|                     |                                           |   optional - defaults to both                    |
+| packageManager      | npm/yarn                                  | The package manager to use for the add           |
+|                     |                                           |   optional - defaults to npm if not already set  |
+| outputDirectory     | "path"                                    | Location of the unite.json generated from init   |
+|                     |                                           |   optional - defaults to current directory       |
 
 # Example
 
@@ -72,16 +144,16 @@ Perform operations on client packages.
 
     unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
-### --operation=remove
+### Remove
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | operation           | remove                                    |                                                  |
-| packageName         | Plain text                                | Name of the package to remove                    |
-| packageManager      | npm/yarn [optional]                       | The package manager to use for the add           |
-|                     |                                           | optional - defaults to npm if not already set    |
-| outputDirectory     | "path" [optional]                         | Location of the unite.json generated from init   |
-|                     |                                           | optional - defaults to current directory         |
+| packageName         | plain text                                | Name of the package to remove                    |
+| packageManager      | npm/yarn                                  | The package manager to use for the add           |
+|                     |                                           |   optional - defaults to npm if not already set  |
+| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |
+|                     |                                           |   optional - defaults to current directory       |
 
 # Example
 
@@ -91,9 +163,11 @@ Perform operations on client packages.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
-| logLevel            | 0/1 = no logging/logging                  | The level of logging to generate                 |
-| logFile             | "filename"                                | The log file to store the logging in             |
-|                     | default = unite.log                       |                                                  |
+| logLevel            | 0/1                                       | The level of logging to generate                 |
+|                     |                                           |   0 = no logging                                 |
+|                     |                                           |   1 = logging                                    |
+| logFile             | 'filename'                                | The log file to store the logging in             |
+|                     |                                           |   optional - default to unite.log                |
 
 # Scaffold App
 
@@ -104,7 +178,6 @@ The following pre-requisities are needed
 Once the above are installed you can install the npm packages for the scaffold app with
 
     npm install [or] yarn install
-
 
 The following gulp commands are then available for the scaffold app.
 
@@ -130,4 +203,4 @@ This will run e2e tests for the app and generate reports in the reports folder.
 This will serve the app for you to view in a browser.
 
 ## Modifications To Generated Files
-If you modify any of the files generated by UniteJS then you should remove the *Generated by UniteJS* comment at the bottom of the file. If you then call any of the UniteJS operations again your changes will not be lost. Any files which are generated but can not contain comments because of their format will where possible be combined with any changes you have made.
+If you modify any of the files generated by UniteJS then you should remove the *Generated by UniteJS* comment at the bottom of the file. If you then call any of the UniteJS operations again your changes will be retained. Any files which are generated but can not contain comments because of their format (e.g. .json files) will where possible be combined with any changes you have made.

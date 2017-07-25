@@ -92,6 +92,7 @@ export class CLI {
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const cssPreProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
                 const cssPostProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
+                const appFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser);
                 if (engine) {
@@ -109,6 +110,7 @@ export class CLI {
                                             cssPreProcessor,
                                             cssPostProcessor,
                                             packageManager,
+                                            appFramework,
                                             outputDirectory);
                 } else {
                     ret = 1;
@@ -204,6 +206,7 @@ export class CLI {
         this.markdownTableToCli(display, "|                     |                                              |   None - means no css post processor             |");
         this.markdownTableToCli(display, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");
         this.markdownTableToCli(display, "|                     |                                              |   optional - defaults to npm if not already set  |");
+        this.markdownTableToCli(display, "| appFramework        | Aurelia/PlainApp                             | The application framework to use                 |");
         this.markdownTableToCli(display, "| outputDirectory     | 'path'                                       | The location that you want the project generated |");
         this.markdownTableToCli(display, "|                     |                                              |   optional - defaults to current directory       |");
         display.info("");

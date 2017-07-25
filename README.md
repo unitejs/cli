@@ -41,6 +41,7 @@ If there is already a unite.json in the outputDirectory then all of the argument
 |                     |                                              |   None - means no css post processor             |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
 |                     |                                              |   optional - defaults to Npm if not already set  |
+| appFramework        | Aurelia/PlainApp                             | The application framework to use                 |
 | outputDirectory     | 'path'                                       | The location that you want the project generated |
 |                     |                                              |   optional - defaults to current directory       |
 
@@ -189,6 +190,10 @@ The following gulp commands are then available for the scaffold app.
 
 ### build
 This will transpile and build the app.
+
+You can specify a buildConfiguration with the following syntax:
+
+    gulp build --buildConfiguration=prod
 
 ### unit
 This will run unit tests for the app and generate unit and coverage reports in the reports folder.

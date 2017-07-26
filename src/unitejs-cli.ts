@@ -204,9 +204,9 @@ export class CLI {
         this.markdownTableToCli(display, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");
         this.markdownTableToCli(display, "| cssPost             | PostCss/None                                 | The css postprocessor to use                     |");
         this.markdownTableToCli(display, "|                     |                                              |   None - means no css post processor             |");
+        this.markdownTableToCli(display, "| appFramework        | Aurelia/PlainApp/React                       | The application framework to use                 |");
         this.markdownTableToCli(display, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");
         this.markdownTableToCli(display, "|                     |                                              |   optional - defaults to npm if not already set  |");
-        this.markdownTableToCli(display, "| appFramework        | Aurelia/PlainApp                             | The application framework to use                 |");
         this.markdownTableToCli(display, "| outputDirectory     | 'path'                                       | The location that you want the project generated |");
         this.markdownTableToCli(display, "|                     |                                              |   optional - defaults to current directory       |");
         display.info("");
@@ -256,12 +256,12 @@ export class CLI {
         display.info("  unite init --packageName=test-project --title=\"Test TypeScript Jasmine RequireJS\"");
         display.info("   --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma");
         display.info("   --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint");
-        display.info("   --cssPre=Sass -cssPost=PostCss --packageManager=Yarn --outputDirectory=/unite/test-project");
+        display.info("   --cssPre=Sass -cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project");
         display.info("");
-        display.info("  unite init --packageName=test-project --title=\"Test JavaScript Mocha Chai Webpack\"");
-        display.info("    --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=Webpack --unitTestRunner=Karma");
+        display.info("  unite init --packageName=test-project --title=\"Test JavaScript Mocha Chai SystemJS\"");
+        display.info("    --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma");
         display.info("    --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None");
-        display.info("    --packageManager=Npm --outputDirectory=/unite/test-project");
+        display.info("    --appFramework=Aurelia --packageManager=Npm --outputDirectory=/unite/test-project");
         display.info("");
         display.info("  unite buildConfiguration --operation=add --configurationName=dev --sourcemaps");
         display.info("  unite buildConfiguration --operation=add --configurationName=prod --bundle --minify");

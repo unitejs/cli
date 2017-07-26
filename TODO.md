@@ -17,12 +17,9 @@ Add Electron
 Add PhoneGap/Cordova
 Add Windows Universal App
 
-## HTML
-Bundling for components
+## HTML Index
+Meta Tags
 Default progress indicator
-
-## CSS
-Bundling for components
 
 ## Tasks
 Watch

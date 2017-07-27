@@ -66,9 +66,9 @@ export class Display implements IDisplay {
 
     public error(message: string, err?: any, args?: { [id: string]: any }): void {
         if (args) {
-            console.log(this.colorStart("red") + message + ": " + this.arrayToReadable(args) + this.colorStop("red"));
+            console.log(this.colorStart("red") + "ERROR - " + message + ": " + this.arrayToReadable(args) + this.colorStop("red"));
         } else {
-            console.log(this.colorStart("red") + message + this.colorStop("red"));
+            console.log(this.colorStart("red") + "ERROR - " + message + this.colorStop("red"));
         }
         if (err) {
             console.log(this.colorStart("red") + ErrorHandler.format(err) + this.colorStop("red"));
@@ -105,9 +105,9 @@ export class Display implements IDisplay {
             return false;
         }
 
-        // if (process.stdout && !process.stdout.isTTY) {
-        //     return false;
-        // }
+        if (process.stdout && !process.stdout.isTTY) {
+            return false;
+        }
 
         if (process.platform === "win32") {
             return true;

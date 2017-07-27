@@ -132,9 +132,15 @@ Perform operations to add or remove client packages. These operations will perfo
 |                     |                                           |   optional - defaults to not preload             |
 | includeMode         | app/test/both                             | When should the package be loaded                |
 |                     |                                           |   optional - defaults to both                    |
+| main                | 'path'                                    | The path to the main js file in the package      |
+|                     |                                           |   optional - defaults to looking it up           |
+| mainMinified        | 'path'                                    | The path to the minified main js file            |
+|                     |                                           |   optional - defaults to using main              |
+| isPackage           |                                           | This be included as a package in module loaders  |
+|                     |                                           |   optional - defaults to not package             |
 | packageManager      | npm/yarn                                  | The package manager to use for the add           |
 |                     |                                           |   optional - defaults to npm if not already set  |
-| outputDirectory     | "path"                                    | Location of the unite.json generated from init   |
+| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |
 |                     |                                           |   optional - defaults to current directory       |
 
 # Example
@@ -151,7 +157,7 @@ Perform operations to add or remove client packages. These operations will perfo
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | operation           | remove                                    |                                                  |
 | packageName         | plain text                                | Name of the package to remove                    |
-| packageManager      | npm/yarn                                  | The package manager to use for the add           |
+| packageManager      | npm/yarn                                  | The package manager to use for the remove        |
 |                     |                                           |   optional - defaults to npm if not already set  |
 | outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |
 |                     |                                           |   optional - defaults to current directory       |

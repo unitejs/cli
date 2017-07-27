@@ -128,9 +128,12 @@ export class CLI {
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const preload = commandLineParser.hasArgument(CommandLineArgConstants.PRELOAD);
                 const includeMode = commandLineParser.getStringArgument(CommandLineArgConstants.INCLUDE_MODE);
+                const isPackage = commandLineParser.hasArgument(CommandLineArgConstants.IS_PACKAGE);
+                const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
+                const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
                 const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser);
                 if (engine) {
-                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, packageManager, outputDirectory);
+                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, main, mainMinified, isPackage, "", packageManager, outputDirectory);
                 } else {
                     ret = 1;
                 }
@@ -233,20 +236,30 @@ export class CLI {
 
         display.diagnostics("clientPackage --operation=add");
         display.info("");
-        this.markdownTableToCli(display, "| configurationName   | plain text                                | Name of the configuration to modify              |");
-        this.markdownTableToCli(display, "| bundle              |                                           | Should the final output be bundled               |");
-        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to off                     |");
-        this.markdownTableToCli(display, "| minify              |                                           | Should the final output be minified              |");
-        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to off                     |");
-        this.markdownTableToCli(display, "| sourcemaps          |                                           | Should the final output include sourcemaps       |");
-        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to on                      |");
+        this.markdownTableToCli(display, "| packageName         | plain text                                | Name of the package to add                       |");
+        this.markdownTableToCli(display, "| version             | 1.23.4                                    | Fixed version to install                         |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to latest version          |");
+        this.markdownTableToCli(display, "| preload             |                                           | Should the package be preloaded at app startup   |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to not preload             |");
+        this.markdownTableToCli(display, "| includeMode         | app/test/both                             | When should the package be loaded                |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to both                    |");
+        this.markdownTableToCli(display, "| main                | 'path'                                    | The path to the main js file in the package      |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to looking it up           |");
+        this.markdownTableToCli(display, "| mainMinified        | 'path'                                    | The path to the minified main js file            |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to using main              |");
+        this.markdownTableToCli(display, "| isPackage           |                                           | This be included as a package in module loaders  |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to not package             |");
+        this.markdownTableToCli(display, "| packageManager      | npm/yarn                                  | The package manager to use for the add           |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to npm if not already set  |");
         this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
         display.info("");
 
         display.diagnostics("clientPackage --operation=remove");
         display.info("");
-        this.markdownTableToCli(display, "| configurationName   | plain text                                | Name of the configuration to modify              |");
+        this.markdownTableToCli(display, "| packageName         | plain text                                | Name of the package to remove                    |");
+        this.markdownTableToCli(display, "| packageManager      | npm/yarn                                  | The package manager to use for the remove        |");
+        this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to npm if not already set  |");
         this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
         display.info("");

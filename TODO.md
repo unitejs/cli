@@ -2,7 +2,6 @@
 
 ## App Frameworks
 Add Angular 2
-Add React
 Add Vue
 Add Ember
 Add Backbone
@@ -16,6 +15,9 @@ Add Web App
 Add Electron
 Add PhoneGap/Cordova
 Add Windows Universal App
+
+## Profiles
+Add profiles to save lots of command line options for init and clientPackages
 
 ## HTML Index
 Meta Tags

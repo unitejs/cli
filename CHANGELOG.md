@@ -1,3 +1,16 @@
+# v0.5.1
+* Added React app framework
+* Aurelia Framework bootstrap layout updated
+* All HTML layouts moved to root element instead of direct in body
+* babelrc now reads existing config
+* improved debrit removal for eslint config
+* Fixed missing test dependencies for client packages e.g. chai
+* Fixed missing test client packages in karma runner
+* Added support for production build versions of vendor libraries
+* Added isPackage, main and mainMinified options to clientPackage add operation
+* Fixed clientPackages sections in help
+* Improved async performance of PlainApp e2e tests
+
 # v0.5.0
 * Added Application Framework support
 * Added Aurelia Framework with RequireJS,SystemJS Bundling support

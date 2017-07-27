@@ -26,6 +26,9 @@ export class CommandLineArgConstants {
     public static VERSION: string = "version";
     public static PRELOAD: string = "preload";
     public static INCLUDE_MODE: string = "includeMode";
+    public static MAIN: string = "main";
+    public static MAIN_MINIFIED: string = "mainMinified";
+    public static IS_PACKAGE: string = "isPackage";
     public static PACKAGE_MANAGER: string = "packageManager";
 
     public static CONFIGURATION_NAME: string = "configurationName";

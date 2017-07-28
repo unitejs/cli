@@ -1,82 +1,32 @@
 /**
  * Main entry point.
  */
+import { CLIBase } from "unitejs-cli-core/dist/cliBase";
+import { CommandLineParser } from "unitejs-cli-core/dist/commandLineParser";
 import { Engine } from "unitejs-core/dist/engine/engine";
-import { IDisplay } from "unitejs-core/dist/interfaces/IDisplay";
 import { IEngine } from "unitejs-core/dist/interfaces/IEngine";
-import { ILogger } from "unitejs-core/dist/interfaces/ILogger";
+import { IDisplay } from "unitejs-framework/dist/interfaces/IDisplay";
+import { IFileSystem } from "unitejs-framework/dist/interfaces/IFileSystem";
+import { ILogger } from "unitejs-framework/dist/interfaces/ILogger";
 import { CommandLineArgConstants } from "./commandLineArgConstants";
 import { CommandLineCommandConstants } from "./commandLineCommandConstants";
-import { CommandLineParser } from "./commandLineParser";
-import { Display } from "./display";
-import { FileSystem } from "./fileSystem";
-import { Logger } from "./logger";
 
-export class CLI {
+export class CLI extends CLIBase {
     private static APP_NAME: string = "UniteJS";
     private static DEFAULT_LOG: string = "unite.log";
 
-    public async run(process: NodeJS.Process): Promise<number> {
-        let logger: ILogger | undefined;
-        let ret: number;
-
-        try {
-            const commandLineParser = new CommandLineParser();
-            commandLineParser.parse(process.argv);
-
-            logger = new Logger(commandLineParser.getNumberArgument(CommandLineArgConstants.LOG_LEVEL),
-                                commandLineParser.getStringArgument(CommandLineArgConstants.LOG_FILE),
-                                CLI.DEFAULT_LOG);
-            logger.info("Session Started");
-
-            const display: IDisplay = new Display(process, commandLineParser.hasArgument(CommandLineArgConstants.NO_COLOR));
-
-            ret = await this.handleCommand(logger, display, commandLineParser);
-
-            logger.info("Session Ended", { returnCode: ret });
-        } catch (err) {
-            ret = 1;
-            // tslint:disable-next-line:no-console
-            console.log("An unhandled error occurred: ", err);
-            if (logger !== undefined) {
-                logger.error("Unhandled Exception", err);
-                logger.info("Session Ended",  { returnCode: ret });
-            }
-        }
-
-        return ret;
+    constructor() {
+        super(CLI.APP_NAME, CLI.DEFAULT_LOG);
     }
 
-    private createEngine(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): IEngine | undefined {
-        const fileSystem = new FileSystem();
-        return new Engine(logger, display, fileSystem);
-    }
-
-    private async handleCommand(logger: ILogger, display: IDisplay, commandLineParser: CommandLineParser): Promise<number> {
-        let ret: number = 0;
-
-        this.displayBanner(logger, display, commandLineParser.getCommand() !== CommandLineCommandConstants.VERSION);
+    public async handleCustomCommand(logger: ILogger, display: IDisplay, fileSystem: IFileSystem, commandLineParser: CommandLineParser): Promise<number> {
+        let ret: number = -1;
 
         const command = commandLineParser.getCommand();
-        const args = commandLineParser.getArguments([CommandLineArgConstants.NO_COLOR,
-                                                     CommandLineArgConstants.LOG_FILE,
-                                                     CommandLineArgConstants.LOG_LEVEL]);
-
-        logger.info("Command Line", { command, args });
 
         switch (command) {
-            case CommandLineCommandConstants.VERSION: {
-                /* Nothing else to display */
-                break;
-            }
-
-            case CommandLineCommandConstants.HELP: {
-                this.displayHelp(display);
-                break;
-            }
-
             case CommandLineCommandConstants.INIT: {
-                display.info("command: " + command);
+                display.info(`command: ${command}`);
 
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
                 const title = commandLineParser.getStringArgument(CommandLineArgConstants.TITLE);
@@ -94,7 +44,7 @@ export class CLI {
                 const cssPostProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const appFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser);
+                const engine: IEngine = new Engine(logger, display, fileSystem);
                 if (engine) {
                     ret = await engine.init(packageName,
                                             title,
@@ -119,7 +69,7 @@ export class CLI {
             }
 
             case CommandLineCommandConstants.CLIENT_PACKAGE: {
-                display.info("command: " + command);
+                display.info(`command: ${command}`);
 
                 const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
@@ -131,7 +81,7 @@ export class CLI {
                 const isPackage = commandLineParser.hasArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
-                const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser);
+                const engine: IEngine = new Engine(logger, display, fileSystem);
                 if (engine) {
                     ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, main, mainMinified, isPackage, "", packageManager, outputDirectory);
                 } else {
@@ -141,7 +91,7 @@ export class CLI {
             }
 
             case CommandLineCommandConstants.BUILD_CONFIGURATION: {
-                display.info("command: " + command);
+                display.info(`command: ${command}`);
 
                 const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
                 const configurationName = commandLineParser.getStringArgument(CommandLineArgConstants.CONFIGURATION_NAME);
@@ -149,44 +99,21 @@ export class CLI {
                 const minify = commandLineParser.hasArgument(CommandLineArgConstants.MINIFY);
                 const sourceMaps = commandLineParser.hasArgument(CommandLineArgConstants.SOURCE_MAPS);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                const engine: IEngine | undefined = this.createEngine(logger, display, commandLineParser);
+                const engine: IEngine = new Engine(logger, display, fileSystem);
                 if (engine) {
                     ret = await engine.buildConfiguration(operation, configurationName, bundle, minify, sourceMaps, outputDirectory);
                 } else {
                     ret = 1;
                 }
-                break;
-            }
-
-            default: {
-                if (command === undefined) {
-                    display.error("Error: No command specified");
-                } else {
-                    display.error("Error: Unknown command - " + command);
-                }
-                display.info("Command line format: <command> [--arg1] [--arg2] ... [--argn]");
-                break;
             }
         }
 
         return ret;
     }
 
-    private displayBanner(logger: ILogger, display: IDisplay, includeTitle: boolean): void {
-        const packageJson = require("../package.json");
-        if (includeTitle) {
-            display.banner(CLI.APP_NAME + " CLI");
-        }
-        display.banner(packageJson && packageJson.version ? "v" + packageJson.version : " Unknown Version");
-        logger.info(CLI.APP_NAME, { version: packageJson.version } );
-        if (includeTitle) {
-            display.banner("");
-        }
-    }
-
-    private displayHelp(display: IDisplay): number {
+    public displayHelp(display: IDisplay): number {
         display.diagnostics("Commands");
-        display.info("  help, init, clientPackage, buildConfiguration");
+        display.info("  help, version, init, clientPackage, buildConfiguration");
         display.info("");
 
         display.diagnostics("init");
@@ -294,16 +221,5 @@ export class CLI {
         display.info("  See https://github.com/unitejs/cli#readme for further details.");
 
         return 0;
-    }
-
-    private markdownTableToCli(display: IDisplay, row: string): void {
-        if (row.length > 2) {
-            row = row.substring(0, row.length - 1).trim().replace(/\|/g, "");
-            if (row[2] === " ") {
-                display.info("   " + row.substring(1));
-            } else {
-                display.info(" --" + row.substring(1));
-            }
-        }
     }
 }

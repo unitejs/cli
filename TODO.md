@@ -59,7 +59,6 @@ Add Wallaby
 Lighthouse
 
 ## Bundlers
-Browserify
 Rollup
 
 ## E2E Frameworks

@@ -1,3 +1,6 @@
+# v0.6.1
+* Added html theme with favicon generation
+
 # v0.6.0
 * Refactored into framework and cli-core libraries
 

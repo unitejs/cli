@@ -1,3 +1,6 @@
+# v0.6.2
+* Bugfix
+
 # v0.6.1
 * Added html theme with favicon generation
 

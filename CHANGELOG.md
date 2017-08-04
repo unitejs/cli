@@ -1,3 +1,11 @@
+# v0.7.0
+* Main command is now "configure" not "init" as it can be run repeatedly
+* Main app now created in www sub directory in preparation for platform wrappers
+* Gulp tasks rewritten using async/await
+* Pipeline steps have prerequisites step to halt configuration earlier
+* Documentation updated
+* Added package.json engine node minimum version 8 for util.promisify
+
 # v0.6.2
 * Bugfix
 

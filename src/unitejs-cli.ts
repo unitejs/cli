@@ -25,7 +25,7 @@ export class CLI extends CLIBase {
         const command = commandLineParser.getCommand();
 
         switch (command) {
-            case CommandLineCommandConstants.INIT: {
+            case CommandLineCommandConstants.CONFIGURE: {
                 display.info(`command: ${command}`);
 
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
@@ -46,22 +46,22 @@ export class CLI extends CLIBase {
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 const engine: IEngine = new Engine(logger, display, fileSystem);
                 if (engine) {
-                    ret = await engine.init(packageName,
-                                            title,
-                                            license,
-                                            sourceLanguage,
-                                            moduleType,
-                                            bundler,
-                                            unitTestRunner,
-                                            unitTestFramework,
-                                            e2eTestRunner,
-                                            e2eTestFramework,
-                                            linter,
-                                            cssPreProcessor,
-                                            cssPostProcessor,
-                                            packageManager,
-                                            appFramework,
-                                            outputDirectory);
+                    ret = await engine.configure(packageName,
+                                                 title,
+                                                 license,
+                                                 sourceLanguage,
+                                                 moduleType,
+                                                 bundler,
+                                                 unitTestRunner,
+                                                 unitTestFramework,
+                                                 e2eTestRunner,
+                                                 e2eTestFramework,
+                                                 linter,
+                                                 cssPreProcessor,
+                                                 cssPostProcessor,
+                                                 packageManager,
+                                                 appFramework,
+                                                 outputDirectory);
                 } else {
                     ret = 1;
                 }
@@ -113,10 +113,10 @@ export class CLI extends CLIBase {
 
     public displayHelp(display: IDisplay): number {
         display.diagnostics("Commands");
-        display.info("  help, version, init, clientPackage, buildConfiguration");
+        display.info("  help, version, configure, clientPackage, buildConfiguration");
         display.info("");
 
-        display.diagnostics("init");
+        display.diagnostics("configure");
         display.info("");
         this.markdownTableToCli(display, "| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |");
         this.markdownTableToCli(display, "| title               | plain text                                   | Used on the web index page                       |");
@@ -150,14 +150,14 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to off                     |");
         this.markdownTableToCli(display, "| sourcemaps          |                                           | Should the final output include sourcemaps       |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to on                      |");
-        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
         display.info("");
 
         display.diagnostics("buildConfiguration --operation=remove");
         display.info("");
         this.markdownTableToCli(display, "| configurationName   | plain text                                | Name of the configuration to modify              |");
-        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
         display.info("");
 
@@ -178,7 +178,7 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to not package             |");
         this.markdownTableToCli(display, "| packageManager      | npm/yarn                                  | The package manager to use for the add           |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to npm if not already set  |");
-        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
         display.info("");
 
@@ -187,18 +187,18 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(display, "| packageName         | plain text                                | Name of the package to remove                    |");
         this.markdownTableToCli(display, "| packageManager      | npm/yarn                                  | The package manager to use for the remove        |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to npm if not already set  |");
-        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json generated from init   |");
+        this.markdownTableToCli(display, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(display, "|                     |                                           |   optional - defaults to current directory       |");
         display.info("");
 
         display.diagnostics("Examples");
         display.info("");
-        display.info("  unite init --packageName=test-project --title=\"Test TypeScript Jasmine RequireJS\"");
+        display.info("  unite configure --packageName=test-project --title=\"Test TypeScript Jasmine RequireJS\"");
         display.info("   --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma");
         display.info("   --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint");
         display.info("   --cssPre=Sass -cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project");
         display.info("");
-        display.info("  unite init --packageName=test-project --title=\"Test JavaScript Mocha Chai SystemJS\"");
+        display.info("  unite configure --packageName=test-project --title=\"Test JavaScript Mocha Chai SystemJS\"");
         display.info("    --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma");
         display.info("    --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None");
         display.info("    --appFramework=Aurelia --packageManager=Npm --outputDirectory=/unite/test-project");

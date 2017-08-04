@@ -5,22 +5,23 @@ Add Angular 2
 Add Vue
 Add Ember
 Add Backbone
-Add Angular 1?
-Add Ionic?
+Add Angular 1
+Add Ionic
 Make pluggable
 
-## Packaging and Icon Generation
-Assets folder
+## Platform Wrappers
 Add Web App
 Add Electron
 Add PhoneGap/Cordova
 Add Windows Universal App
 
+# Distribution
+Assets folder
+
 ## Profiles
-Add profiles to save lots of command line options for init and clientPackages
+Add profiles to save lots of command line options for configure and clientPackages
 
 ## HTML Index
-Meta Tags
 Default progress indicator
 
 ## Tasks

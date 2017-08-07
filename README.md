@@ -170,11 +170,10 @@ Perform operations to add or remove client packages. These operations will perfo
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
-| logLevel            | 0/1                                       | The level of logging to generate                 |
-|                     |                                           |   0 = no logging                                 |
-|                     |                                           |   1 = logging                                    |
+| noColor             |                                           | If this is used no color will appear in output   |
+|                     |                                           |   optional - defaults to on                      |
 | logFile             | 'filename'                                | The log file to store the logging in             |
-|                     |                                           |   optional - default to unite.log                |
+|                     |                                           |   optional - default to no file logging          |
 
 # Generated App
 

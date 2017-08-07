@@ -1,3 +1,6 @@
+# v0.7.1
+* Rationalised logging/display interfaces
+
 # v0.7.0
 * Main command is now "configure" not "init" as it can be run repeatedly
 * Main app now created in www sub directory in preparation for platform wrappers

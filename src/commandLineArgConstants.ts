@@ -31,4 +31,6 @@ export class CommandLineArgConstants {
     public static BUNDLE: string = "bundle";
     public static MINIFY: string = "minify";
     public static SOURCE_MAPS: string = "sourcemaps";
-}
+
+    public static PLATFORM_NAME: string = "platformName";
+ }

@@ -10,8 +10,6 @@ Add Ionic
 Make pluggable
 
 ## Platform Wrappers
-Add Web App
-Add Electron
 Add PhoneGap/Cordova
 Add Windows Universal App
 

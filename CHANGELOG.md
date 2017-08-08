@@ -1,3 +1,12 @@
+# v0.8.0
+* Added platform packager web
+* Added platform packager electron with icon support for win32/darwin/linux
+* Added version gulp tasks
+* unite.json directories configuration changes to have www sub property
+* node_modules path rationalised in config
+* Fixed safari_pinned_tab color in meta headers
+* Fixed saving theme headers into unite-theme.json
+
 # v0.7.1
 * Rationalised logging/display interfaces
 

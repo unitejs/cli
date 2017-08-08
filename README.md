@@ -12,10 +12,21 @@ Unite is best installed as a global package
 # Usage
 
     unite "command" [args0] [args1] ... [argsn]
+    where command is one of 
+    * help
+    * version
+    * configure
+    * clientPackage
+    * buildConfiguration
+    * platform
 
 ## Command help
 
 Display the help on the command line.
+
+## Command version
+
+Display the version of the app on the command line.
 
 ## Command configure
 
@@ -166,6 +177,38 @@ Perform operations to add or remove client packages. These operations will perfo
 
     unite clientPackage --operation=remove --packageName=moment
 
+## Command platform
+
+Perform operations to add or remove platforms. This provides tasks that allow you to wrap your web application for different platforms.
+
+One you have added a platform there can manually edit your unite.json to specify other options for the platform packaging, see the [Platforms](./docs/generated-app.md#platforms) section.
+
+### operation add
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| operation           | add                                       |                                                  |
+| platformName        | Web/Electron                              | Name of the platform to add                      |
+| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
+|                     |                                           |   optional - defaults to current directory       |
+
+# Example
+
+    unite platform --operation=add --platformName=Web
+
+### operation remove
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| operation           | remove                                    |                                                  |
+| platformName        | Web/Electron                              | Name of the platform to remove                   |
+| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
+|                     |                                           |   optional - defaults to current directory       |
+
+# Example
+
+    unite platform --operation=remove --platformName=Electron
+
 ## global arguments
 
 | Argument            | Value                                     | Used For                                         |
@@ -178,3 +221,4 @@ Perform operations to add or remove client packages. These operations will perfo
 # Generated App
 
 For more information on the generated app see [Generated App](./docs/generated-app.md) 
+

@@ -103,6 +103,21 @@ export class CLI extends CLIBase {
                 } else {
                     ret = 1;
                 }
+                break;
+            }
+
+            case CommandLineCommandConstants.PLATFORM: {
+                logger.info("command", { command });
+
+                const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
+                const platformName = commandLineParser.getStringArgument(CommandLineArgConstants.PLATFORM_NAME);
+                const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
+                const engine: IEngine = new Engine(logger, fileSystem);
+                if (engine) {
+                    ret = await engine.platform(operation, platformName, outputDirectory);
+                } else {
+                    ret = 1;
+                }
             }
         }
 
@@ -111,7 +126,7 @@ export class CLI extends CLIBase {
 
     public displayHelp(logger: ILogger): number {
         logger.banner("Commands");
-        logger.info("  help, version, configure, clientPackage, buildConfiguration");
+        logger.info("  help, version, configure, clientPackage, buildConfiguration, platform");
         logger.info("");
 
         logger.banner("configure");
@@ -185,6 +200,21 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| packageName         | plain text                                | Name of the package to remove                    |");
         this.markdownTableToCli(logger, "| packageManager      | npm/yarn                                  | The package manager to use for the remove        |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to npm if not already set  |");
+        this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
+        logger.info("");
+
+        logger.banner("platform --operation=add");
+        logger.info("");
+        this.markdownTableToCli(logger, "| platformName        | Web/Electron                              | Name of the platform to add                      |");
+        this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
+        logger.info("");
+
+        logger.banner("platform --operation=remove");
+        logger.info("");
+        this.markdownTableToCli(logger, "| operation           | remove                                    |                                                  |");
+        this.markdownTableToCli(logger, "| platformName        | Web/Electron                              | Name of the platform to remove                   |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
         logger.info("");

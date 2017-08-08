@@ -1,6 +1,6 @@
 {
   "name": "unitejs-cli",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Command line interface to the UniteJS JavaScript framework management tool",
   "main": "dist/unitejs-cli.js",
   "repository": {
@@ -34,6 +34,8 @@
     "selenium",
     "aurelia",
     "react",
+    "web",
+    "electron",
     "scaffolding",
     "boilerplate"
   ],
@@ -62,7 +64,7 @@
   },
   "dependencies": {
     "unitejs-framework": "^0.7.1",
-    "unitejs-engine": "^0.7.1",
+    "unitejs-engine": "^0.8.0",
     "unitejs-cli-core": "^0.7.1"
   },
   "bin": {

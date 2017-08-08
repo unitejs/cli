@@ -6,18 +6,23 @@ The following pre-requisities are needed
 
     npm -g install gulp [or] yarn global add gulp
 
-Once the above are installed you can install the npm packages for the app with
+Once the above pre-requisites are installed you can install the npm packages for the app by running the wolling commands from the www folder.
 
     npm install [or] yarn install
+
+# Gulp Tasks
 
 The following gulp commands are then available for the app.
 
 * build
-* unit
-* e2e-install
-* e2e
-* serve
 * theme-build
+* unit [optional]
+* e2e-install [optional]
+* e2e [optional]
+* serve
+* version
+* platform-web-package [optional]
+* platform-electron-package [optional]
 
 ### build
 This will transpile and build the app.
@@ -26,22 +31,46 @@ You can specify a buildConfiguration with the following syntax:
 
     gulp build --buildConfiguration=prod
 
+### theme-build
+You will probably need to run this task at least once to generate the necessary favicon images and meta tags. See [Theme Assets](#themeassets) for more details.
+
 ### unit
-This will run unit tests for the app and generate unit and coverage reports in the reports folder.
+This will run unit tests for the app and generate unit and coverage reports in the reports folder. This task is only available if you specified a unit test runner and framework during configuration.
 
 ### e2e-install
-This will install all the necessary components required for the e2e tests, it need only be run once.
+This will install all the necessary components required for the e2e tests, it need only be run once. This task is only available if you specified an e2e test runner and framework during configuration.
 
 ### e2e
-This will run e2e tests for the app and generate reports in the reports folder.
+This will run e2e tests for the app and generate reports in the reports folder. This task is only available if you specified an e2e test runner and framework during configuration.
 
 ### serve
 This will serve the app for you to view in a browser.
 
-### theme-build
-You will probably need to run this task at least once to generate the necessary favicon images and meta tags.
+### version
+This will allow you to update the package version.
 
-## Theme Assets
+Running this task with no parameters will show the current version, alternatively use the following parameters.
+
+    --part=[major, minor, patch] - the part of the version you want to modify
+    --mode=[set, inc] - set the part to a specific value or increment the current value
+    --value=someValue - required if you use the set mode
+
+    Examples
+    gulp version
+    gulp version --part=patch --mode=inc
+    gulp version --part=minor --mode=set --value=1
+
+### platform-web-package
+This task will gather all the necessary components of the application and create a folder in the top level packaged directory named ${version}/web.
+This folder contains a complete set of web deployable files for the application. A zip file named packaged/${version}_web.zip will also be created in the packaged directory.
+For configuring options for this task see the [Platforms](#platforms) section.
+
+### platform-electron-package
+This task will gather all the necessary components of the application and create a folder in the top level packaged directory named ${version}/electron.
+This folder will then be used to create a set of platform/architecture electron packages in folders named ${version}/electon_${platform}_${architecture} and a corresponding zip file in the paakcgbed root folder.
+For configuring options for this task see the [Platforms](#platforms) section.
+
+## <a name="themeassets"></a>Theme Assets
 
 During the app generation 3 files will have been created, if you change any of them then you should run the task again.
 
@@ -72,6 +101,41 @@ The fields in the unite-theme.json should be self explanatory in terms of what t
         "themeColor": "#339933"
     }
 
+## <a name="platforms"></a>Platforms
+
+If you manually edit your unite.json, you can add additional options for the platform settings.
+
+### Web
+
+There are currently no other options for this platform.
+
+### Electron
+
+For more information about the options see the [Electron Documetation](https://github.com/electron-userland/electron-packager#readme)
+
+You can choose to use a specific version of the Electron runtime, if not specified it default to the most recent stable version see [Electron Releases](https://github.com/electron/electron/releases).
+
+You can specify one or more of the platform architecture combinations, if this is not specified it defaults to win32/ia32:
+
+Any others keys in the Electron settings will be converted into -- params and passed to the packager, this allows for other options like those specific to the darwin/mas or win32 targets [Electron Usage](https://github.com/electron-userland/electron-packager/blob/master/usage.txt) to be used.
+
+    "platforms": {
+        "Electron": {
+            "runtimeVersion": "1.7.5",
+            "platformArch" : [
+                "win32/ia32",
+				"win32/x64",
+				"darwin/x64",
+				"mas/x64",
+				"linux/ia32",
+				"linux/x64",
+				"linux/arm",
+				"linux/armv7l"
+            ]
+            ...
+        }
+    }
+    
 ## Modifications To Generated Files
 If you modify any of the files generated by UniteJS then you should remove the *Generated by UniteJS* comment at the bottom of the file. If you then call any of the UniteJS operations again your changes will be retained. Any files which are generated but can not contain comments because of their format (e.g. .json files) will where possible be combined with any changes you have made.
 

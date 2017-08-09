@@ -2,13 +2,18 @@
 * Added platform packager web
 * Added platform packager electron with icon support for win32/darwin/linux
 * Added version gulp tasks
+* Added assets for client packages, used in platform packaged versions
 * unite.json directories configuration changes to have www sub property
 * node_modules path rationalised in config
+* npm package manager called directly instead of through interop
+* E2E plugins created
 * Fixed safari_pinned_tab color in meta headers
 * Fixed saving theme headers into unite-theme.json
 
 # v0.7.1
 * Rationalised logging/display interfaces
+* Renamed repo to engine
+* Moved unite.json up one level
 
 # v0.7.0
 * Main command is now "configure" not "init" as it can be run repeatedly

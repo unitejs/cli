@@ -79,9 +79,10 @@ export class CLI extends CLIBase {
                 const isPackage = commandLineParser.hasArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
+                const assets = commandLineParser.getStringArgument(CommandLineArgConstants.ASSETS);
                 const engine: IEngine = new Engine(logger, fileSystem);
                 if (engine) {
-                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, main, mainMinified, isPackage, "", packageManager, outputDirectory);
+                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, main, mainMinified, isPackage, assets, packageManager, outputDirectory);
                 } else {
                     ret = 1;
                 }
@@ -187,8 +188,10 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to looking it up           |");
         this.markdownTableToCli(logger, "| mainMinified        | 'path'                                    | The path to the minified main js file            |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to using main              |");
-        this.markdownTableToCli(logger, "| isPackage           |                                           | This be included as a package in module loaders  |");
+        this.markdownTableToCli(logger, "| isPackage           |                                           | This is included as a package in module loaders  |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to not package             |");
+        this.markdownTableToCli(logger, "| assets              | comma separated globs                     | These files are packed in platform builds        |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
         this.markdownTableToCli(logger, "| packageManager      | npm/yarn                                  | The package manager to use for the add           |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to npm if not already set  |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");

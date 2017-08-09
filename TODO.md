@@ -13,11 +13,8 @@ Make pluggable
 Add PhoneGap/Cordova
 Add Windows Universal App
 
-# Distribution
-Assets folder
-
 ## Profiles
-Add profiles to save lots of command line options for configure and clientPackages
+Add profiles to save lots of command line options for configure and clientPackages, also for App Framework prefered defaults
 
 ## HTML Index
 Default progress indicator
@@ -63,12 +60,6 @@ Rollup
 ## E2E Frameworks
 Add Cucumber
 Change Webdriver - Allure reports need screenshots
-
-## Module Config
-Add map information to clientPackages
-
-## Module Loader
-Change Webpack - Static Config
 
 ## Unit Testing
 Add Chrome headless instead of phantomjs

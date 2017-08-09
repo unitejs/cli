@@ -147,8 +147,10 @@ Perform operations to add or remove client packages. These operations will perfo
 |                     |                                           |   optional - defaults to looking it up           |
 | mainMinified        | 'path'                                    | The path to the minified main js file            |
 |                     |                                           |   optional - defaults to using main              |
-| isPackage           |                                           | This be included as a package in module loaders  |
+| isPackage           |                                           | This is included as a package in module loaders  |
 |                     |                                           |   optional - defaults to not package             |
+| assets              | comma separated globs                     | These files are packed in platform builds        |
+|                     |                                           |   optional - defaults to empty                   |
 | packageManager      | npm/yarn                                  | The package manager to use for the add           |
 |                     |                                           |   optional - defaults to npm if not already set  |
 | outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
@@ -161,6 +163,8 @@ Perform operations to add or remove client packages. These operations will perfo
     unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload
 
     unite clientPackage --operation=add --packageName=sinon --includeMode=test
+
+    unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*,fonts/**/*
 
 ### operation remove
 

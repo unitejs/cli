@@ -25,6 +25,7 @@ export class CommandLineArgConstants {
     public static MAIN: string = "main";
     public static MAIN_MINIFIED: string = "mainMinified";
     public static IS_PACKAGE: string = "isPackage";
+    public static ASSETS: string = "assets";
     public static PACKAGE_MANAGER: string = "packageManager";
 
     public static CONFIGURATION_NAME: string = "configurationName";

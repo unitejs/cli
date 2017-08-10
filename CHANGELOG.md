@@ -1,3 +1,6 @@
+# v0.8.1
+* Housekeeping
+
 # v0.8.0
 * Added platform packager web
 * Added platform packager electron with icon support for win32/darwin/linux

@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/unitejs/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/unitejs/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NPM version][npm-version-image]][npm-url] [![Build Status][travis-image]][travis-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] 
+
 # UniteJS CLI
 Command line interface to the UniteJS JavaScript framework management tool.
 
@@ -226,3 +228,12 @@ One you have added a platform there can manually edit your unite.json to specify
 
 For more information on the generated app see [Generated App](./docs/generated-app.md) 
 
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: LICENSE
+
+[npm-url]: https://npmjs.org/package/unitejs-cli
+[npm-version-image]: http://img.shields.io/npm/v/unitejs-cli.svg?style=flat
+[npm-downloads-image]: http://img.shields.io/npm/dm/unitejs-cli.svg?style=flat
+
+[travis-url]: http://travis-ci.org/unitejs/cli/
+[travis-image]: http://img.shields.io/travis/unitejs/cli/master.svg?style=flat

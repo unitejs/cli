@@ -1,0 +1,17 @@
+.vscode
+node_modules
+*.bat
+*.lock
+*.log
+package-lock*
+.history/
+test/
+src/
+*.tgz
+.gitignore
+.eslintignore
+.eslintrc.json
+.travis.yml
+gulpfile.js
+tsconfig.json
+tslint.json

@@ -15,3 +15,5 @@ src/
 gulpfile.js
 tsconfig.json
 tslint.json
+test/unit/reports/**/*
+TODO.md

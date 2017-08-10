@@ -1,5 +1,5 @@
 # v0.8.1
-* Housekeeping
+* Housekeeping and CI Integration
 
 # v0.8.0
 * Added platform packager web

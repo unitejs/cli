@@ -6,3 +6,4 @@ install:
 script:
   - gulp build
   - gulp unit
+  - gulp coveralls

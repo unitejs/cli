@@ -45,7 +45,7 @@
         "no-any": false,
         "no-arg": true,
         "no-backbone-get-set-outside-model": true,
-        "no-bitwise": true,
+        "no-bitwise": false,
         "no-conditional-assignment": true,
         "no-console": [true, "debug", "info", "log", "time", "timeEnd", "trace"],
         "no-constant-condition": true,
@@ -148,14 +148,14 @@
         "no-var-keyword": true,
         "no-var-requires": true,
         "no-var-self": true,
-        "no-void-expression": true,
+        "no-void-expression": false,
         "object-literal-sort-keys": false, // turn object-literal-sort-keys off and sort keys in a meaningful manner
         "one-variable-per-declaration": [true],
         "only-arrow-functions": [false],  // there are many valid reasons to declare a function
         "ordered-imports": [true],
         "prefer-array-literal": true,
         "prefer-const": true,
-        "prefer-for-of": true,
+        "prefer-for-of": false,
         "prefer-method-signature": true,
         "prefer-template": true,
         "return-undefined": false, // this actually affect the readability of the code
@@ -236,6 +236,7 @@
         "prefer-function-over-method": false,
         "prefer-conditional-expression": false,
         "strict-type-predicates": false,
+        "no-submodule-imports": false,
 
         /**
          * Deprecated rules.  The following rules are deprecated for various reasons.

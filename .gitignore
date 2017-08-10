@@ -6,3 +6,4 @@ node_modules
 *.tgz
 package-lock*
 .history/
+test/unit/reports/**/*

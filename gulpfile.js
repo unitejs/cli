@@ -11,6 +11,7 @@ const merge = require("merge2");
 const remapIstanbul = require("remap-istanbul/lib/gulpRemapIstanbul");
 const coveralls = require("gulp-coveralls");
 const runSequence = require("run-sequence");
+const minimist = require("minimist");
 
 const tsConfigFile = "./tsconfig.json";
 
@@ -22,9 +23,10 @@ const distGlob = `${distFolder}**/*`;
 const unitFolder = "test/unit/";
 const unitSrcFolder = `${unitFolder}src/`;
 const unitDistFolder = `${unitFolder}dist/`;
-const unitSrcGlob = `${unitSrcFolder}**/*.spec.ts`;
-const unitDistGlob = `${unitDistFolder}/**/*.spec.js`;
-const unitReportsFolder = `${unitFolder}/reports/`;
+const unitSrcGlobSpec = "**/*";
+const unitDistGlobSpec = "**/*";
+const unitDistGlob = `${unitDistFolder}${unitDistGlobSpec}.spec.js`;
+const unitReportsFolder = `${unitFolder}reports/`;
 const unitReportsFolderGlob = `${unitReportsFolder}/**/*`;
 
 gulp.task("build-clean", (cb) => {
@@ -87,7 +89,18 @@ gulp.task("unit-clean", (cb) => {
 gulp.task("unit-lint", () => {
     const program = tslint.Linter.createProgram(tsConfigFile);
 
-    return gulp.src(unitSrcGlob)
+    const knownOptions = {
+        "default": {
+            "grep": unitSrcGlobSpec
+        },
+        "string": [
+            "grep"
+        ]
+    };
+
+    const options = minimist(process.argv.slice(2), knownOptions);
+
+    return gulp.src(`${unitSrcFolder}${options.grep}.spec.ts`)
         .pipe(gulpTslint({
             "formatter": "verbose",
             program
@@ -103,7 +116,18 @@ gulp.task("unit-transpile", () => {
 
     let errorCount = 0;
 
-    const tsResult = gulp.src(unitSrcGlob)
+    const knownOptions = {
+        "default": {
+            "grep": unitSrcGlobSpec
+        },
+        "string": [
+            "grep"
+        ]
+    };
+
+    const options = minimist(process.argv.slice(2), knownOptions);
+
+    const tsResult = gulp.src(`${unitSrcFolder}${options.grep}.spec.ts`)
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .on("error", () => {
@@ -121,13 +145,35 @@ gulp.task("unit-transpile", () => {
 });
 
 gulp.task("unit-pre-coverage", () => {
-    return gulp.src(`${distFolder}**/*.js`)
+    const knownOptions = {
+        "default": {
+            "grep": "!(index|I*)"
+        },
+        "string": [
+            "grep"
+        ]
+    };
+
+    const options = minimist(process.argv.slice(2), knownOptions);
+
+    return gulp.src(`${distFolder}**/${options.grep}.js`)
         .pipe(istanbul({"includeUntested": true}))
         .pipe(istanbul.hookRequire());
 });
 
 gulp.task("unit-runner", () => {
-    return gulp.src(unitDistGlob)
+    const knownOptions = {
+        "default": {
+            "grep": unitDistGlobSpec
+        },
+        "string": [
+            "grep"
+        ]
+    };
+
+    const options = minimist(process.argv.slice(2), knownOptions);
+
+    return gulp.src(`${unitDistFolder}${options.grep}.spec.js`)
         .pipe(mocha({
             "reporter": "spec",
             "timeout": "360000"
@@ -143,6 +189,7 @@ gulp.task("unit-remap", () => {
     return gulp.src(`${unitReportsFolder}coverage-final.json`)
         .pipe(remapIstanbul({
             "reports": {
+                "text": "",
                 "json": `${unitReportsFolder}coverage.json`,
                 "html": `${unitReportsFolder}html-report`,
                 "lcovonly": `${unitReportsFolder}lcov.info`

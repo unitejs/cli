@@ -17,6 +17,7 @@ The following gulp commands are then available for the app.
 * build
 * theme-build
 * unit [optional]
+* unit-ui [optional]
 * e2e-install [optional]
 * e2e [optional]
 * serve
@@ -36,6 +37,9 @@ You will probably need to run this task at least once to generate the necessary 
 
 ### unit
 This will run unit tests for the app and generate unit and coverage reports in the reports folder. This task is only available if you specified a unit test runner and framework during configuration.
+
+### unit-ui
+This will run unit tests for the app inside a browser to make it easier to debug. This task is only available if you specified a unit test runner and framework during configuration.
 
 ### e2e-install
 This will install all the necessary components required for the e2e tests, it need only be run once. This task is only available if you specified an e2e test runner and framework during configuration.

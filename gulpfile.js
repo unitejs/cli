@@ -25,7 +25,7 @@ const unitSrcFolder = `${unitFolder}src/`;
 const unitDistFolder = `${unitFolder}dist/`;
 const unitSrcGlobSpec = "**/*";
 const unitDistGlobSpec = "**/*";
-const unitDistGlob = `${unitDistFolder}${unitDistGlobSpec}.spec.js`;
+const unitDistGlob = `${unitDistFolder}${unitDistGlobSpec}.js`;
 const unitReportsFolder = `${unitFolder}reports/`;
 const unitReportsFolderGlob = `${unitReportsFolder}/**/*`;
 
@@ -100,7 +100,7 @@ gulp.task("unit-lint", () => {
 
     const options = minimist(process.argv.slice(2), knownOptions);
 
-    return gulp.src(`${unitSrcFolder}${options.grep}.spec.ts`)
+    return gulp.src([`${unitSrcFolder}${options.grep}.spec.ts`, `${unitSrcFolder}*.mock.ts`])
         .pipe(gulpTslint({
             "formatter": "verbose",
             program
@@ -127,7 +127,7 @@ gulp.task("unit-transpile", () => {
 
     const options = minimist(process.argv.slice(2), knownOptions);
 
-    const tsResult = gulp.src(`${unitSrcFolder}${options.grep}.spec.ts`)
+    const tsResult = gulp.src([`${unitSrcFolder}${options.grep}.spec.ts`, `${unitSrcFolder}*.mock.ts`])
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .on("error", () => {

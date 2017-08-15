@@ -41,7 +41,7 @@
         "label-position": true,
         "match-default-export-name": true,
         "mocha-avoid-only": true,
-        "mocha-no-side-effect-code": true,
+        "mocha-no-side-effect-code": false,
         "no-any": false,
         "no-arg": true,
         "no-backbone-get-set-outside-model": true,
@@ -54,7 +54,7 @@
         "no-duplicate-case": true,
         "no-duplicate-super": true,
         "no-duplicate-variable": true,
-        "no-empty": true,
+        "no-empty": false,
         "no-floating-promises": true,
         "no-for-in-array": true,
         "no-import-side-effect": true,
@@ -102,7 +102,7 @@
         "arrow-parens": false, // for simple functions the parens on arrow functions are not needed
         "callable-types": true,
         "chai-prefer-contains-to-index-of": true,
-        "chai-vague-errors": true,
+        "chai-vague-errors": false,
         "class-name": true,
         "comment-format": [true],
         "completed-docs": [false, "classes"],
@@ -156,7 +156,7 @@
         "prefer-array-literal": true,
         "prefer-const": true,
         "prefer-for-of": false,
-        "prefer-method-signature": true,
+        "prefer-method-signature": false,
         "prefer-template": true,
         "return-undefined": false, // this actually affect the readability of the code
         "typedef": [true, "call-signature", "parameter", "property-declaration", "member-variable-declaration"],
@@ -237,6 +237,7 @@
         "prefer-conditional-expression": false,
         "strict-type-predicates": false,
         "no-submodule-imports": false,
+        "no-object-literal-type-assertion": false,
 
         /**
          * Deprecated rules.  The following rules are deprecated for various reasons.

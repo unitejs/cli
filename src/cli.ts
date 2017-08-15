@@ -42,8 +42,10 @@ export class CLI extends CLIBase {
                 const cssPostProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const appFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                const engine: IEngine = new Engine(logger, fileSystem);
-                if (engine) {
+
+                ret = this.checkRemaining(logger, commandLineParser);
+                if (ret === 0) {
+                    const engine: IEngine = new Engine(logger, fileSystem);
                     ret = await engine.configure(packageName,
                                                  title,
                                                  license,
@@ -60,8 +62,6 @@ export class CLI extends CLIBase {
                                                  packageManager,
                                                  appFramework,
                                                  outputDirectory);
-                } else {
-                    ret = 1;
                 }
                 break;
             }
@@ -80,11 +80,10 @@ export class CLI extends CLIBase {
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
                 const assets = commandLineParser.getStringArgument(CommandLineArgConstants.ASSETS);
-                const engine: IEngine = new Engine(logger, fileSystem);
-                if (engine) {
+                ret = this.checkRemaining(logger, commandLineParser);
+                if (ret === 0) {
+                    const engine: IEngine = new Engine(logger, fileSystem);
                     ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, main, mainMinified, isPackage, assets, packageManager, outputDirectory);
-                } else {
-                    ret = 1;
                 }
                 break;
             }
@@ -98,11 +97,10 @@ export class CLI extends CLIBase {
                 const minify = commandLineParser.hasArgument(CommandLineArgConstants.MINIFY);
                 const sourceMaps = commandLineParser.hasArgument(CommandLineArgConstants.SOURCE_MAPS);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                const engine: IEngine = new Engine(logger, fileSystem);
-                if (engine) {
+                ret = this.checkRemaining(logger, commandLineParser);
+                if (ret === 0) {
+                    const engine: IEngine = new Engine(logger, fileSystem);
                     ret = await engine.buildConfiguration(operation, configurationName, bundle, minify, sourceMaps, outputDirectory);
-                } else {
-                    ret = 1;
                 }
                 break;
             }
@@ -113,11 +111,10 @@ export class CLI extends CLIBase {
                 const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
                 const platformName = commandLineParser.getStringArgument(CommandLineArgConstants.PLATFORM_NAME);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
-                const engine: IEngine = new Engine(logger, fileSystem);
-                if (engine) {
+                ret = this.checkRemaining(logger, commandLineParser);
+                if (ret === 0) {
+                    const engine: IEngine = new Engine(logger, fileSystem);
                     ret = await engine.platform(operation, platformName, outputDirectory);
-                } else {
-                    ret = 1;
                 }
             }
         }

@@ -23,9 +23,8 @@ const distGlob = `${distFolder}**/*`;
 const unitFolder = "test/unit/";
 const unitSrcFolder = `${unitFolder}src/`;
 const unitDistFolder = `${unitFolder}dist/`;
-const unitSrcGlobSpec = "**/*";
-const unitDistGlobSpec = "**/*";
-const unitDistGlob = `${unitDistFolder}${unitDistGlobSpec}.js`;
+const unitSrcGlob = `${unitSrcFolder}**/`;
+const unitDistGlob = `${unitDistFolder}**/`;
 const unitReportsFolder = `${unitFolder}reports/`;
 const unitReportsFolderGlob = `${unitReportsFolder}/**/*`;
 
@@ -83,7 +82,7 @@ gulp.task("build", (cb) => {
 });
 
 gulp.task("unit-clean", (cb) => {
-    return del([unitDistGlob, unitReportsFolderGlob], cb);
+    return del([`${unitDistGlob}*`, unitReportsFolderGlob], cb);
 });
 
 gulp.task("unit-lint", () => {
@@ -91,7 +90,7 @@ gulp.task("unit-lint", () => {
 
     const knownOptions = {
         "default": {
-            "grep": unitSrcGlobSpec
+            "grep": "*"
         },
         "string": [
             "grep"
@@ -100,7 +99,7 @@ gulp.task("unit-lint", () => {
 
     const options = minimist(process.argv.slice(2), knownOptions);
 
-    return gulp.src([`${unitSrcFolder}${options.grep}.spec.ts`, `${unitSrcFolder}*.mock.ts`])
+    return gulp.src([`${unitSrcGlob}${options.grep}.spec.ts`, `${unitSrcGlob}*.mock.ts`])
         .pipe(gulpTslint({
             "formatter": "verbose",
             program
@@ -118,7 +117,7 @@ gulp.task("unit-transpile", () => {
 
     const knownOptions = {
         "default": {
-            "grep": unitSrcGlobSpec
+            "grep": "*"
         },
         "string": [
             "grep"
@@ -127,7 +126,7 @@ gulp.task("unit-transpile", () => {
 
     const options = minimist(process.argv.slice(2), knownOptions);
 
-    const tsResult = gulp.src([`${unitSrcFolder}${options.grep}.spec.ts`, `${unitSrcFolder}*.mock.ts`])
+    const tsResult = gulp.src([`${unitSrcGlob}${options.grep}.spec.ts`, `${unitSrcGlob}*.mock.ts`])
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .on("error", () => {
@@ -164,7 +163,7 @@ gulp.task("unit-pre-coverage", () => {
 gulp.task("unit-runner", () => {
     const knownOptions = {
         "default": {
-            "grep": unitDistGlobSpec
+            "grep": "*"
         },
         "string": [
             "grep"
@@ -173,7 +172,7 @@ gulp.task("unit-runner", () => {
 
     const options = minimist(process.argv.slice(2), knownOptions);
 
-    return gulp.src(`${unitDistFolder}${options.grep}.spec.js`)
+    return gulp.src(`${unitDistGlob}${options.grep}.spec.js`)
         .pipe(mocha({
             "reporter": "spec",
             "timeout": "360000"

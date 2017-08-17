@@ -36,16 +36,30 @@ You can specify a buildConfiguration with the following syntax:
 You will probably need to run this task at least once to generate the necessary favicon images and meta tags. See [Theme Assets](#themeassets) for more details.
 
 ### unit
-This will run unit tests for the app and generate unit and coverage reports in the reports folder. This task is only available if you specified a unit test runner and framework during configuration.
+This will run unit tests for the app and generate unit and coverage reports in the test/reports folder. This task is only available if you specified a unit test runner and framework during configuration.
+
+You can run just a subset of tests provind a source name as follows.
+
+    gulp unit --grep=app
+
 
 ### unit-ui
 This will run unit tests for the app inside a browser to make it easier to debug. This task is only available if you specified a unit test runner and framework during configuration.
+
+You can run just a subset of tests provind a source name as follows.
+
+    gulp unit --grep=app
+
 
 ### e2e-install
 This will install all the necessary components required for the e2e tests, it need only be run once. This task is only available if you specified an e2e test runner and framework during configuration.
 
 ### e2e
-This will run e2e tests for the app and generate reports in the reports folder. This task is only available if you specified an e2e test runner and framework during configuration.
+This will run e2e tests for the app and generate reports in the test/reports folder. This task is only available if you specified an e2e test runner and framework during configuration.
+
+You can run just a subset of tests provind a source name as follows.
+
+    gulp e2e --grep=app
 
 ### serve
 This will serve the app for you to view in a browser.

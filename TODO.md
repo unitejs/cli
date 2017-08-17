@@ -1,5 +1,8 @@
 # To Do
 
+## Profiles
+Add profiles to save lots of command line options for configure and clientPackages, also for App Framework with prefered defaults.
+
 ## App Frameworks
 Add Angular 2
 Add Vue
@@ -13,14 +16,11 @@ Make pluggable
 Add PhoneGap/Cordova
 Add Windows Universal App
 
-## Profiles
-Add profiles to save lots of command line options for configure and clientPackages, also for App Framework prefered defaults
-
 ## HTML Index
 Default progress indicator
 
 ## Tasks
-Watch
+Watch with Hot Reload
 
 ## Source Languages
 Coffee Script
@@ -62,7 +62,7 @@ Add Cucumber
 Change Webdriver - Allure reports need screenshots
 
 ## Unit Testing
-Add Chrome headless instead of phantomjs
+Add Chrome headless
 Alternate UI Browsers for testing Firefox/IE/Edge
 
 ## E2E Testing

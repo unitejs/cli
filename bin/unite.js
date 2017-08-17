@@ -3,7 +3,7 @@
 
 process.title = 'unite';
 
-const cliMod = require('../dist/unitejs-cli');
+const cliMod = require('../dist/cli');
 
 const cli = new cliMod.CLI();
 cli.run(process)

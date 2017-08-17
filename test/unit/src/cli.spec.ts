@@ -24,8 +24,7 @@ describe("CLI", () => {
         loggerStub.banner = () => { };
         loggerStub.info = () => { };
         loggerStub.warning = () => { };
-        /* tslint:disable */
-        loggerStub.error = (message, err, args) => { console.log(message, err, args); };
+        loggerStub.error = () => { };
 
         fileSystemStub = new FileSystem();
 

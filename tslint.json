@@ -156,7 +156,7 @@
         "prefer-array-literal": true,
         "prefer-const": true,
         "prefer-for-of": false,
-        "prefer-method-signature": false,
+        "prefer-method-signature": true,
         "prefer-template": true,
         "return-undefined": false, // this actually affect the readability of the code
         "typedef": [true, "call-signature", "parameter", "property-declaration", "member-variable-declaration"],
@@ -238,6 +238,7 @@
         "strict-type-predicates": false,
         "no-submodule-imports": false,
         "no-object-literal-type-assertion": false,
+        "no-unbound-method": false,
 
         /**
          * Deprecated rules.  The following rules are deprecated for various reasons.

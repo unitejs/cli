@@ -74,9 +74,9 @@ export class CLI extends CLIBase {
                 const version = commandLineParser.getStringArgument(CommandLineArgConstants.VERSION);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
-                const preload = commandLineParser.hasArgument(CommandLineArgConstants.PRELOAD);
+                const preload = commandLineParser.getBooleanArgument(CommandLineArgConstants.PRELOAD);
                 const includeMode = commandLineParser.getStringArgument(CommandLineArgConstants.INCLUDE_MODE);
-                const isPackage = commandLineParser.hasArgument(CommandLineArgConstants.IS_PACKAGE);
+                const isPackage = commandLineParser.getBooleanArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
                 const assets = commandLineParser.getStringArgument(CommandLineArgConstants.ASSETS);
@@ -93,9 +93,9 @@ export class CLI extends CLIBase {
 
                 const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
                 const configurationName = commandLineParser.getStringArgument(CommandLineArgConstants.CONFIGURATION_NAME);
-                const bundle = commandLineParser.hasArgument(CommandLineArgConstants.BUNDLE);
-                const minify = commandLineParser.hasArgument(CommandLineArgConstants.MINIFY);
-                const sourceMaps = commandLineParser.hasArgument(CommandLineArgConstants.SOURCE_MAPS);
+                const bundle = commandLineParser.getBooleanArgument(CommandLineArgConstants.BUNDLE);
+                const minify = commandLineParser.getBooleanArgument(CommandLineArgConstants.MINIFY);
+                const sourceMaps = commandLineParser.getBooleanArgument(CommandLineArgConstants.SOURCE_MAPS);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {

@@ -1,5 +1,7 @@
 # To Do
 
+License file needs substitutions e.g. 'name of author', 'owner'
+
 ## Profiles
 Add profiles to save lots of command line options for configure and clientPackages, also for App Framework with prefered defaults.
 

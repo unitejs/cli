@@ -50,14 +50,11 @@ JSDoc ?
 Add bower?
 
 ## Test Frameworks
-Add Jest
-Add Wallaby
-
-## Reporting
-Lighthouse
+Add Jest (Only supports CommonJs)
+Add Wallaby (Requires License)
 
 ## Bundlers
-Rollup
+Rollup (Requirejs Support ?)
 
 ## E2E Frameworks
 Add Cucumber

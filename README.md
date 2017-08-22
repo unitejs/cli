@@ -14,7 +14,7 @@ Unite is best installed as a global package
 # Usage
 
     unite "command" [args0] [args1] ... [argsn]
-    where command is one of 
+    where command is one of:
     * help
     * version
     * configure
@@ -68,7 +68,9 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
 By default you are created dev and prod configurations with sensible defaults. You can add or remove configurations with this command.
 
-The configuration sections created in unite.json have a variables property which you can modify manually to add your own values that will be include in the build. The values are then available in the window.unite.config namespace at runtime. As this is just JSON your value can be any data that can be JSON serialized.
+The configuration sections created in unite.json have a variables property which you can modify manually to add your own values that will be include in the build. The values are then available in the window.unite.config namespace at runtime. As this is just JSON your value can be any data that can be JSON serialized. The TypeScript definitions for this object are in this repo [UniteJS Types](https://github.com/unitejs/types) and can be reference using:
+
+     /// <reference types="unitejs-types" />
 
 # Example
 
@@ -114,7 +116,6 @@ This will also update any existing configurations.
 
     unite buildConfiguration --operation=add --configurationName=prod-debug --bundle --minify --sourcemaps
 
-
 ### operation remove
 
 | Argument            | Value                                     | Used For                                         |
@@ -128,10 +129,9 @@ This will also update any existing configurations.
 
     unite buildConfiguration --operation=remove --configurationName=prod-debug
 
-
 ## Command clientPackage
 
-Perform operations to add or remove client packages. These operations will perform the npm/yarn package operations as well as updating all the neccesary configuration files.
+Perform operations to add or remove client packages. These operations will perform the npm/yarn package operations as well as updating all the necessary configuration files.
 
 ### operation add
 
@@ -145,6 +145,8 @@ Perform operations to add or remove client packages. These operations will perfo
 |                     |                                           |   optional - defaults to not preload             |
 | includeMode         | app/test/both                             | When should the package be loaded                |
 |                     |                                           |   optional - defaults to both                    |
+| testScriptInclude   |                                           | Should the package be script included in test    |
+|                     |                                           |   optional - defaults to false                   |
 | main                | 'path'                                    | The path to the main js file in the package      |
 |                     |                                           |   optional - defaults to looking it up           |
 | mainMinified        | 'path'                                    | The path to the minified main js file            |
@@ -226,7 +228,7 @@ One you have added a platform there can manually edit your unite.json to specify
 
 # Generated App
 
-For more information on the generated app see [Generated App](./docs/generated-app.md) 
+For more information on the generated app see [Generated App](./docs/generated-app.md)
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE

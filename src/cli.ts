@@ -76,6 +76,7 @@ export class CLI extends CLIBase {
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const preload = commandLineParser.getBooleanArgument(CommandLineArgConstants.PRELOAD);
                 const includeMode = commandLineParser.getStringArgument(CommandLineArgConstants.INCLUDE_MODE);
+                const testScriptInclude = commandLineParser.getBooleanArgument(CommandLineArgConstants.TEST_SCRIPT_INCLUDE);
                 const isPackage = commandLineParser.getBooleanArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
@@ -83,7 +84,7 @@ export class CLI extends CLIBase {
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
                     const engine: IEngine = new Engine(logger, fileSystem);
-                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, main, mainMinified, isPackage, assets, packageManager, outputDirectory);
+                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, testScriptInclude, main, mainMinified, isPackage, assets, packageManager, outputDirectory);
                 }
                 break;
             }
@@ -181,6 +182,8 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to not preload             |");
         this.markdownTableToCli(logger, "| includeMode         | app/test/both                             | When should the package be loaded                |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to both                    |");
+        this.markdownTableToCli(logger, "| testScriptInclude   |                                           | Should the package be script included in test    |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to false                   |");
         this.markdownTableToCli(logger, "| main                | 'path'                                    | The path to the main js file in the package      |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to looking it up           |");
         this.markdownTableToCli(logger, "| mainMinified        | 'path'                                    | The path to the minified main js file            |");

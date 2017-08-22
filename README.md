@@ -1,9 +1,25 @@
 [![Join the chat at https://gitter.im/unitejs/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/unitejs/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NPM version][npm-version-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls][coveralls-image]][coveralls-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] 
 
 # UniteJS CLI
-Command line interface to the UniteJS JavaScript framework management tool.
 
-This will generate a scaffold app with the options you specify.
+How many times have you started a new web project and thought maybe I should try using the latest and greatest tech stack to see what I am missing?
+
+Then the reality check happens and you probably think:
+
+* I don't have time to learn a new technology
+* The getting started guides are great but I just want to dive in and code
+* I don't want to have to learn all the new tasks/commands/scripts just to give it a try
+* How long is it going to take me to get the different technologies to work together gracefully
+
+The aim of UniteJS is to provide a CLI tool which you can use to create a ready to roll application with code, styling, unit tests and e2e tests. All combinations of the chosen technologies provide the same set of tasks to run and produce the same output. We try not to be too opinionated in what is produced but sometimes that can't be helped :wink:
+
+You can see what the app provides out of the box in the [Generated App](./docs/generated-app.md) docs.
+
+In addition there are some extras built-in like **icon generation** and **platform packaging**.
+
+As we add new features to UniteJS you will be able to update your project without losing any changes you have made.
+
+So if this sounds like the tool for you just dive in, all the current options are displayed below and you can see what's coming next in the [roadmap](./docs/roadmap.md)
 
 # Install
 
@@ -76,15 +92,15 @@ The configuration sections created in unite.json have a variables property which
 
 unite.json
 
-	"buildConfigurations": {
-		"myconfiguration": {
-			...
-			"variables": {
-                        "value1": 12345,
-                        "someFlag: true
-                   }
-		}
-	}
+    "buildConfigurations": {
+        "myconfiguration": {
+            ...
+            "variables": {
+                "value1": 12345,
+                "someFlag: true
+            }
+        }
+    }
 
 at runtime
 
@@ -229,6 +245,14 @@ One you have added a platform there can manually edit your unite.json to specify
 # Generated App
 
 For more information on the generated app see [Generated App](./docs/generated-app.md)
+
+# Disclaimer
+
+UniteJS currently has about 150 dependencies on the libraries it uses to generate the app, while we endeavour to make sure that every combination works it goes without saying that from time to time something will break. Just let us know in the [Issues](https://github.com/unitejs/cli/issues) and we will get it fixed ASAP.
+
+# Feature Requests
+
+You can see the planned features in the [roadmap](./docs/roadmap.md) if there is any other technologies you would like to see added just drop us a message on the [Gitter Channel](https://gitter.im/unitejs/discuss)
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE

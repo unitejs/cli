@@ -1,4 +1,4 @@
-# To Do
+# Roadmap
 
 License file needs substitutions e.g. 'name of author', 'owner'
 
@@ -66,4 +66,3 @@ Alternate UI Browsers for testing Firefox/IE/Edge
 
 ## E2E Testing
 Alternate UI Browsers for testing Firefox/IE/Edge
-

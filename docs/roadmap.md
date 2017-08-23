@@ -13,6 +13,14 @@ Add Backbone
 Add Angular 1
 Add Ionic
 Make pluggable
+Aurelia (Add Webpack bundling)
+
+## CI Integration
+Add Travis
+Add Coveralls
+Add Circle
+Add build number to window.unite variable
+Add build date/time to window.unite variable
 
 ## Platform Wrappers
 Add PhoneGap/Cordova

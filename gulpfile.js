@@ -65,7 +65,7 @@ gulp.task("build-transpile", () => {
         .pipe(gulp.dest(distFolder))
         .on("end", () => {
             if (errorCount > 0) {
-                process.exit();
+                process.exit(1);
             }
         }));
 
@@ -138,7 +138,7 @@ gulp.task("unit-transpile", () => {
         .pipe(gulp.dest(unitDistFolder))
         .on("end", () => {
             if (errorCount > 0) {
-                process.exit();
+                process.exit(1);
             }
         });
 });
@@ -176,6 +176,8 @@ gulp.task("unit-runner", () => {
         .pipe(mocha({
             "reporter": "spec",
             "timeout": "360000"
+        }).on("error", () => {
+            process.exit(1);
         }))
         .pipe(istanbul.writeReports({
             "dir": unitReportsFolder,

@@ -73,8 +73,6 @@ describe("CLI", () => {
                 "--outputDirectory=./test/unit/temp"
             ]);
             const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
-            /* tslint:disable */
-            console.log(loggerErrorSpy.args);
             Chai.expect(res).to.be.equal(0);
             const fileExists = await fileSystemStub.fileExists("./test/unit/temp/", "unite.json");
             Chai.expect(fileExists).to.be.equal(true);

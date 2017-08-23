@@ -12,8 +12,7 @@ src/
 .eslintignore
 .eslintrc.json
 .travis.yml
-gulpfile.js
+./gulpfile.js
 tsconfig.json
 tslint.json
 test/unit/reports/**/*
-TODO.md

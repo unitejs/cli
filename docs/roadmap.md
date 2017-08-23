@@ -1,94 +1,94 @@
 # Roadmap
 
-License file needs substitutions e.g. 'name of author', 'owner'
+* License file needs substitutions e.g. 'name of author', 'owner'
 
 ## Profiles
 
-Add profiles to save lots of command line options for configure and clientPackages, also for App Framework with prefered defaults.
+* Add profiles to save lots of command line options for configure and clientPackages, also for App Framework with prefered defaults.
 
 ## App Frameworks
 
-Add Angular 2
-Add Vue
-Add Ember
-Add Backbone
-Add Angular 1
-Add Ionic
-Make pluggable
-Aurelia (Add Webpack bundling)
+* Add Angular 2
+* Add Vue
+* Add Ember
+* Add Backbone
+* Add Angular 1
+* Add Ionic
+* Make pluggable
+* Aurelia (Add Webpack bundling)
 
 ## CI Integration
 
-Add Travis
-Add Coveralls
-Add Circle
-Add build number to window.unite variable
-Add build date/time to window.unite variable
+* Add Travis
+* Add Coveralls
+* Add Circle
+* Add build number to window.unite variable
+* Add build date/time to window.unite variable
 
 ## Platform Wrappers
 
-Add PhoneGap/Cordova
-Add Windows Universal App
+* Add PhoneGap/Cordova
+* Add Windows Universal App
 
 ## HTML Index
 
-Default progress indicator
+* Default progress indicator
 
 ## Tasks
 
-Build Watch
-Unit Watch with browser reload
+* Build Watch
+* Unit Watch with browser reload
 
 ## Source Languages
 
-Coffee Script
-Flow
+* Coffee Script
+* Flow
 
 ## CSS Linting
 
-Add stylelint
-Add sass-lint
-Add less-hint
-Add stylint
+* Add stylelint
+* Add sass-lint
+* Add less-hint
+* Add stylint
 
 ## Code Style
 
-Prettier
-Beautify
+* Prettier
+* Beautify
 
 ## Build Engine
 
-Add NPM scripts
-Add Grunt?
-Add Gulp 4
+* Add NPM scripts
+* Add Grunt?
+* Add Gulp 4
 
 ## Documentation
 
-JSDoc ?
+* JSDoc ?
 
 ## Package Managers
 
-Add bower?
+* Add bower?
 
 ## Test Frameworks
 
-Add Jest (Only supports CommonJs)
-Add Wallaby (Requires License)
+* Add Jest (Only supports CommonJs)
+* Add Wallaby (Requires License)
 
 ## Bundlers
 
-Rollup (Requirejs Support ?)
+* Rollup (Requirejs Support ?)
 
 ## E2E Frameworks
 
-Add Cucumber
-Change Webdriver - Allure reports need screenshots
+* Add Cucumber
+* Change Webdriver - Allure reports need screenshots
 
 ## Unit Testing
 
-Add Chrome headless
-Alternate UI Browsers for testing Firefox/IE/Edge
+* Add Chrome headless
+* Alternate UI Browsers for testing Firefox/IE/Edge
 
 ## E2E Testing
 
-Alternate UI Browsers for testing Firefox/IE/Edge
+* Alternate UI Browsers for testing Firefox/IE/Edge

@@ -22,11 +22,14 @@ export class CommandLineArgConstants {
     public static VERSION: string = "version";
     public static PRELOAD: string = "preload";
     public static INCLUDE_MODE: string = "includeMode";
-    public static TEST_SCRIPT_INCLUDE: string = "testScriptInclude";
+    public static SCRIPT_INCLUDE_MODE: string = "scriptIncludeMode";
     public static MAIN: string = "main";
     public static MAIN_MINIFIED: string = "mainMinified";
+    public static TESTING_ADDITIONS: string = "testingAdditions";
     public static IS_PACKAGE: string = "isPackage";
     public static ASSETS: string = "assets";
+    public static MAP: string = "map";
+    public static LOADERS: string = "loaders";
     public static PACKAGE_MANAGER: string = "packageManager";
 
     public static CONFIGURATION_NAME: string = "configurationName";

@@ -76,15 +76,19 @@ export class CLI extends CLIBase {
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const preload = commandLineParser.getBooleanArgument(CommandLineArgConstants.PRELOAD);
                 const includeMode = commandLineParser.getStringArgument(CommandLineArgConstants.INCLUDE_MODE);
-                const testScriptInclude = commandLineParser.getBooleanArgument(CommandLineArgConstants.TEST_SCRIPT_INCLUDE);
+                const scriptIncludeMode = commandLineParser.getStringArgument(CommandLineArgConstants.SCRIPT_INCLUDE_MODE);
                 const isPackage = commandLineParser.getBooleanArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
+                const testingAdditions = commandLineParser.getStringArgument(CommandLineArgConstants.TESTING_ADDITIONS);
+                const map = commandLineParser.getStringArgument(CommandLineArgConstants.MAP);
+                const loaders = commandLineParser.getStringArgument(CommandLineArgConstants.LOADERS);
                 const assets = commandLineParser.getStringArgument(CommandLineArgConstants.ASSETS);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
                     const engine: IEngine = new Engine(logger, fileSystem);
-                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, testScriptInclude, main, mainMinified, isPackage, assets, packageManager, outputDirectory);
+                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, scriptIncludeMode,
+                                                     main, mainMinified, testingAdditions, isPackage, assets, map, loaders, packageManager, outputDirectory);
                 }
                 break;
             }

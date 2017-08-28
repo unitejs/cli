@@ -41,6 +41,7 @@ export class CLI extends CLIBase {
                 const cssPreProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
                 const cssPostProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const appFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
+                const force = commandLineParser.getBooleanArgument(CommandLineArgConstants.FORCE);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
 
                 ret = this.checkRemaining(logger, commandLineParser);
@@ -61,6 +62,7 @@ export class CLI extends CLIBase {
                                                  cssPostProcessor,
                                                  packageManager,
                                                  appFramework,
+                                                 force,
                                                  outputDirectory);
                 }
                 break;
@@ -150,9 +152,11 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");
         this.markdownTableToCli(logger, "| cssPost             | PostCss/None                                 | The css postprocessor to use                     |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css post processor             |");
-        this.markdownTableToCli(logger, "| appFramework        | Aurelia/PlainApp/React                       | The application framework to use                 |");
+        this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/React               | The application framework to use                 |");
         this.markdownTableToCli(logger, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to npm if not already set  |");
+        this.markdownTableToCli(logger, "| force               |                                              | Force overwrite of all existing configuration    |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to off                     |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                       | The location that you want the project generated |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to current directory       |");
         logger.info("");
@@ -180,21 +184,29 @@ export class CLI extends CLIBase {
         logger.banner("clientPackage --operation=add");
         logger.info("");
         this.markdownTableToCli(logger, "| packageName         | plain text                                | Name of the package to add                       |");
+
         this.markdownTableToCli(logger, "| version             | 1.23.4                                    | Fixed version to install                         |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to latest version          |");
         this.markdownTableToCli(logger, "| preload             |                                           | Should the package be preloaded at app startup   |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to not preload             |");
-        this.markdownTableToCli(logger, "| includeMode         | app/test/both                             | When should the package be loaded                |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to both                    |");
-        this.markdownTableToCli(logger, "| testScriptInclude   |                                           | Should the package be script included in test    |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to false                   |");
         this.markdownTableToCli(logger, "| main                | 'path'                                    | The path to the main js file in the package      |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to looking it up           |");
+        this.markdownTableToCli(logger, "|                     |                                           |   used * to mean all files to be mapped          |");
         this.markdownTableToCli(logger, "| mainMinified        | 'path'                                    | The path to the minified main js file            |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to using main              |");
+        this.markdownTableToCli(logger, "| includeMode         | app/test/both                             | When should the package be loaded as a module    |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to both                    |");
+        this.markdownTableToCli(logger, "| scriptIncludeMode   | none/bundled/notBundled/both              | When should the package be included as a script  |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to none                    |");
         this.markdownTableToCli(logger, "| isPackage           |                                           | This is included as a package in module loaders  |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to not package             |");
         this.markdownTableToCli(logger, "| assets              | comma separated globs                     | These files are packed in platform builds        |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| testingAdditions    | key1=value1;key2=value2                   | Additional scripts for testing                   |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| map                 | key1=value1;key2=value2                   | Additional module config maps                    |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| loaders             | key1=value1;key2=value2                   | Additional module config loaders                 |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
         this.markdownTableToCli(logger, "| packageManager      | npm/yarn                                  | The package manager to use for the add           |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to npm if not already set  |");

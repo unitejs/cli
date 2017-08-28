@@ -1,6 +1,6 @@
 {
   "name": "unitejs-cli",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Command line interface to the UniteJS JavaScript framework management tool",
   "main": "dist/cli.js",
   "repository": {
@@ -52,7 +52,7 @@
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.42",
-    "@types/node": "^8.0.24",
+    "@types/node": "^8.0.25",
     "@types/sinon": "^2.3.3",
     "chai": "^4.1.1",
     "coveralls": "^2.13.1",
@@ -70,14 +70,14 @@
     "remap-istanbul": "^0.9.5",
     "run-sequence": "^2.1.0",
     "sinon": "^3.2.1",
-    "tslint": "^5.6.0",
+    "tslint": "^5.7.0",
     "tslint-microsoft-contrib": "^5.0.1",
     "typescript": "^2.5.1"
   },
   "dependencies": {
-    "unitejs-framework": "^0.8.0",
-    "unitejs-engine": "^0.9.1",
-    "unitejs-cli-core": "^0.8.0"
+    "unitejs-framework": "^0.8.1",
+    "unitejs-engine": "^0.9.2",
+    "unitejs-cli-core": "^0.8.1"
   },
   "bin": {
     "unite": "bin/unite.js"

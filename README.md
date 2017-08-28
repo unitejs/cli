@@ -68,9 +68,11 @@ If there is already a unite.json in the outputDirectory then all of the argument
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
 | cssPost             | PostCss/None                                 | The css postprocessor to use                     |
 |                     |                                              |   None - means no css post processor             |
-| appFramework        | Aurelia/PlainApp/React                       | The application framework to use                 |
+| appFramework        | [Angular](#au)/[Aurelia](#ng)/[PlainApp](#pa)/[React](#re)               | The application framework to use                 |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
 |                     |                                              |   optional - defaults to Npm if not already set  |
+| force               |                                              | Force overwrite of all existing configuration    |
+|                     |                                              |   optional - defaults to off                     |
 | outputDirectory     | 'path'                                       | The location that you want the project generated |
 |                     |                                              |   optional - defaults to current directory       |
 
@@ -78,7 +80,7 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
     unite configure --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project
 
-    unite configure --packageName=test-project --title="Test JavaScript Mocha Chai SystemJS" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --appFramework=Aurelia --packageManager=Npm --outputDirectory=/unite/test-project
+    unite configure --packageName=test-project --title="Test JavaScript Mocha Chai SystemJS" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --appFramework=Aurelia --packageManager=Npm --force=true --outputDirectory=/unite/test-project
 
 ## Command buildConfiguration
 
@@ -159,17 +161,24 @@ Perform operations to add or remove client packages. These operations will perfo
 |                     |                                           |   optional - defaults to latest version          |
 | preload             |                                           | Should the package be preloaded at app startup   |
 |                     |                                           |   optional - defaults to not preload             |
-| includeMode         | app/test/both                             | When should the package be loaded                |
-|                     |                                           |   optional - defaults to both                    |
-| testScriptInclude   |                                           | Should the package be script included in test    |
-|                     |                                           |   optional - defaults to false                   |
 | main                | 'path'                                    | The path to the main js file in the package      |
 |                     |                                           |   optional - defaults to looking it up           |
+|                     |                                           |   used * to mean all files to be mapped          |
 | mainMinified        | 'path'                                    | The path to the minified main js file            |
 |                     |                                           |   optional - defaults to using main              |
+| includeMode         | app/test/both                             | When should the package be loaded as a module    |
+|                     |                                           |   optional - defaults to both                    |
+| scriptIncludeMode   | none/bundled/notBundled/both              | When should the package be included as a script  |
+|                     |                                           |   optional - defaults to none                    |
 | isPackage           |                                           | This is included as a package in module loaders  |
 |                     |                                           |   optional - defaults to not package             |
 | assets              | comma separated globs                     | These files are packed in platform builds        |
+|                     |                                           |   optional - defaults to empty                   |
+| testingAdditions    | key1=value1;key2=value2                   | Additional scripts for testing                   |
+|                     |                                           |   optional - defaults to empty                   |
+| map                 | key1=value1;key2=value2                   | Additional module config maps                    |
+|                     |                                           |   optional - defaults to empty                   |
+| loaders             | key1=value1;key2=value2                   | Additional module config loaders                 |
 |                     |                                           |   optional - defaults to empty                   |
 | packageManager      | npm/yarn                                  | The package manager to use for the add           |
 |                     |                                           |   optional - defaults to npm if not already set  |
@@ -182,7 +191,13 @@ Perform operations to add or remove client packages. These operations will perfo
 
     unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload
 
+    unite clientPackage --operation=add --packageName=rxjs --main=*
+
     unite clientPackage --operation=add --packageName=sinon --includeMode=test
+
+    unite clientPackage --operation=add --packageName=@angular/core --includeMode=both --testingAdditions=@angular/core/testing=bundles/core-testing.umd.js
+
+    unite clientPackage --operation=add --packageName=requirejs-text --includeMode=both --map=text=requirejs-text --loaders=*.html=text;*.css=text
 
     unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*,fonts/**/*
 
@@ -245,6 +260,24 @@ One you have added a platform there can manually edit your unite.json to specify
 # Generated App
 
 For more information on the generated app see [Generated App](./docs/generated-app.md)
+
+# Frameworks
+
+## <a name="au"></a>Angular
+
+Angular does not currently support bundling with RequireJS because there is no longer an AMD build of RXJS in modular form.
+
+## <a name="au"></a>Aurelia
+
+Aurelia does not currently support bundling with Browserify or Webpack (coming soon)
+
+## <a name="pa"></a>Plain App
+
+This is a vanilla app with no framework libraries included.
+
+## <a name="re"></a>React
+
+Nothing else to mention at the moment.
 
 # Disclaimer
 

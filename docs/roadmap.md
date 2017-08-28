@@ -8,13 +8,13 @@
 
 ## App Frameworks
 
-* Add Angular 2
 * Add Vue
 * Add Ember
 * Add Backbone
 * Add Angular 1
 * Add Ionic
-* Make pluggable
+* Add Polymer
+* Make pluggable from other npm modules
 * Aurelia (Add Webpack bundling)
 
 ## CI Integration

@@ -10,6 +10,7 @@ export class CommandLineArgConstants {
     public static BUNDLER: string = "bundler";
     public static UNIT_TEST_RUNNER: string = "unitTestRunner";
     public static UNIT_TEST_FRAMEWORK: string = "unitTestFramework";
+    public static UNIT_TEST_ENGINE: string = "unitTestEngine";
     public static E2E_TEST_RUNNER: string = "e2eTestRunner";
     public static E2E_TEST_FRAMEWORK: string = "e2eTestFramework";
     public static LINTER: string = "linter";

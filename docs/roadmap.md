@@ -1,6 +1,8 @@
 # Roadmap
 
-* License file needs substitutions e.g. 'name of author', 'owner'
+* License file substitutions e.g. 'name of author', 'owner'
+* Allow buildConfiguration variables to reference local file instead of embedded values in unite.json
+* Add root README.md info about www, packages
 
 ## Profiles
 
@@ -8,31 +10,32 @@
 
 ## App Frameworks
 
-* Add Vue
-* Add Ember
-* Add Backbone
-* Add Angular 1
-* Add Ionic
-* Add Polymer
+* Add [Vue](https://vuejs.org/)
+* Add [Ember](https://www.emberjs.com/)
+* Add [Backbone](http://backbonejs.org/)
+* Add [Ionic](https://ionicframework.com/)
+* Add [Polymer](https://www.polymer-project.org/)
 * Make pluggable from other npm modules
-* Aurelia (Add Webpack bundling)
+* [Aurelia](http://aurelia.io/) (Add Webpack bundling)
 
 ## CI Integration
 
-* Add Travis
-* Add Coveralls
-* Add Circle
+* Add [Travis](https://travis-ci.org/) - requires Selenium remote config
+* Add [Coveralls](https://coveralls.io/)
+* Add [Circle](https://circleci.com/)
 * Add build number to window.unite variable
 * Add build date/time to window.unite variable
+* Add badges to readme file
 
 ## Platform Wrappers
 
-* Add PhoneGap/Cordova
+* Add [Cordova](https://cordova.apache.org/)
 * Add Windows Universal App
 
 ## HTML Index
 
 * Default progress indicator
+* Meta tags author
 
 ## Tasks
 
@@ -41,54 +44,56 @@
 
 ## Source Languages
 
-* Coffee Script
-* Flow
+* Add [Coffee Script](http://coffeescript.org/)
+* Add [Flow](https://flow.org/)
 
 ## CSS Linting
 
-* Add stylelint
-* Add sass-lint
-* Add less-hint
-* Add stylint
+* Add [stylelint](https://stylelint.io/)
+* Add [sass-lint](https://github.com/sasstools/sass-lint)
+* Add [less-hint](https://github.com/lesshint/lesshint)
+* Add [stylint](https://github.com/SimenB/stylint)
 
 ## Code Style
 
-* Prettier
-* Beautify
+* Add [Prettier](https://prettier.io/)
+* Add [Beautify](https://github.com/beautify-web/js-beautify)
 
 ## Build Engine
 
-* Add NPM scripts
-* Add Grunt?
-* Add Gulp 4
+* Add [NPM scripts](https://docs.npmjs.com/misc/scripts)
+* Add [Gulp 4](https://github.com/gulpjs/gulp/tree/4.0)
 
 ## Documentation
 
-* JSDoc ?
-
-## Package Managers
-
-* Add bower?
+* Add [JSDoc](http://usejsdoc.org/)
 
 ## Test Frameworks
 
-* Add Jest (Only supports CommonJs)
-* Add Wallaby (Requires License)
+* Add [Jest](https://facebook.github.io/jest/) (Only supports CommonJs)
+* Add [Wallaby](https://wallabyjs.com/) (Requires License)
 
 ## Bundlers
 
-* Rollup (Requirejs Support ?)
+* Add [Rollup](https://rollupjs.org/) (Requirejs Support ?)
+
+## E2E Test Runner
+
+* Add [Nightwatch](http://nightwatchjs.org/)
 
 ## E2E Frameworks
 
-* Add Cucumber
+* Add [Cucumber](https://cucumber.io/)
 * Change Webdriver - Allure reports need screenshots
 
-## Unit Testing
+## Examples
 
-* Add Chrome headless
-* Alternate UI Browsers for testing Firefox/IE/Edge
-
-## E2E Testing
-
-* Alternate UI Browsers for testing Firefox/IE/Edge
+* Common libraries
+  * moment
+  * lodash
+  * underscore
+  * jquery
+  * sinon
+  * bluebird
+  * bootstrap 3 & 4
+  * font-awesome

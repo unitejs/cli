@@ -34,6 +34,7 @@ export class CLI extends CLIBase {
                 const bundler = commandLineParser.getStringArgument(CommandLineArgConstants.BUNDLER);
                 const unitTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_RUNNER);
                 const unitTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_FRAMEWORK);
+                const unitTestEngine = commandLineParser.getStringArgument(CommandLineArgConstants.UNIT_TEST_ENGINE);
                 const e2eTestRunner = commandLineParser.getStringArgument(CommandLineArgConstants.E2E_TEST_RUNNER);
                 const e2eTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.E2E_TEST_FRAMEWORK);
                 const linter = commandLineParser.getStringArgument(CommandLineArgConstants.LINTER);
@@ -55,6 +56,7 @@ export class CLI extends CLIBase {
                                                  bundler,
                                                  unitTestRunner,
                                                  unitTestFramework,
+                                                 unitTestEngine,
                                                  e2eTestRunner,
                                                  e2eTestFramework,
                                                  linter,
@@ -147,6 +149,7 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| unitTestRunner      | Karma/None                                   | The unit test runner                             |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no unit testing                   |");
         this.markdownTableToCli(logger, "| unitTestFramework   | Jasmine/Mocha-Chai                           | The unit test framework to use                   |");
+        this.markdownTableToCli(logger, "| unitTestEngine      | PhantomJS/ChromeHeadless                     | The unit test engine to execute tests            |");
         this.markdownTableToCli(logger, "| e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |");
         this.markdownTableToCli(logger, "| e2eTestFramework    | Jasmine/Mocha-Chai                           | The e2e test framework to use                    |");
         this.markdownTableToCli(logger, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");

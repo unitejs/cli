@@ -63,12 +63,13 @@ If there is already a unite.json in the outputDirectory then all of the argument
 | unitTestRunner      | Karma/None                                   | The unit test runner                             |
 |                     |                                              |   None - means no unit testing                   |
 | unitTestFramework   | Jasmine/Mocha-Chai                           | The unit test framework to use                   |
+| unitTestEngine      | PhantomJS/ChromeHeadless                     | The unit test engine to execute tests            |
 | e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |
 | e2eTestFramework    | Jasmine/Mocha-Chai                           | The e2e test framework to use                    |
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
 | cssPost             | PostCss/None                                 | The css postprocessor to use                     |
 |                     |                                              |   None - means no css post processor             |
-| appFramework        | [Angular](#au)/[Aurelia](#ng)/[PlainApp](#pa)/[React](#re)               | The application framework to use                 |
+| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[React](#re)               | The application framework to use                 |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
 |                     |                                              |   optional - defaults to Npm if not already set  |
 | force               |                                              | Force overwrite of all existing configuration    |
@@ -78,9 +79,9 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
 # Example
 
-    unite configure --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project
+    unite configure --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --unitTestEngine=PhantomJS --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass -cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project
 
-    unite configure --packageName=test-project --title="Test JavaScript Mocha Chai SystemJS" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --appFramework=Aurelia --packageManager=Npm --force=true --outputDirectory=/unite/test-project
+    unite configure --packageName=test-project --title="Test JavaScript Mocha Chai SystemJS" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma --unitTestFramework=Mocha-Chai --unitTestEngine=ChromeHeadless --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None --appFramework=Aurelia --packageManager=Npm --force=true --outputDirectory=/unite/test-project
 
 ## Command buildConfiguration
 
@@ -263,7 +264,7 @@ For more information on the generated app see [Generated App](./docs/generated-a
 
 # Frameworks
 
-## <a name="au"></a>Angular
+## <a name="ng"></a>Angular
 
 Angular does not currently support bundling with RequireJS because there is no longer an AMD build of RXJS in modular form.
 

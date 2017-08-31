@@ -3,12 +3,13 @@
 ## v0.9.3
 
 * Added more options for testing alternatives
-* See [UniteJS Engine](https://github.com/unitejs/engine/blob/master/CHANGELOG.md#v092) for more details
+* Options are now case insensitive
+* See [UniteJS Engine](https://github.com/unitejs/engine/blob/master/CHANGELOG.md#v093) for more details
 
 ## v0.9.2
 
 * Added Angular as App Framework
-* See [UniteJS Engine](https://github.com/unitejs/engine/blob/master/CHANGELOG.md#v091) for more details
+* See [UniteJS Engine](https://github.com/unitejs/engine/blob/master/CHANGELOG.md#v092) for more details
 
 ## v0.9.1
 

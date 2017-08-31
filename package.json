@@ -1,7 +1,7 @@
 {
   "name": "unitejs-cli",
-  "version": "0.9.2",
-  "description": "Command line interface to the UniteJS JavaScript framework management tool",
+  "version": "0.9.3",
+  "description": "Command line interface to the UniteJS modern web app generation tool",
   "main": "dist/cli.js",
   "repository": {
     "type": "git",
@@ -75,9 +75,9 @@
     "typescript": "^2.5.1"
   },
   "dependencies": {
-    "unitejs-framework": "^0.8.1",
-    "unitejs-engine": "^0.9.2",
-    "unitejs-cli-core": "^0.8.1"
+    "unitejs-framework": "^0.8.2",
+    "unitejs-engine": "^0.9.3",
+    "unitejs-cli-core": "^0.8.2"
   },
   "bin": {
     "unite": "bin/unite.js"

@@ -148,10 +148,10 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no linting                        |");
         this.markdownTableToCli(logger, "| unitTestRunner      | Karma/None                                   | The unit test runner                             |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no unit testing                   |");
-        this.markdownTableToCli(logger, "| unitTestFramework   | Jasmine/Mocha-Chai                           | The unit test framework to use                   |");
+        this.markdownTableToCli(logger, "| unitTestFramework   | Jasmine/MochaChai                            | The unit test framework to use                   |");
         this.markdownTableToCli(logger, "| unitTestEngine      | PhantomJS/ChromeHeadless                     | The unit test engine to execute tests            |");
         this.markdownTableToCli(logger, "| e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |");
-        this.markdownTableToCli(logger, "| e2eTestFramework    | Jasmine/Mocha-Chai                           | The e2e test framework to use                    |");
+        this.markdownTableToCli(logger, "| e2eTestFramework    | Jasmine/MochaChai                            | The e2e test framework to use                    |");
         this.markdownTableToCli(logger, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");
         this.markdownTableToCli(logger, "| cssPost             | PostCss/None                                 | The css postprocessor to use                     |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css post processor             |");
@@ -255,11 +255,11 @@ export class CLI extends CLIBase {
         logger.info("  unite configure --packageName=test-project --title=\"Test TypeScript Jasmine RequireJS\"");
         logger.info("   --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma");
         logger.info("   --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint");
-        logger.info("   --cssPre=Sass -cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project");
+        logger.info("   --cssPre=Sass --cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project");
         logger.info("");
         logger.info("  unite configure --packageName=test-project --title=\"Test JavaScript Mocha Chai SystemJS\"");
         logger.info("    --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma");
-        logger.info("    --unitTestFramework=Mocha-Chai --e2eTestRunner=None --linter=ESLint --cssPre=Css -cssPost=None");
+        logger.info("    --unitTestFramework=MochaChai --e2eTestRunner=None --linter=ESLint --cssPre=Css --cssPost=None");
         logger.info("    --appFramework=Aurelia --packageManager=Npm --outputDirectory=/unite/test-project");
         logger.info("");
         logger.info("  unite buildConfiguration --operation=add --configurationName=dev --sourcemaps");

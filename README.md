@@ -169,6 +169,8 @@ Perform operations to add or remove client packages. These operations will perfo
 |                     |                                           |   used * to mean all files to be mapped          |
 | mainMinified        | 'path'                                    | The path to the minified main js file            |
 |                     |                                           |   optional - defaults to using main              |
+| noScript            |                                           | Don't include any scripts from the package       |
+|                     |                                           |   optional - defaults to false                   |
 | includeMode         | app/test/both                             | When should the package be loaded as a module    |
 |                     |                                           |   optional - defaults to both                    |
 | scriptIncludeMode   | none/bundled/notBundled/both              | When should the package be included as a script  |

@@ -18,10 +18,6 @@ Items highlighted in **bold** are the next to be implemented.
 
 * Allow buildConfiguration variables to reference local file instead of embedded values in unite.json
 
-## Client Packages
-
-* **Add option to not include JavaScript e.g. Bootstrap 4 --noScript**
-
 ## Engine Pipeline
 
 * Make pluggable from other npm modules

@@ -32,6 +32,7 @@ export class CommandLineArgConstants {
     public static ASSETS: string = "assets";
     public static MAP: string = "map";
     public static LOADERS: string = "loaders";
+    public static NO_SCRIPT: string = "noScript";
     public static PACKAGE_MANAGER: string = "packageManager";
 
     public static CONFIGURATION_NAME: string = "configurationName";

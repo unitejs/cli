@@ -89,6 +89,7 @@ export class CLI extends CLIBase {
                 const isPackage = commandLineParser.getBooleanArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
+                const noScript = commandLineParser.getBooleanArgument(CommandLineArgConstants.NO_SCRIPT);
                 const testingAdditions = commandLineParser.getStringArgument(CommandLineArgConstants.TESTING_ADDITIONS);
                 const map = commandLineParser.getStringArgument(CommandLineArgConstants.MAP);
                 const loaders = commandLineParser.getStringArgument(CommandLineArgConstants.LOADERS);
@@ -96,7 +97,8 @@ export class CLI extends CLIBase {
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
                     ret = await this._engine.clientPackage(operation, packageName, version, preload, includeMode, scriptIncludeMode,
-                                                           main, mainMinified, testingAdditions, isPackage, assets, map, loaders, packageManager, outputDirectory);
+                                                           main, mainMinified, testingAdditions, isPackage, assets, map, loaders, noScript,
+                                                           packageManager, outputDirectory);
                 }
                 break;
             }
@@ -199,6 +201,8 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   used * to mean all files to be mapped          |");
         this.markdownTableToCli(logger, "| mainMinified        | 'path'                                    | The path to the minified main js file            |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to using main              |");
+        this.markdownTableToCli(logger, "| noScript            |                                           | Don't include any scripts from the package       |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to false                   |");
         this.markdownTableToCli(logger, "| includeMode         | app/test/both                             | When should the package be loaded as a module    |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to both                    |");
         this.markdownTableToCli(logger, "| scriptIncludeMode   | none/bundled/notBundled/both              | When should the package be included as a script  |");

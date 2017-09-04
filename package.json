@@ -1,6 +1,6 @@
 {
   "name": "unitejs-cli",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Command line interface to the UniteJS modern web app generation tool",
   "main": "dist/cli.js",
   "repository": {

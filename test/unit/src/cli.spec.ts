@@ -18,6 +18,7 @@ describe("CLI", () => {
     let commandLineParser: CommandLineParser;
     let loggerInfoSpy: Sinon.SinonSpy;
     let loggerErrorSpy: Sinon.SinonSpy;
+    let loggerBannerSpy: Sinon.SinonSpy;
 
     beforeEach(() => {
         sandbox = Sinon.sandbox.create();
@@ -33,6 +34,7 @@ describe("CLI", () => {
 
         loggerInfoSpy = sandbox.spy(loggerStub, "info");
         loggerErrorSpy = sandbox.spy(loggerStub, "error");
+        loggerBannerSpy = sandbox.spy(loggerStub, "banner");
 
         commandLineParser = new CommandLineParser();
     });
@@ -72,6 +74,7 @@ describe("CLI", () => {
                 "--appFramework=PlainApp",
                 "--outputDirectory=./test/unit/temp"
             ]);
+            await obj.initialise(loggerStub, fileSystemStub);
             const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
             Chai.expect(res).to.be.equal(0);
             const fileExists = await fileSystemStub.fileExists("./test/unit/temp/", "unite.json");
@@ -107,6 +110,7 @@ describe("CLI", () => {
                 "--packageName=moment",
                 "--outputDirectory=./test/unit/temp"
             ]);
+            await obj.initialise(loggerStub, fileSystemStub);
             const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
             Chai.expect(res).to.be.equal(1);
             const fileExists = await fileSystemStub.fileExists("./test/unit/temp/", "unite.json");
@@ -132,6 +136,7 @@ describe("CLI", () => {
                 "--configurationName=prod",
                 "--outputDirectory=./test/unit/temp"
             ]);
+            await obj.initialise(loggerStub, fileSystemStub);
             const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
             Chai.expect(res).to.be.equal(1);
             const fileExists = await fileSystemStub.fileExists("./test/unit/temp/", "unite.json");
@@ -157,6 +162,7 @@ describe("CLI", () => {
                 "--platformName=electron",
                 "--outputDirectory=./test/unit/temp"
             ]);
+            await obj.initialise(loggerStub, fileSystemStub);
             const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
             Chai.expect(res).to.be.equal(1);
             const fileExists = await fileSystemStub.fileExists("./test/unit/temp/", "unite.json");
@@ -183,6 +189,15 @@ describe("CLI", () => {
             const res = obj.displayHelp(loggerStub);
             Chai.expect(res).to.be.equal(0);
             Chai.expect(loggerInfoSpy.called).to.be.equal(true);
+        });
+    });
+
+    describe("displayAdditionalVersion", () => {
+        it("can display engine version", async () => {
+            const obj = new CLI();
+            await obj.initialise(loggerStub, fileSystemStub);
+            obj.displayAdditionalVersion(loggerStub);
+            Chai.expect(/Engine v(\d*)\.(\d*)\.(\d*)/.test(loggerBannerSpy.args[0][loggerBannerSpy.args.length - 1])).to.be.equal(true);
         });
     });
 });

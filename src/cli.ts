@@ -12,9 +12,15 @@ import { CommandLineCommandConstants } from "./commandLineCommandConstants";
 
 export class CLI extends CLIBase {
     private static APP_NAME: string = "UniteJS";
+    private _engine: IEngine;
 
     constructor() {
         super(CLI.APP_NAME);
+    }
+
+    public async initialise(logger: ILogger, fileSystem: IFileSystem): Promise<number> {
+        this._engine = new Engine();
+        return this._engine.initialise(logger, fileSystem);
     }
 
     public async handleCustomCommand(logger: ILogger, fileSystem: IFileSystem, commandLineParser: CommandLineParser): Promise<number> {
@@ -47,25 +53,24 @@ export class CLI extends CLIBase {
 
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    const engine: IEngine = new Engine(logger, fileSystem);
-                    ret = await engine.configure(packageName,
-                                                 title,
-                                                 license,
-                                                 sourceLanguage,
-                                                 moduleType,
-                                                 bundler,
-                                                 unitTestRunner,
-                                                 unitTestFramework,
-                                                 unitTestEngine,
-                                                 e2eTestRunner,
-                                                 e2eTestFramework,
-                                                 linter,
-                                                 cssPreProcessor,
-                                                 cssPostProcessor,
-                                                 packageManager,
-                                                 appFramework,
-                                                 force,
-                                                 outputDirectory);
+                    ret = await this._engine.configure(packageName,
+                                                       title,
+                                                       license,
+                                                       sourceLanguage,
+                                                       moduleType,
+                                                       bundler,
+                                                       unitTestRunner,
+                                                       unitTestFramework,
+                                                       unitTestEngine,
+                                                       e2eTestRunner,
+                                                       e2eTestFramework,
+                                                       linter,
+                                                       cssPreProcessor,
+                                                       cssPostProcessor,
+                                                       packageManager,
+                                                       appFramework,
+                                                       force,
+                                                       outputDirectory);
                 }
                 break;
             }
@@ -90,9 +95,8 @@ export class CLI extends CLIBase {
                 const assets = commandLineParser.getStringArgument(CommandLineArgConstants.ASSETS);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    const engine: IEngine = new Engine(logger, fileSystem);
-                    ret = await engine.clientPackage(operation, packageName, version, preload, includeMode, scriptIncludeMode,
-                                                     main, mainMinified, testingAdditions, isPackage, assets, map, loaders, packageManager, outputDirectory);
+                    ret = await this._engine.clientPackage(operation, packageName, version, preload, includeMode, scriptIncludeMode,
+                                                           main, mainMinified, testingAdditions, isPackage, assets, map, loaders, packageManager, outputDirectory);
                 }
                 break;
             }
@@ -108,8 +112,7 @@ export class CLI extends CLIBase {
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    const engine: IEngine = new Engine(logger, fileSystem);
-                    ret = await engine.buildConfiguration(operation, configurationName, bundle, minify, sourceMaps, outputDirectory);
+                    ret = await this._engine.buildConfiguration(operation, configurationName, bundle, minify, sourceMaps, outputDirectory);
                 }
                 break;
             }
@@ -122,8 +125,7 @@ export class CLI extends CLIBase {
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    const engine: IEngine = new Engine(logger, fileSystem);
-                    ret = await engine.platform(operation, platformName, outputDirectory);
+                    ret = await this._engine.platform(operation, platformName, outputDirectory);
                 }
             }
         }
@@ -250,35 +252,14 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "");
         logger.info("");
 
-        logger.banner("Examples");
-        logger.info("");
-        logger.info("  unite configure --packageName=test-project --title=\"Test TypeScript Jasmine RequireJS\"");
-        logger.info("   --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma");
-        logger.info("   --unitTestFramework=Jasmine --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint");
-        logger.info("   --cssPre=Sass --cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project");
-        logger.info("");
-        logger.info("  unite configure --packageName=test-project --title=\"Test JavaScript Mocha Chai SystemJS\"");
-        logger.info("    --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma");
-        logger.info("    --unitTestFramework=MochaChai --e2eTestRunner=None --linter=ESLint --cssPre=Css --cssPost=None");
-        logger.info("    --appFramework=Aurelia --packageManager=Npm --outputDirectory=/unite/test-project");
-        logger.info("");
-        logger.info("  unite buildConfiguration --operation=add --configurationName=dev --sourcemaps");
-        logger.info("  unite buildConfiguration --operation=add --configurationName=prod --bundle --minify");
-        logger.info("  unite buildConfiguration --operation=add --configurationName=prod-debug --bundle --minify --sourcemaps");
-        logger.info("");
-        logger.info("  unite buildConfiguration --operation=remove --configurationName=prod-debug");
-        logger.info("");
-        logger.info("  unite clientPackage --operation=add --packageName=moment");
-        logger.info("  unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload");
-        logger.info("  unite clientPackage --operation=add --packageName=sinon --includeMode=test");
-        logger.info("");
-        logger.info("  unite clientPackage --operation=remove --packageName=moment");
-        logger.info("");
-
         logger.banner("More Information");
         logger.info("");
         logger.info("  See https://github.com/unitejs/cli#readme for further details.");
 
         return 0;
+    }
+
+    protected displayAdditionalVersion(logger: ILogger): void {
+        logger.banner(`Engine v${this._engine.version()}`);
     }
 }

@@ -45,7 +45,7 @@ Items highlighted in **bold** are the next to be implemented.
 * Add [Ember](https://www.emberjs.com/)
 * Add [Backbone](http://backbonejs.org/)
 * Add [Ionic](https://ionicframework.com/)
-* Add [Polymer](https://www.polymer-project.org/)
+* Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
 * [Aurelia](http://aurelia.io/) (Add Webpack bundling)
 
 # CI

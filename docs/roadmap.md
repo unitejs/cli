@@ -118,9 +118,6 @@ Items highlighted in **bold** are the next to be implemented.
 
 * Add [Jest](https://facebook.github.io/jest/) (Only supports CommonJs)
 * Add [Wallaby](https://wallabyjs.com/) (Requires License)
-* **Karma read current config and modify not overwrite**
-* **Karma generate include files at unit test time not configure**
-* **Remove karma pipeline step during clientConfiguration commands**
 
 ## Unit Testing
 
@@ -129,7 +126,7 @@ Items highlighted in **bold** are the next to be implemented.
 ## E2E Testing
 
 * Add selenium remote testing for use with CI
-* **Protractor read existing config and modify**
+* Protractor read existing config and modify
 
 ## E2E Test Runner
 

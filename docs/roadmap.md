@@ -12,7 +12,7 @@ Items highlighted in **bold** are the next to be implemented.
 
 ## Assets
 
-* **Add additional assets that are copied to dist e.g. web.config, .well-known folder**
+* Add additional assets that are copied to dist e.g. web.config, .well-known folder
 
 ## Build Configurations
 
@@ -25,17 +25,15 @@ Items highlighted in **bold** are the next to be implemented.
 
 ## HTML Index
 
-* **Generate script includes at build time not configure**
 * Default progress indicator
 * Meta tags author (use same info as licensing?)
 
 ## Tasks
 
-* **Merge gulp unit-ui into gulp unit with arg --browser**
-* **Add package view task so you can see which files get included in bundling**
 * Build Watch with browser reload
 * Unit Watch with browser reload if in UI mode
 * CSS Watch with browser reload
+* Add package view task so you can see which files get included in bundling
 
 ## Licenses
 

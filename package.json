@@ -1,7 +1,7 @@
 {
   "name": "unitejs-cli",
   "version": "0.9.4",
-  "description": "Command line interface to the UniteJS modern web app generation tool",
+  "description": "Command line interface to the UniteJS zero configuration web app generation tool.",
   "main": "dist/cli.js",
   "repository": {
     "type": "git",
@@ -37,7 +37,9 @@
     "web",
     "electron",
     "scaffolding",
-    "boilerplate"
+    "boilerplate",
+    "zero",
+    "configuration"
   ],
   "author": "martyn@unitejs.com",
   "license": "MIT",
@@ -52,9 +54,9 @@
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.42",
-    "@types/node": "^8.0.25",
+    "@types/node": "^8.0.26",
     "@types/sinon": "^2.3.3",
-    "chai": "^4.1.1",
+    "chai": "^4.1.2",
     "coveralls": "^2.13.1",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
@@ -72,12 +74,12 @@
     "sinon": "^3.2.1",
     "tslint": "^5.7.0",
     "tslint-microsoft-contrib": "^5.0.1",
-    "typescript": "^2.5.1"
+    "typescript": "^2.5.2"
   },
   "dependencies": {
-    "unitejs-framework": "^0.8.2",
-    "unitejs-engine": "^0.9.3",
-    "unitejs-cli-core": "^0.8.2"
+    "unitejs-framework": "^0.8.3",
+    "unitejs-engine": "^0.9.7",
+    "unitejs-cli-core": "^0.8.3"
   },
   "bin": {
     "unite": "bin/unite.js"

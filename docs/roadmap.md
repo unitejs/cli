@@ -5,6 +5,7 @@ Items highlighted in **bold** are the next to be implemented.
 ## General
 
 * Add root README.md info about www, packages, CI integration
+* Make unite work from www directory by traversing back up (look for package.json)
 
 ## Profiles
 
@@ -21,7 +22,8 @@ Items highlighted in **bold** are the next to be implemented.
 ## Engine Pipeline
 
 * Make pluggable from other npm modules
-* **Build dependency tree so order doesn't matter**
+* Make source, view, style extensions configurable
+* Enumerate from directories instead of fixed list
 
 ## HTML Index
 

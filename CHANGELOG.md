@@ -4,7 +4,8 @@ See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHA
 
 ## v0.9.4
 
-* Added Engine version to verion info
+* Added Engine version to version info
+* Added --noScript option for clientPackages
 
 ## v0.9.3
 

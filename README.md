@@ -1,6 +1,6 @@
 [![Join the chat at https://gitter.im/unitejs/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/unitejs/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NPM version][npm-version-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls][coveralls-image]][coveralls-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] 
 
-# UniteJS CLI
+# UniteJS CLI - The Zero Configuration Web App Generation Tool
 
 How many times have you started a new web project and thought maybe I should try using the latest and greatest tech stack to see what I am missing?
 
@@ -9,9 +9,9 @@ Then the reality check happens and you probably think:
 * I don't have time to learn a new technology
 * The getting started guides are great but I just want to dive in and code
 * I don't want to have to learn all the new tasks/commands/scripts just to give it a try
-* How long is it going to take me to get the different technologies to work together gracefully
+* How long is it going to take me to configure the different technologies to work together
 
-The aim of UniteJS is to provide a CLI tool which you can use to create a ready to roll application with code, styling, unit tests and e2e tests. All combinations of the chosen technologies provide the same set of tasks to run and produce the same output. We try not to be too opinionated in what is produced but sometimes that can't be helped :wink:
+The aim of UniteJS is to provide a CLI tool that you can use to create a ready to roll application with code, styling, unit tests and e2e tests. All combinations of the chosen technologies provide the same set of tasks to run and produce the same output. We try not to be too opinionated in what is produced but sometimes that can't be helped :wink:
 
 You can see what the app provides out of the box in the [Generated App](./docs/generated-app.md) docs.
 
@@ -205,6 +205,8 @@ Perform operations to add or remove client packages. These operations will perfo
     unite clientPackage --operation=add --packageName=requirejs-text --includeMode=both --map=text=requirejs-text --loaders=*.html=text;*.css=text
 
     unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*;fonts/**/*
+
+    unite clientPackage --operation=add --packageName=bootstrap --version=4.0.0-beta --noScript
 
 ### operation remove
 

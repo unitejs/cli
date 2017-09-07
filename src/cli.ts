@@ -198,7 +198,7 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to not preload             |");
         this.markdownTableToCli(logger, "| main                | 'path'                                    | The path to the main js file in the package      |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to looking it up           |");
-        this.markdownTableToCli(logger, "|                     |                                           |   used * to mean all files to be mapped          |");
+        this.markdownTableToCli(logger, "|                     |                                           |   use * to mean all files to be mapped          |");
         this.markdownTableToCli(logger, "| mainMinified        | 'path'                                    | The path to the minified main js file            |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to using main              |");
         this.markdownTableToCli(logger, "| noScript            |                                           | Don't include any scripts from the package       |");

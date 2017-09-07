@@ -25,32 +25,40 @@ So if this sounds like the tool for you just dive in, all the current options ar
 
 Unite is best installed as a global package
 
-    npm install -g unitejs-cli / yarn global add unitejs-cli
+``` shell
+npm install -g unitejs-cli / yarn global add unitejs-cli
+```
 
 # Usage
 
-    unite "command" [args0] [args1] ... [argsn]
-    where command is one of:
-    * help
-    * version
-    * configure
-    * clientPackage
-    * buildConfiguration
-    * platform
+``` shell
+unite "command" [args0] [args1] ... [argsn]
+```
+
+where command is one of:
+
+* help
+* version
+* configure
+* buildConfiguration
+* clientPackage
+* platform
 
 All argument values are case insensitive.
 
-## Command help
+## unite help
 
-Display the help on the command line.
+Displays the help on the command line.
 
-## Command version
+## unite version
 
-Display the version of the app on the command line.
+Displays the version of the app and the engine on the command line.
 
-## Command configure
+## unite configure
 
-If there is already a unite.json in the outputDirectory then all of the arguments will be read from the file and are optional. You only need specify the ones that you want to change.
+This command will generate your skeleton application with the options you specify.
+
+If there is already a unite.json in the outputDirectory then all of the arguments will be read from the file and are optional, you only need specify the ones that you want to change.
 
 | Argument            | Value                                        | Used For                                         |
 |---------------------|----------------------------------------------|--------------------------------------------------|
@@ -81,40 +89,19 @@ If there is already a unite.json in the outputDirectory then all of the argument
 
 # Example
 
-    unite configure --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --unitTestEngine=PhantomJS --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass --cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project
+``` shell
+unite configure --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --unitTestEngine=PhantomJS --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass --cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project
 
-    unite configure --packageName=test-project --title="Test JavaScript Mocha Chai SystemJS" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma --unitTestFramework=MochaChai --unitTestEngine=ChromeHeadless --e2eTestRunner=None --linter=ESLint --cssPre=Css --cssPost=None --appFramework=Aurelia --packageManager=Npm --force=true --outputDirectory=/unite/test-project
+unite configure --packageName=test-project --title="Test JavaScript Mocha Chai SystemJS" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma --unitTestFramework=MochaChai --unitTestEngine=ChromeHeadless --e2eTestRunner=None --linter=ESLint --cssPre=Css --cssPost=None --appFramework=Aurelia --packageManager=Npm --force=true --outputDirectory=/unite/test-project
+```
 
 ## Command buildConfiguration
 
 By default you are created dev and prod configurations with sensible defaults. You can add or remove configurations with this command.
 
-The configuration sections created in unite.json have a variables property which you can modify manually to add your own values that will be include in the build. The values are then available in the window.unite.config namespace at runtime. As this is just JSON your value can be any data that can be JSON serialized. The TypeScript definitions for this object are in this repo [UniteJS Types](https://github.com/unitejs/types) and can be reference using:
+### --operation=add
 
-     /// <reference types="unitejs-types" />
-
-# Example
-
-unite.json
-
-    "buildConfigurations": {
-        "myconfiguration": {
-            ...
-            "variables": {
-                "value1": 12345,
-                "someFlag: true
-            }
-        }
-    }
-
-at runtime
-
-    console.log(window.unite.config["value1"]);
-    console.log(window.unite.config["someFlag"]);
-
-### operation add
-
-This will also update any existing configurations.
+This will either add a new configuration or update any existing configurations with the same name.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
@@ -131,13 +118,17 @@ This will also update any existing configurations.
 
 # Example
 
-    unite buildConfiguration --operation=add --configurationName=dev --sourcemaps
+``` shell
+unite buildConfiguration --operation=add --configurationName=dev --sourcemaps
 
-    unite buildConfiguration --operation=add --configurationName=prod --bundle --minify
+unite buildConfiguration --operation=add --configurationName=prod --bundle --minify
 
-    unite buildConfiguration --operation=add --configurationName=prod-debug --bundle --minify --sourcemaps
+unite buildConfiguration --operation=add --configurationName=prod-debug --bundle --minify --sourcemaps
+```
 
-### operation remove
+### --operation=remove
+
+This will remove an existing configuration.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
@@ -148,11 +139,42 @@ This will also update any existing configurations.
 
 # Example
 
-    unite buildConfiguration --operation=remove --configurationName=prod-debug
+```shell
+unite buildConfiguration --operation=remove --configurationName=prod-debug
+```
 
-## Command clientPackage
+# Build Configuration Variables
 
-Perform operations to add or remove client packages. These operations will perform the npm/yarn package operations as well as updating all the necessary configuration files.
+The configuration sections created in unite.json have a variables property which you can modify manually to add your own values that will be include in the build. The values are then available in the window.unite.config namespace at runtime. As this is just JSON your value can be any data that can be JSON serialized. The TypeScript definitions for this object are in this repo [UniteJS Types](https://github.com/unitejs/types) and can be reference using:
+
+``` typescript
+/// <reference types="unitejs-types" />
+```
+
+unite.json
+
+``` json
+"buildConfigurations": {
+    "myconfiguration": {
+        ...
+        "variables": {
+            "value1": 12345,
+            "someFlag: true
+        }
+    }
+}
+```
+
+At runtime you can access the variables as follows:
+
+``` javascript
+console.log(window.unite.config["value1"]);
+console.log(window.unite.config["someFlag"]);
+```
+
+## unite clientPackage
+
+Perform operations to add or remove client packages. In addition these operations will handle the npm/yarn tasks.
 
 ### operation add
 
@@ -166,7 +188,7 @@ Perform operations to add or remove client packages. These operations will perfo
 |                     |                                           |   optional - defaults to not preload             |
 | main                | 'path'                                    | The path to the main js file in the package      |
 |                     |                                           |   optional - defaults to looking it up           |
-|                     |                                           |   used * to mean all files to be mapped          |
+|                     |                                           |   use * to mean all files to be mapped          |
 | mainMinified        | 'path'                                    | The path to the minified main js file            |
 |                     |                                           |   optional - defaults to using main              |
 | noScript            |                                           | Don't include any scripts from the package       |
@@ -192,23 +214,25 @@ Perform operations to add or remove client packages. These operations will perfo
 
 # Example
 
-    unite clientPackage --operation=add --packageName=moment
+``` shell
+unite clientPackage --operation=add --packageName=moment
 
-    unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload
+unite clientPackage --operation=add --packageName=moment --version=2.0.0 --preload
 
-    unite clientPackage --operation=add --packageName=rxjs --main=*
+unite clientPackage --operation=add --packageName=rxjs --main=*
 
-    unite clientPackage --operation=add --packageName=sinon --includeMode=test
+unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
-    unite clientPackage --operation=add --packageName=@angular/core --includeMode=both --testingAdditions=@angular/core/testing=bundles/core-testing.umd.js
+unite clientPackage --operation=add --packageName=@angular/core --includeMode=both --testingAdditions=@angular/core/testing=bundles/core-testing.umd.js
 
-    unite clientPackage --operation=add --packageName=requirejs-text --includeMode=both --map=text=requirejs-text --loaders=*.html=text;*.css=text
+unite clientPackage --operation=add --packageName=requirejs-text --includeMode=both --map=text=requirejs-text --loaders=*.html=text;*.css=text
 
-    unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*;fonts/**/*
+unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*;fonts/**/*
 
-    unite clientPackage --operation=add --packageName=bootstrap --version=4.0.0-beta --noScript
+unite clientPackage --operation=add --packageName=bootstrap --version=4.0.0-beta --noScript
+```
 
-### operation remove
+### --operation=remove
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
@@ -221,15 +245,19 @@ Perform operations to add or remove client packages. These operations will perfo
 
 # Example
 
-    unite clientPackage --operation=remove --packageName=moment
+```shell
+unite clientPackage --operation=remove --packageName=moment
+```
 
-## Command platform
+## unite platform
 
 Perform operations to add or remove platforms. This provides tasks that allow you to wrap your web application for different platforms.
 
-One you have added a platform there can manually edit your unite.json to specify other options for the platform packaging, see the [Platforms](./docs/generated-app.md#platforms) section.
+One you have added a platform you can manually edit your unite.json to specify other options for the platform packaging, see the [Platforms](./docs/generated-app.md#platforms) section.
 
-### operation add
+### --operation=add
+
+This will add a new platform and modify all the necessary configuration files to include it in your app.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
@@ -240,9 +268,13 @@ One you have added a platform there can manually edit your unite.json to specify
 
 # Example
 
-    unite platform --operation=add --platformName=Web
+``` shell
+unite platform --operation=add --platformName=Web
+```
 
-### operation remove
+### --operation=remove
+
+This will remove an existing platform and modify all the necessary configuration files to remove it from your app.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
@@ -253,7 +285,9 @@ One you have added a platform there can manually edit your unite.json to specify
 
 # Example
 
-    unite platform --operation=remove --platformName=Electron
+```shell
+unite platform --operation=remove --platformName=Electron
+```    
 
 ## global arguments
 

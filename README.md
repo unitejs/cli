@@ -1,6 +1,6 @@
 [![Join the chat at https://gitter.im/unitejs/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/unitejs/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NPM version][npm-version-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls][coveralls-image]][coveralls-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] 
 
-# UniteJS CLI - The Zero Configuration Web App Generation Tool
+# UniteJS CLI - Zero Configuration Web App Creation
 
 How many times have you started a new web project and thought maybe I should try using the latest and greatest tech stack to see what I am missing?
 
@@ -11,19 +11,27 @@ Then the reality check happens and you probably think:
 * I don't want to have to learn all the new tasks/commands/scripts just to give it a try
 * How long is it going to take me to configure the different technologies to work together
 
-The aim of UniteJS is to provide a CLI tool that you can use to create a ready to roll application with code, styling, unit tests and e2e tests. All combinations of the chosen technologies provide the same set of tasks to run and produce the same output. We try not to be too opinionated in what is produced but sometimes that can't be helped :wink:
+The aim of UniteJS is to provide a CLI tool which you can use to create a ready to roll application with code, styling, unit tests and e2e tests and zero configuration. All combinations of the chosen technologies provide the same set of tasks to run and produce the same output.
 
-You can see what the app provides out of the box in the [Generated App](./docs/generated-app.md) docs.
+We try not to be too opinionated in what is produced but sometimes that can't be helped :wink:
 
-In addition there are some extras built-in like **icon generation** and **platform packaging**.
+The CLI provides a multitude of different options for lots of the most popular dev tools. In addition there are some extras built-in like **icon generation** and **platform packaging**.
 
 As we add new features to UniteJS you will be able to update your project without losing any changes you have made.
 
-So if this sounds like the tool for you just dive in, all the current options are displayed below and you can see what's coming next in the [roadmap](./docs/roadmap.md)
+So if this sounds like the tool for you just dive in.
+
+# Documentation
+
+In depth documentation can be found on the web site at [http://unitejs.com/#/documentation](http://unitejs.com/#/documentation)
+
+# Generator
+
+If you don't want to type in all the command line options you can find a command line generator on the web site at [http://unitejs.com/#/generator](http://unitejs.com/#/generator)
 
 # Install
 
-Unite is best installed as a global package
+UniteJS is a node module and is best installed as a global package.
 
 ``` shell
 npm install -g unitejs-cli / yarn global add unitejs-cli
@@ -32,7 +40,7 @@ npm install -g unitejs-cli / yarn global add unitejs-cli
 # Usage
 
 ``` shell
-unite "command" [args0] [args1] ... [argsn]
+unite command --argName<0>=argValue<0> ... --argName<n>=argValue<n>
 ```
 
 where command is one of:
@@ -44,7 +52,9 @@ where command is one of:
 * clientPackage
 * platform
 
-All argument values are case insensitive.
+Argument names are case sensitive but values are case insensitive, argument values with spaces should be enclosed in quotes.
+
+# Commands
 
 ## unite help
 
@@ -65,11 +75,12 @@ If there is already a unite.json in the outputDirectory then all of the argument
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
 | title               | plain text                                   | Used on the web index page                       |
 | license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|
+| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[React](#re)               | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
-| moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |
-| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |
 | linter              | ESLint/TSLint/None                           | The linter                                       |
 |                     |                                              |   None - means no linting                        |
+| moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |
+| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |
 | unitTestRunner      | Karma/None                                   | The unit test runner                             |
 |                     |                                              |   None - means no unit testing                   |
 | unitTestFramework   | Jasmine/MochaChai                            | The unit test framework to use                   |
@@ -79,7 +90,6 @@ If there is already a unite.json in the outputDirectory then all of the argument
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
 | cssPost             | PostCss/None                                 | The css postprocessor to use                     |
 |                     |                                              |   None - means no css post processor             |
-| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[React](#re)               | The application framework to use                 |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
 |                     |                                              |   optional - defaults to Npm if not already set  |
 | force               |                                              | Force overwrite of all existing configuration    |
@@ -287,7 +297,7 @@ This will remove an existing platform and modify all the necessary configuration
 
 ```shell
 unite platform --operation=remove --platformName=Electron
-```    
+```
 
 ## global arguments
 
@@ -304,13 +314,15 @@ For more information on the generated app see [Generated App](./docs/generated-a
 
 # Frameworks
 
+Although we try to support all the different framework and tool combinations this is not always possible.
+
 ## <a name="ng"></a>Angular
 
 Angular does not currently support bundling with RequireJS because there is no longer an AMD build of RXJS in modular form.
 
 ## <a name="au"></a>Aurelia
 
-Aurelia does not currently support bundling with Browserify or Webpack (coming soon)
+Aurelia does not currently support bundling with Browserify or Webpack.
 
 ## <a name="pa"></a>Plain App
 

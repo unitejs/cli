@@ -5,11 +5,14 @@ Items highlighted in **bold** are the next to be implemented.
 ## General
 
 * Add root README.md info about www, packages, CI integration
-* Make unite work from www directory by traversing back up (look for package.json)
 
 ## Profiles
 
-* Add profiles to save lots of command line options for configure and clientPackages, also for App Framework with prefered defaults.
+* **Add profiles to save lots of command line options for configure and clientPackages, also for App Framework with prefered defaults.**
+
+## Components
+
+* **Ability for each application framework to generate components**
 
 ## Assets
 
@@ -21,9 +24,8 @@ Items highlighted in **bold** are the next to be implemented.
 
 ## Engine Pipeline
 
-* Make pluggable from other npm modules
-* Make source, view, style extensions configurable
-* Enumerate from directories instead of fixed list
+* **Make pluggable from other npm modules**
+* **Enumerate from directories instead of fixed list**
 
 ## HTML Index
 
@@ -32,9 +34,6 @@ Items highlighted in **bold** are the next to be implemented.
 
 ## Tasks
 
-* Build Watch with browser reload
-* Unit Watch with browser reload if in UI mode
-* CSS Watch with browser reload
 * Add package view task so you can see which files get included in bundling
 
 ## Licenses
@@ -48,7 +47,7 @@ Items highlighted in **bold** are the next to be implemented.
 * Add [Backbone](http://backbonejs.org/)
 * Add [Ionic](https://ionicframework.com/)
 * Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
-* [Aurelia](http://aurelia.io/) (Add Webpack bundling)
+* **[Aurelia](http://aurelia.io/) (Add Webpack bundling)**
 
 # CI
 
@@ -118,7 +117,7 @@ Items highlighted in **bold** are the next to be implemented.
 
 ## Test Frameworks
 
-* Add [Jest](https://facebook.github.io/jest/) (Only supports CommonJs)
+* **Add [Jest](https://facebook.github.io/jest/) (Only supports CommonJs)**
 * Add [Wallaby](https://wallabyjs.com/) (Requires License)
 
 ## Unit Testing
@@ -127,7 +126,7 @@ Items highlighted in **bold** are the next to be implemented.
 
 ## E2E Testing
 
-* Add selenium remote testing for use with CI
+* **Add selenium remote testing for use with CI**
 * Protractor read existing config and modify
 
 ## E2E Test Runner

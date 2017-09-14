@@ -2,6 +2,14 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.0.2
+
+* Task Updates
+
+## v1.0.1
+
+* Bug fixes
+
 ## v1.0.0
 
 * Release

@@ -32,6 +32,10 @@ You can specify a buildConfiguration with the following syntax:
 
     gulp build --buildConfiguration=prod
 
+If you don't want to keep running the build command you can add the watch switch, this will monitor for changes in source/views/styling and build whatever is required. This will perform an initial complete build, but only run some of the sub tasks for changes, so you should run a full build before performing other tasks:
+
+    gulp build --watch
+
 ### theme-build
 
 You will probably need to run this task at least once to generate the necessary favicon images and meta tags. See [Theme Assets](#themeassets) for more details.
@@ -47,6 +51,10 @@ You can run just a subset of tests by providing a source name as follows.
 Or run in a browser using
 
     gulp unit --browser=[chrome/firefox/ie/safari]
+
+If you don't want to keep running the full unit command you can add the watch switch, this will monitor for changes in source/views/styling and build whatever is required.
+
+    gulp unit --watch
 
 ### e2e-install
 
@@ -75,6 +83,8 @@ This will serve the app for you to view in a browser.
 You can specify that the content is served over https or on a different port using the switches
 
     gulp serve --secure --port=5000
+
+This command will also watch for changes in the files being served and reload the browser when necessary.
 
 ### version
 

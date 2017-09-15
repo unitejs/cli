@@ -1,0 +1,20 @@
+{
+	"packageName": "angular-requirejs",
+	"title": "Angular RequireJS",
+	"license": "MIT",
+    "applicationFramework": "Angular",
+	"moduleType": "AMD",
+	"bundler": "RequireJS",
+	"sourceLanguage": "JavaScript",
+	"linter": "EsLint",
+	"unitTestRunner": "Karma",
+	"unitTestFramework": "Jasmine",
+	"unitTestEngine": "PhantomJs",
+	"e2eTestRunner": "Protractor",
+	"e2eTestFramework": "Jasmine",
+	"packageManager": "Npm",
+	"taskManager": "Gulp",
+	"server": "BrowserSync",
+    "cssPre": "Sass",
+    "cssPost": "PostCss"
+}

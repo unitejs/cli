@@ -1,0 +1,20 @@
+{
+	"packageName": "cjs-webpack",
+	"title": "CJS Webpack",
+	"license": "MIT",
+    "applicationFramework": "PlainApp",
+	"moduleType": "CommonJS",
+	"bundler": "Webpack",
+	"sourceLanguage": "JavaScript",
+	"linter": "EsLint",
+	"unitTestRunner": "Karma",
+	"unitTestFramework": "Jasmine",
+	"unitTestEngine": "PhantomJs",
+	"e2eTestRunner": "Protractor",
+	"e2eTestFramework": "Jasmine",
+	"packageManager": "Npm",
+	"taskManager": "Gulp",
+	"server": "BrowserSync",
+    "cssPre": "Sass",
+    "cssPost": "PostCss"
+}

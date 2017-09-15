@@ -1,0 +1,20 @@
+{
+	"packageName": "no-2e2-test-runner-with-framework",
+	"title": "No E2E Test Runner With Framework",
+	"license": "MIT",
+    "applicationFramework": "PlainApp",
+	"moduleType": "AMD",
+	"bundler": "RequireJS",
+	"sourceLanguage": "JavaScript",
+	"linter": "TSLint",
+	"unitTestRunner": "Karma",
+	"unitTestFramework": "Jasmine",
+	"unitTestEngine": "PhantomJs",
+	"e2eTestRunner": "None",
+	"e2eTestFramework": "Jasmine",
+	"packageManager": "Npm",
+	"taskManager": "Gulp",
+	"server": "BrowserSync",
+    "cssPre": "Sass",
+    "cssPost": "PostCss"
+}

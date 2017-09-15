@@ -1,0 +1,20 @@
+{
+	"packageName": "eslint-typescript",
+	"title": "ESLint TypeScript",
+	"license": "MIT",
+    "applicationFramework": "PlainApp",
+	"moduleType": "AMD",
+	"bundler": "RequireJS",
+	"sourceLanguage": "TypeScript",
+	"linter": "ESLint",
+	"unitTestRunner": "Karma",
+	"unitTestFramework": "Jasmine",
+	"unitTestEngine": "PhantomJs",
+	"e2eTestRunner": "Protractor",
+	"e2eTestFramework": "Jasmine",
+	"packageManager": "Npm",
+	"taskManager": "Gulp",
+	"server": "BrowserSync",
+    "cssPre": "Sass",
+    "cssPost": "PostCss"
+}

@@ -1,0 +1,19 @@
+{
+	"packageName": "no-unit-test-runner-with-engine",
+	"title": "No Unit Test Runner With Engine",
+	"license": "MIT",
+    "applicationFramework": "PlainApp",
+	"moduleType": "AMD",
+	"bundler": "RequireJS",
+	"sourceLanguage": "JavaScript",
+	"linter": "TSLint",
+	"unitTestRunner": "None",
+	"unitTestEngine": "PhantomJs",
+	"e2eTestRunner": "Protractor",
+	"e2eTestFramework": "Jasmine",
+	"packageManager": "Npm",
+	"taskManager": "Gulp",
+	"server": "BrowserSync",
+    "cssPre": "Sass",
+    "cssPost": "PostCss"
+}

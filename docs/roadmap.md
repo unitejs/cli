@@ -12,7 +12,7 @@ Items highlighted in **bold** are the next to be implemented.
 
 ## Components
 
-* **Ability for each application framework to generate components**
+* **Ability for each application framework to generate components e.g. ng generate component/directive**
 
 ## Assets
 

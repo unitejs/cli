@@ -1,0 +1,20 @@
+{
+	"packageName": "sjs-webpack",
+	"title": "SJS Webpack",
+	"license": "MIT",
+    "applicationFramework": "PlainApp",
+	"moduleType": "SystemJS",
+	"bundler": "Webpack",
+	"sourceLanguage": "JavaScript",
+	"linter": "EsLint",
+	"unitTestRunner": "Karma",
+	"unitTestFramework": "Jasmine",
+	"unitTestEngine": "PhantomJs",
+	"e2eTestRunner": "Protractor",
+	"e2eTestFramework": "Jasmine",
+	"packageManager": "Npm",
+	"taskManager": "Gulp",
+	"server": "BrowserSync",
+    "cssPre": "Sass",
+    "cssPost": "PostCss"
+}

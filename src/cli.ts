@@ -48,6 +48,7 @@ export class CLI extends CLIBase {
                 const cssPreProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
                 const cssPostProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const appFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
+                const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
                 const force = commandLineParser.getBooleanArgument(CommandLineArgConstants.FORCE);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
 
@@ -69,6 +70,7 @@ export class CLI extends CLIBase {
                                                        cssPostProcessor,
                                                        packageManager,
                                                        appFramework,
+                                                       profile,
                                                        force,
                                                        outputDirectory);
                 }
@@ -94,10 +96,11 @@ export class CLI extends CLIBase {
                 const map = commandLineParser.getStringArgument(CommandLineArgConstants.MAP);
                 const loaders = commandLineParser.getStringArgument(CommandLineArgConstants.LOADERS);
                 const assets = commandLineParser.getStringArgument(CommandLineArgConstants.ASSETS);
+                const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
                     ret = await this._engine.clientPackage(operation, packageName, version, preload, includeMode, scriptIncludeMode,
-                                                           main, mainMinified, testingAdditions, isPackage, assets, map, loaders, noScript,
+                                                           main, mainMinified, testingAdditions, isPackage, assets, map, loaders, noScript, profile,
                                                            packageManager, outputDirectory);
                 }
                 break;

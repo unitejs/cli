@@ -5,14 +5,18 @@ Items highlighted in **bold** are the next to be implemented.
 ## General
 
 * Add root README.md info about www, packages, CI integration
-
-## Profiles
-
-* **Add profiles to save lots of command line options for configure and clientPackages, also for App Framework with prefered defaults.**
+* Add JSON parser that can accept comments
 
 ## Components
 
 * **Ability for each application framework to generate components e.g. ng generate component/directive**
+
+## Feature Replication of other CLIs
+
+* Aurelia CLI
+* Angular CLI
+* React CLI
+* Web site add cheat sheet
 
 ## Assets
 
@@ -25,12 +29,6 @@ Items highlighted in **bold** are the next to be implemented.
 ## Engine Pipeline
 
 * **Make pluggable from other npm modules**
-* **Enumerate from directories instead of fixed list**
-
-## HTML Index
-
-* Default progress indicator
-* Meta tags author (use same info as licensing?)
 
 ## Tasks
 
@@ -40,14 +38,20 @@ Items highlighted in **bold** are the next to be implemented.
 
 * License file substitutions e.g. 'name of author', 'owner'
 
+## HTML Index
+
+* Default progress indicator
+* Meta tags author (use same info as licensing?)
+
 # App Frameworks
 
+* Add [Preact](https://vuejs.org/)
 * Add [Vue](https://vuejs.org/)
 * Add [Ember](https://www.emberjs.com/)
 * Add [Backbone](http://backbonejs.org/)
 * Add [Ionic](https://ionicframework.com/)
 * Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
-* **[Aurelia](http://aurelia.io/) (Add Webpack bundling)**
+* [Aurelia](http://aurelia.io/) (Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5)
 
 # CI
 
@@ -128,6 +132,7 @@ Items highlighted in **bold** are the next to be implemented.
 
 * **Add selenium remote testing for use with CI**
 * Protractor read existing config and modify
+* **Add tests for css styling**
 
 ## E2E Test Runner
 
@@ -144,14 +149,10 @@ Items highlighted in **bold** are the next to be implemented.
 
 * Access the commands directly from VSCode, with repo lookup for common modules using profiles
 
-# Examples
+# Examples & Profiles
 
 * Common libraries
-  * moment
   * lodash
   * underscore
   * jquery
   * sinon
-  * bluebird
-  * bootstrap 3 & 4
-  * font-awesome

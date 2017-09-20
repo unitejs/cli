@@ -34,6 +34,7 @@ export class CommandLineArgConstants {
     public static LOADERS: string = "loaders";
     public static NO_SCRIPT: string = "noScript";
     public static PACKAGE_MANAGER: string = "packageManager";
+    public static PROFILE: string = "profile";
 
     public static CONFIGURATION_NAME: string = "configurationName";
     public static BUNDLE: string = "bundle";

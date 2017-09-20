@@ -2,6 +2,11 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.1.0
+
+* Added profile parameter to configure command
+* Added profile parameter to clientPackage command
+
 ## v1.0.2
 
 * Task Updates

@@ -70,6 +70,8 @@ This command will generate your skeleton application with the options you specif
 
 If there is already a unite.json in the outputDirectory then all of the arguments will be read from the file and are optional, you only need specify the ones that you want to change.
 
+This is also true if you specify the profile argument, you only need override the arguments that you want to.
+
 | Argument            | Value                                        | Used For                                         |
 |---------------------|----------------------------------------------|--------------------------------------------------|
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
@@ -92,6 +94,8 @@ If there is already a unite.json in the outputDirectory then all of the argument
 |                     |                                              |   None - means no css post processor             |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
 |                     |                                              |   optional - defaults to Npm if not already set  |
+| profile             | [See Profiles](#configprofiles)                                     | The profile to use                       |
+|                     |                                              |   optional - defaults to no profile              |
 | force               |                                              | Force overwrite of all existing configuration    |
 |                     |                                              |   optional - defaults to off                     |
 | outputDirectory     | 'path'                                       | The location that you want the project generated |
@@ -188,6 +192,10 @@ Perform operations to add or remove client packages. In addition these operation
 
 ### operation add
 
+This will add a new clientPackage and modify all the necessary configuration files to include it in your app.
+
+You can use the profile parameter to use one of the in-built clientPackage profiles which will configure the other arguments for you.
+
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | operation           | add                                       |                                                  |
@@ -219,6 +227,8 @@ Perform operations to add or remove client packages. In addition these operation
 |                     |                                           |   optional - defaults to empty                   |
 | packageManager      | npm/yarn                                  | The package manager to use for the add           |
 |                     |                                           |   optional - defaults to npm if not already set  |
+| profile             | [See Profiles](#clientpackageprofiles)                                     | The profile to use                       |
+|                     |                                              |   optional - defaults to no profile              |
 | outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
 |                     |                                           |   optional - defaults to current directory       |
 
@@ -243,6 +253,8 @@ unite clientPackage --operation=add --packageName=bootstrap --version=4.0.0-beta
 ```
 
 ### --operation=remove
+
+This will remove an existing clientPackage and modify all the necessary configuration files to remove it from your app.
 
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
@@ -311,6 +323,27 @@ unite platform --operation=remove --platformName=Electron
 # Generated App
 
 For more information on the generated app see [Generated App](./docs/generated-app.md)
+
+# <a name="configprofiles"></a>Configuration Profiles
+
+The following configuration profiles are currently available, they provide a set of defaults recommended by the application framework providers.
+
+* AngularJavaScript
+* AngularTypeScript
+* AureliaJavaScript
+* AureliaTypeScript
+* ReactJavaScript
+* ReactTypeScript
+
+# <a name="clientpackageprofiles"></a>Client Package Profiles
+
+The following clientPackage profiles are currently available, they provide a set of defaults for the libraries.
+
+* font-awesome
+* bootstrap4
+* bluebird
+* primsjs
+* rxjs
 
 # Frameworks
 

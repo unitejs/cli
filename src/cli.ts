@@ -3,8 +3,17 @@
  */
 import { CLIBase } from "unitejs-cli-core/dist/cliBase";
 import { CommandLineParser } from "unitejs-cli-core/dist/commandLineParser";
+import { IncludeMode } from "unitejs-engine/dist/configuration/models/unite/includeMode";
+import { ScriptIncludeMode } from "unitejs-engine/dist/configuration/models/unite/scriptIncludeMode";
 import { Engine } from "unitejs-engine/dist/engine/engine";
+import { BuildConfigurationOperation } from "unitejs-engine/dist/interfaces/buildConfigurationOperation";
+import { ClientPackageOperation } from "unitejs-engine/dist/interfaces/clientPackageOperation";
+import { IBuildConfigurationCommandParams } from "unitejs-engine/dist/interfaces/IBuildConfigurationCommandParams";
+import { IClientPackageCommandParams } from "unitejs-engine/dist/interfaces/IClientPackageCommandParams";
+import { IConfigureCommandParams } from "unitejs-engine/dist/interfaces/IConfigureCommandParams";
 import { IEngine } from "unitejs-engine/dist/interfaces/IEngine";
+import { IPlatformCommandParams } from "unitejs-engine/dist/interfaces/IPlatformCommandParams";
+import { PlatformOperation } from "unitejs-engine/dist/interfaces/platformOperation";
 import { IFileSystem } from "unitejs-framework/dist/interfaces/IFileSystem";
 import { ILogger } from "unitejs-framework/dist/interfaces/ILogger";
 import { CommandLineArgConstants } from "./commandLineArgConstants";
@@ -19,8 +28,8 @@ export class CLI extends CLIBase {
     }
 
     public async initialise(logger: ILogger, fileSystem: IFileSystem): Promise<number> {
-        this._engine = new Engine();
-        return this._engine.initialise(logger, fileSystem);
+        this._engine = new Engine(logger, fileSystem);
+        return this._engine.initialise();
     }
 
     public async handleCustomCommand(logger: ILogger, fileSystem: IFileSystem, commandLineParser: CommandLineParser): Promise<number> {
@@ -45,34 +54,36 @@ export class CLI extends CLIBase {
                 const e2eTestFramework = commandLineParser.getStringArgument(CommandLineArgConstants.E2E_TEST_FRAMEWORK);
                 const linter = commandLineParser.getStringArgument(CommandLineArgConstants.LINTER);
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
-                const cssPreProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
-                const cssPostProcessor = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
-                const appFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
+                const cssPre = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
+                const cssPost = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
+                const applicationFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
                 const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
                 const force = commandLineParser.getBooleanArgument(CommandLineArgConstants.FORCE);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
 
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    ret = await this._engine.configure(packageName,
-                                                       title,
-                                                       license,
-                                                       sourceLanguage,
-                                                       moduleType,
-                                                       bundler,
-                                                       unitTestRunner,
-                                                       unitTestFramework,
-                                                       unitTestEngine,
-                                                       e2eTestRunner,
-                                                       e2eTestFramework,
-                                                       linter,
-                                                       cssPreProcessor,
-                                                       cssPostProcessor,
-                                                       packageManager,
-                                                       appFramework,
-                                                       profile,
-                                                       force,
-                                                       outputDirectory);
+                    ret = await this._engine.command<IConfigureCommandParams>(command, {
+                        packageName,
+                        title,
+                        license,
+                        sourceLanguage,
+                        moduleType,
+                        bundler,
+                        unitTestRunner,
+                        unitTestFramework,
+                        unitTestEngine,
+                        e2eTestRunner,
+                        e2eTestFramework,
+                        linter,
+                        cssPre,
+                        cssPost,
+                        packageManager,
+                        applicationFramework,
+                        profile,
+                        force,
+                        outputDirectory
+                    });
                 }
                 break;
             }
@@ -80,14 +91,14 @@ export class CLI extends CLIBase {
             case CommandLineCommandConstants.CLIENT_PACKAGE: {
                 logger.info("command", { command });
 
-                const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
+                const operation = commandLineParser.getStringArgument<ClientPackageOperation>(CommandLineArgConstants.OPERATION);
                 const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
                 const version = commandLineParser.getStringArgument(CommandLineArgConstants.VERSION);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const preload = commandLineParser.getBooleanArgument(CommandLineArgConstants.PRELOAD);
-                const includeMode = commandLineParser.getStringArgument(CommandLineArgConstants.INCLUDE_MODE);
-                const scriptIncludeMode = commandLineParser.getStringArgument(CommandLineArgConstants.SCRIPT_INCLUDE_MODE);
+                const includeMode = commandLineParser.getStringArgument<IncludeMode>(CommandLineArgConstants.INCLUDE_MODE);
+                const scriptIncludeMode = commandLineParser.getStringArgument<ScriptIncludeMode>(CommandLineArgConstants.SCRIPT_INCLUDE_MODE);
                 const isPackage = commandLineParser.getBooleanArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
@@ -99,9 +110,25 @@ export class CLI extends CLIBase {
                 const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    ret = await this._engine.clientPackage(operation, packageName, version, preload, includeMode, scriptIncludeMode,
-                                                           main, mainMinified, testingAdditions, isPackage, assets, map, loaders, noScript, profile,
-                                                           packageManager, outputDirectory);
+                    ret = await this._engine.command<IClientPackageCommandParams>(command, {
+                        operation,
+                        packageName,
+                        version,
+                        preload,
+                        includeMode,
+                        scriptIncludeMode,
+                        main,
+                        mainMinified,
+                        testingAdditions,
+                        isPackage,
+                        assets,
+                        map,
+                        loaders,
+                        noScript,
+                        profile,
+                        packageManager,
+                        outputDirectory
+                    });
                 }
                 break;
             }
@@ -109,15 +136,22 @@ export class CLI extends CLIBase {
             case CommandLineCommandConstants.BUILD_CONFIGURATION: {
                 logger.info("command", { command });
 
-                const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
+                const operation = commandLineParser.getStringArgument<BuildConfigurationOperation>(CommandLineArgConstants.OPERATION);
                 const configurationName = commandLineParser.getStringArgument(CommandLineArgConstants.CONFIGURATION_NAME);
                 const bundle = commandLineParser.getBooleanArgument(CommandLineArgConstants.BUNDLE);
                 const minify = commandLineParser.getBooleanArgument(CommandLineArgConstants.MINIFY);
-                const sourceMaps = commandLineParser.getBooleanArgument(CommandLineArgConstants.SOURCE_MAPS);
+                const sourcemaps = commandLineParser.getBooleanArgument(CommandLineArgConstants.SOURCE_MAPS);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    ret = await this._engine.buildConfiguration(operation, configurationName, bundle, minify, sourceMaps, outputDirectory);
+                    ret = await this._engine.command<IBuildConfigurationCommandParams>(command, {
+                        operation,
+                        configurationName,
+                        bundle,
+                        minify,
+                        sourcemaps,
+                        outputDirectory
+                    });
                 }
                 break;
             }
@@ -125,12 +159,16 @@ export class CLI extends CLIBase {
             case CommandLineCommandConstants.PLATFORM: {
                 logger.info("command", { command });
 
-                const operation = commandLineParser.getStringArgument(CommandLineArgConstants.OPERATION);
+                const operation = commandLineParser.getStringArgument<PlatformOperation>(CommandLineArgConstants.OPERATION);
                 const platformName = commandLineParser.getStringArgument(CommandLineArgConstants.PLATFORM_NAME);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
-                    ret = await this._engine.platform(operation, platformName, outputDirectory);
+                    ret = await this._engine.command<IPlatformCommandParams>(command, {
+                        operation,
+                        platformName,
+                        outputDirectory
+                    });
                 }
             }
         }

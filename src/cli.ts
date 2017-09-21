@@ -12,6 +12,7 @@ import { IBuildConfigurationCommandParams } from "unitejs-engine/dist/interfaces
 import { IClientPackageCommandParams } from "unitejs-engine/dist/interfaces/IClientPackageCommandParams";
 import { IConfigureCommandParams } from "unitejs-engine/dist/interfaces/IConfigureCommandParams";
 import { IEngine } from "unitejs-engine/dist/interfaces/IEngine";
+import { IGenerateCommandParams } from "unitejs-engine/dist/interfaces/IGenerateCommandParams";
 import { IPlatformCommandParams } from "unitejs-engine/dist/interfaces/IPlatformCommandParams";
 import { PlatformOperation } from "unitejs-engine/dist/interfaces/platformOperation";
 import { IFileSystem } from "unitejs-framework/dist/interfaces/IFileSystem";
@@ -167,6 +168,24 @@ export class CLI extends CLIBase {
                     ret = await this._engine.command<IPlatformCommandParams>(command, {
                         operation,
                         platformName,
+                        outputDirectory
+                    });
+                }
+            }
+
+            case CommandLineCommandConstants.GENERATE: {
+                logger.info("command", { command });
+
+                const name = commandLineParser.getStringArgument(CommandLineArgConstants.NAME);
+                const type = commandLineParser.getStringArgument(CommandLineArgConstants.TYPE);
+                const subFolder = commandLineParser.getStringArgument(CommandLineArgConstants.SUB_FOLDER);
+                const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
+                ret = this.checkRemaining(logger, commandLineParser);
+                if (ret === 0) {
+                    ret = await this._engine.command<IGenerateCommandParams>(command, {
+                        name,
+                        type,
+                        subFolder,
                         outputDirectory
                     });
                 }

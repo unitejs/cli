@@ -42,4 +42,8 @@ export class CommandLineArgConstants {
     public static SOURCE_MAPS: string = "sourcemaps";
 
     public static PLATFORM_NAME: string = "platformName";
+
+    public static NAME: string = "name";
+    public static TYPE: string = "type";
+    public static SUB_FOLDER: string = "subFolder";
  }

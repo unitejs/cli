@@ -8,4 +8,5 @@ export class CommandLineCommandConstants {
     public static CLIENT_PACKAGE: string = "clientPackage";
     public static BUILD_CONFIGURATION: string = "buildConfiguration";
     public static PLATFORM: string = "platform";
+    public static GENERATE: string = "generate";
 }

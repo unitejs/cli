@@ -4,6 +4,7 @@ See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHA
 
 ## v1.1.1
 
+* Added generate command
 * Updated engine calls
 
 ## v1.1.0

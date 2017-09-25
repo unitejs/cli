@@ -92,6 +92,8 @@ This is also true if you specify the profile argument, you only need override th
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
 | cssPost             | PostCss/None                                 | The css postprocessor to use                     |
 |                     |                                              |   None - means no css post processor             |
+| ides                | VSCode                                       | This can be a semi-colon separated list          |
+|                     |                                              |   optional can be blank                          |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
 |                     |                                              |   optional - defaults to Npm if not already set  |
 | profile             | [See Profiles](#configprofiles)                                     | The profile to use                       |

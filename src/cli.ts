@@ -57,6 +57,9 @@ export class CLI extends CLIBase {
                 const packageManager = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_MANAGER);
                 const cssPre = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
                 const cssPost = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
+                const server = "BrowserSync"; // commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
+                const taskManager = "Gulp"; //commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
+                const ides = commandLineParser.getStringArrayArgument(CommandLineArgConstants.IDES);
                 const applicationFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
                 const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
                 const force = commandLineParser.getBooleanArgument(CommandLineArgConstants.FORCE);
@@ -79,6 +82,9 @@ export class CLI extends CLIBase {
                         linter,
                         cssPre,
                         cssPost,
+                        server,
+                        taskManager,
+                        ides,
                         packageManager,
                         applicationFramework,
                         profile,
@@ -205,11 +211,12 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |");
         this.markdownTableToCli(logger, "| title               | plain text                                   | Used on the web index page                       |");
         this.markdownTableToCli(logger, "| license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|");
+        this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/React               | The application framework to use                 |");
         this.markdownTableToCli(logger, "| sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |");
-        this.markdownTableToCli(logger, "| moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |");
-        this.markdownTableToCli(logger, "| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |");
         this.markdownTableToCli(logger, "| linter              | ESLint/TSLint/None                           | The linter                                       |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no linting                        |");
+        this.markdownTableToCli(logger, "| moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |");
+        this.markdownTableToCli(logger, "| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |");
         this.markdownTableToCli(logger, "| unitTestRunner      | Karma/None                                   | The unit test runner                             |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no unit testing                   |");
         this.markdownTableToCli(logger, "| unitTestFramework   | Jasmine/MochaChai                            | The unit test framework to use                   |");
@@ -219,7 +226,8 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");
         this.markdownTableToCli(logger, "| cssPost             | PostCss/None                                 | The css postprocessor to use                     |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css post processor             |");
-        this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/React               | The application framework to use                 |");
+        this.markdownTableToCli(logger, "| ides                | VSCode                                       | This can be a semi-colon separated list          |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional can be blank                          |");
         this.markdownTableToCli(logger, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to npm if not already set  |");
         this.markdownTableToCli(logger, "| force               |                                              | Force overwrite of all existing configuration    |");

@@ -256,6 +256,24 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
         logger.info("");
 
+        logger.banner("generate");
+        logger.info("");
+        this.markdownTableToCli(logger, "| name                | the name you want to use for your item    | This can have spaces in it and will be           |");
+        this.markdownTableToCli(logger, "|                     |                                           | reformatted during generation                    |");
+        this.markdownTableToCli(logger, "| type                | specific to each applicationFramework     | See below                                        |");
+        this.markdownTableToCli(logger, "| subFolder           | a folder to create your new item in       | Optional with framework defaults built in        |");
+        this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
+        logger.info("");
+
+        logger.banner("generate types");
+        logger.info("");
+        logger.info("Angular - class, component, directive, enum, guard, interface, module, pipe, service");
+        logger.info("Aurelia - attribute, binding-behavior, class, component, element, enum, interface, pipeline-step, value-converter");
+        logger.info("PlainApp - class, enum, interface");
+        logger.info("React - class, component, enum, interface");
+        logger.info("");
+
         logger.banner("clientPackage --operation=add");
         logger.info("");
         this.markdownTableToCli(logger, "| packageName         | plain text                                | Name of the package to add                       |");

@@ -49,6 +49,7 @@ where command is one of:
 * version
 * configure
 * buildConfiguration
+* generate
 * clientPackage
 * platform
 
@@ -71,6 +72,8 @@ This command will generate your skeleton application with the options you specif
 If there is already a unite.json in the outputDirectory then all of the arguments will be read from the file and are optional, you only need specify the ones that you want to change.
 
 This is also true if you specify the profile argument, you only need override the arguments that you want to.
+
+You can use this command with no parameters to update an existing installation to the latest components.
 
 | Argument            | Value                                        | Used For                                         |
 |---------------------|----------------------------------------------|--------------------------------------------------|
@@ -186,6 +189,33 @@ At runtime you can access the variables as follows:
 ``` javascript
 console.log(window.unite.config["value1"]);
 console.log(window.unite.config["someFlag"]);
+```
+
+## unite generate
+
+Creates components for use in your application, your application framework, sourceLanguage, css preprocessor and other variables will be used to create code specific to your configuration. Additionally simple unit tests will be created.
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| name                | the name you want to use for your item    | This can have spaces in it and will be           |
+|                     |                                           | reformatted during generation                    |
+| type                | specific to each applicationFramework     | See below                                        |
+| subFolder           | a folder to create your new item in       | Optional with framework defaults built in        |
+| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
+|                     |                                           |   optional - defaults to current directory       |
+
+### Generate Types
+
+* Angular - class, component, directive, enum, guard, interface, module, pipe, service
+* Aurelia - attribute, binding-behavior, class, component, element, enum, interface, pipeline-step, value-converter
+* PlainApp - class, enum, interface
+* React - class, component, enum, interface
+
+# Example
+
+```shell
+unite generate --name=thing --type=component
+unite generate --name="My Thing" --type=class --subFolder=./myClasses/sub2
 ```
 
 ## unite clientPackage

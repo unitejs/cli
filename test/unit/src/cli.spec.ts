@@ -136,6 +136,9 @@ describe("CLI", () => {
         });
 
         it("can handle buildConfiguration", async () => {
+            await fileSystemStub.directoryCreate("./test/unit/temp/");
+            await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", {});
+
             const obj = new CLI();
             commandLineParser.parse(["node", "./bin/unite.js", "buildConfiguration",
                 "--operation=add",
@@ -144,9 +147,9 @@ describe("CLI", () => {
             ]);
             await obj.initialise(loggerStub, fileSystemStub);
             const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
-            Chai.expect(res).to.be.equal(1);
+            Chai.expect(res).to.be.equal(0);
             const fileExists = await fileSystemStub.fileExists("./test/unit/temp/", "unite.json");
-            Chai.expect(fileExists).to.be.equal(false);
+            Chai.expect(fileExists).to.be.equal(true);
         });
 
         it("can fail buildConfiguration with unknown args", async () => {

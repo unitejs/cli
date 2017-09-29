@@ -6,6 +6,7 @@ Items highlighted in **bold** are the next to be implemented.
 
 * Add root README.md info about www, packages, CI integration
 * Add JSON parser that can accept comments
+* **Convert gulp scripts to TypeScript with compile steps**
 
 ## Documentation
 
@@ -45,7 +46,6 @@ Items highlighted in **bold** are the next to be implemented.
 * Add [Ionic](https://ionicframework.com/)
 * Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
 * [Aurelia](http://aurelia.io/) (Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5)
-* **[React](https://facebook.github.io/react/) (Make components support require of css files)**
 
 # CI
 

@@ -1,12 +1,13 @@
 # Core
 
-Items highlighted in **bold** are the next to be implemented.
+Items highlighted in **bold** are the highest priority features.
 
 ## General
 
 * Add root README.md info about www, packages, CI integration
 * Add JSON parser that can accept comments
 * **Convert gulp scripts to TypeScript with compile steps**
+* Create source/unit/e2e tests from descriptor language to avoid massive repetition
 
 ## Documentation
 
@@ -117,6 +118,7 @@ Items highlighted in **bold** are the next to be implemented.
 
 * **Add [Jest](https://facebook.github.io/jest/) (Only supports CommonJs)**
 * Add [Wallaby](https://wallabyjs.com/) (Requires License)
+* Add [JsDom](https://github.com/tmpvar/jsdom)
 
 ## Unit Testing
 
@@ -126,7 +128,6 @@ Items highlighted in **bold** are the next to be implemented.
 
 * **Add selenium remote testing for use with CI**
 * Protractor read existing config and modify
-* **Add tests for css styling**
 
 ## E2E Test Runner
 

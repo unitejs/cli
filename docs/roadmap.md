@@ -116,9 +116,9 @@ Items highlighted in **bold** are the highest priority features.
 
 ## Test Frameworks
 
-* **Add [Jest](https://facebook.github.io/jest/) (Only supports CommonJs)**
 * Add [Wallaby](https://wallabyjs.com/) (Requires License)
 * Add [JsDom](https://github.com/tmpvar/jsdom)
+* Support [Jest](https://facebook.github.io/jest/) watch option **
 
 ## Unit Testing
 

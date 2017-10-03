@@ -349,7 +349,7 @@ export class CLI extends CLIBase {
         return 0;
     }
 
-    protected displayAdditionalVersion(logger: ILogger): void {
+    public displayAdditionalVersion(logger: ILogger): void {
         logger.banner(`Engine v${this._engine.version()}`);
     }
 }

@@ -8,7 +8,7 @@ import { FileSystem } from "unitejs-cli-core/dist/fileSystem";
 import { IFileSystem } from "unitejs-framework/dist/interfaces/IFileSystem";
 import { ILogger } from "unitejs-framework/dist/interfaces/ILogger";
 import { DefaultLogger } from "unitejs-framework/dist/loggers/defaultLogger";
-import { CLI } from "../../../dist/cli";
+import { CLI } from "../../../src/cli";
 
 describe("CLI", () => {
     let sandbox: Sinon.SinonSandbox;

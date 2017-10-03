@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const gutil = require("gulp-util");
 const replace = require("gulp-replace");
 const tsc = require("gulp-typescript");
 const gulpTslint = require("gulp-tslint");
@@ -134,6 +135,7 @@ gulp.task("unit-transpile", () => {
         });
 
     return tsResult.js
+        .pipe(replace(/(require.*?)(\.\.\/src\/)/g, "$1../dist/"))
         .pipe(sourcemaps.write({"includeContent": true}))
         .pipe(gulp.dest(unitDistFolder))
         .on("end", () => {
@@ -176,7 +178,9 @@ gulp.task("unit-runner", () => {
         .pipe(mocha({
             "reporter": "spec",
             "timeout": "360000"
-        }).on("error", () => {
+        }).on("error", (err) => {
+            gutil.log(err.message);
+            gutil.log(err.stack);
             process.exit(1);
         }))
         .pipe(istanbul.writeReports({
@@ -208,13 +212,15 @@ gulp.task("unit-post-remap", () => {
 
 
 gulp.task("unit", (cb) => {
-    runSequence("unit-clean",
+    runSequence(
+        "unit-clean",
         "unit-transpile",
         "unit-lint",
         "unit-pre-coverage",
         "unit-runner",
         "unit-remap",
-        "unit-post-remap", cb);
+        "unit-post-remap", cb
+    );
 });
 
 gulp.task("coveralls", () => {

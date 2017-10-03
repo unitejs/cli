@@ -2,7 +2,7 @@
  * Tests for CommandLineArgConstants.
  */
 import * as Chai from "chai";
-import { CommandLineArgConstants } from "../../../dist/commandLineArgConstants";
+import { CommandLineArgConstants } from "../../../src/commandLineArgConstants";
 
 describe("CommandLineArgConstants", () => {
     it("can be created", () => {

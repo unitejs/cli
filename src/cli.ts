@@ -217,10 +217,10 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no linting                        |");
         this.markdownTableToCli(logger, "| moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |");
         this.markdownTableToCli(logger, "| bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |");
-        this.markdownTableToCli(logger, "| unitTestRunner      | Karma/None                                   | The unit test runner                             |");
+        this.markdownTableToCli(logger, "| unitTestRunner      | Jest/Karma/None                              | The unit test runner                             |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no unit testing                   |");
         this.markdownTableToCli(logger, "| unitTestFramework   | Jasmine/MochaChai                            | The unit test framework to use                   |");
-        this.markdownTableToCli(logger, "| unitTestEngine      | PhantomJS/ChromeHeadless                     | The unit test engine to execute tests            |");
+        this.markdownTableToCli(logger, "| unitTestEngine      | JSDom/PhantomJS/ChromeHeadless               | The unit test engine to execute tests            |");
         this.markdownTableToCli(logger, "| e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |");
         this.markdownTableToCli(logger, "| e2eTestFramework    | Jasmine/MochaChai                            | The e2e test framework to use                    |");
         this.markdownTableToCli(logger, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");

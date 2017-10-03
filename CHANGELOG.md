@@ -2,6 +2,11 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.2.1
+
+* Added Jest to supported Unit Test Runners
+* Added JSDom to supported Unit Test Engines
+
 ## v1.2.0
 
 * Added generate command

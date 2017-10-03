@@ -86,10 +86,10 @@ You can use this command with no parameters to update an existing installation t
 |                     |                                              |   None - means no linting                        |
 | moduleType          | AMD/CommonJS/SystemJS                        | The module type you want to use                  |
 | bundler             | Browserify/RequireJS/SystemJSBuilder/Webpack | The bundler you want to use                      |
-| unitTestRunner      | Karma/None                                   | The unit test runner                             |
+| unitTestRunner      | [Jest](#jest)/[Karma](#karma)/None                              |  The unit test runner                             |
 |                     |                                              |   None - means no unit testing                   |
 | unitTestFramework   | Jasmine/MochaChai                            | The unit test framework to use                   |
-| unitTestEngine      | PhantomJS/ChromeHeadless                     | The unit test engine to execute tests            |
+| unitTestEngine      | JSDom/PhantomJS/ChromeHeadless               | The unit test engine to execute tests            |
 | e2eTestRunner       | Protractor/WebdriverIO/None                  | The e2e test runner                              |
 | e2eTestFramework    | Jasmine/MochaChai                            | The e2e test framework to use                    |
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
@@ -396,6 +396,16 @@ This is a vanilla app with no framework libraries included.
 ## <a name="re"></a>React
 
 Nothing else to mention at the moment.
+
+# Unit Test Runners
+
+## <a name="jest"></a>Jest
+
+Jest currently only supports projects using CommonJS as the module type and Jasmine as the unit test framework.
+
+## <a name="karma"></a>Karma
+
+Although JSDom can be used with Karma there are limitations, see the [JSDom](https://github.com/tmpvar/jsdom#readme) home page for more info.
 
 # Disclaimer
 

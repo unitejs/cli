@@ -24,6 +24,7 @@ Items highlighted in **bold** are the highest priority features.
 ## Engine Pipeline
 
 * **Make pluggable from other npm modules**
+* **Separate the application framework pipeline steps into their own repos**
 
 ## Tasks
 
@@ -58,6 +59,7 @@ Items highlighted in **bold** are the highest priority features.
 
 * Add [Travis](https://travis-ci.org/)
 * Add [Circle](https://circleci.com/)
+* Add [Appveyor](https://www.appveyor.com/)
 * Add [Jenkins](https://jenkins.io/)
 * Add [TeamCity](https://www.jetbrains.com/teamcity/)
 * Add [Visual Studio Online](https://www.visualstudio.com/vso/)

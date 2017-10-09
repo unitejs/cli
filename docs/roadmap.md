@@ -41,8 +41,7 @@ Items highlighted in **bold** are the highest priority features.
 
 # App Frameworks
 
-* Add [Preact](https://vuejs.org/)
-* Add [Vue](https://vuejs.org/)
+* **Add [Vue](https://vuejs.org/)**
 * Add [Ember](https://www.emberjs.com/)
 * Add [Backbone](http://backbonejs.org/)
 * Add [Ionic](https://ionicframework.com/)
@@ -119,8 +118,7 @@ Items highlighted in **bold** are the highest priority features.
 ## Test Frameworks
 
 * Add [Wallaby](https://wallabyjs.com/) (Requires License)
-* Add [JsDom](https://github.com/tmpvar/jsdom)
-* Support [Jest](https://facebook.github.io/jest/) watch option **
+* Support [Jest](https://facebook.github.io/jest/) watch option
 
 ## Unit Testing
 

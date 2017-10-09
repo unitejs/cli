@@ -16,3 +16,4 @@ src/
 tsconfig.json
 tslint.json
 test/unit/reports/**/*
+.github

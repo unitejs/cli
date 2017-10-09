@@ -10,3 +10,10 @@ script:
 cache:
   directories:
   - node_modules
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/18d04b26e3da5f9fa9dc
+    on_success: change
+    on_failure: always
+    on_start: never

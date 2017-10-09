@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.2.3
+
+* Added Preact
+
 ## v1.2.2
 
 * Added Jest to supported Unit Test Runners

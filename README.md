@@ -80,7 +80,7 @@ You can use this command with no parameters to update an existing installation t
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
 | title               | plain text                                   | Used on the web index page                       |
 | license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|
-| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[React](#re)               | The application framework to use                 |
+| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Preact](#pr)/[React](#re)               | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
 | linter              | ESLint/TSLint/None                           | The linter                                       |
 |                     |                                              |   None - means no linting                        |
@@ -209,6 +209,7 @@ Creates components for use in your application, your application framework, sour
 * Angular - class, component, directive, enum, guard, interface, module, pipe, service
 * Aurelia - attribute, binding-behavior, class, component, element, enum, interface, pipeline-step, value-converter
 * PlainApp - class, enum, interface
+* Preact - class, component, enum, interface
 * React - class, component, enum, interface
 
 # Example
@@ -364,6 +365,8 @@ The following configuration profiles are currently available, they provide a set
 * AngularTypeScript
 * AureliaJavaScript
 * AureliaTypeScript
+* PreactJavaScript
+* PreactTypeScript
 * ReactJavaScript
 * ReactTypeScript
 
@@ -393,6 +396,10 @@ Aurelia does not currently support bundling with Browserify or Webpack.
 
 This is a vanilla app with no framework libraries included.
 
+## <a name="pr"></a>Preact
+
+Preact can only be used with CommonJS module type as there is currently no UMD build of the library.
+
 ## <a name="re"></a>React
 
 Nothing else to mention at the moment.
@@ -409,7 +416,7 @@ Although JSDom can be used with Karma there are limitations, see the [JSDom](htt
 
 # Disclaimer
 
-UniteJS currently has about 150 dependencies on the libraries it uses to generate the app, while we endeavour to make sure that every combination works it goes without saying that from time to time something will break. Just let us know in the [Issues](https://github.com/unitejs/cli/issues) and we will get it fixed ASAP.
+UniteJS currently has about 160 dependencies on the libraries it uses to generate the app, while we endeavour to make sure that every combination works it goes without saying that from time to time something will break. Just let us know in the [Issues](https://github.com/unitejs/cli/issues) and we will get it fixed ASAP.
 
 # Feature Requests
 

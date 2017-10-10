@@ -6,12 +6,13 @@ Items highlighted in **bold** are the highest priority features.
 
 * Add root README.md info about www, packages, CI integration
 * Add JSON parser that can accept comments
-* **Convert gulp scripts to TypeScript with compile steps**
+* Convert gulp scripts to TypeScript with compile steps
 * Create source/unit/e2e tests from descriptor language to avoid massive repetition
 
 ## Documentation
 
 * Web site cheat sheet for other CLIs
+* Compatability Matrix
 
 ## Assets
 

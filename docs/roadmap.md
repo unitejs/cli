@@ -42,12 +42,12 @@ Items highlighted in **bold** are the highest priority features.
 
 # App Frameworks
 
-* **Add [Vue](https://vuejs.org/)**
 * Add [Ember](https://www.emberjs.com/)
 * Add [Backbone](http://backbonejs.org/)
 * Add [Ionic](https://ionicframework.com/)
 * Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
-* [Aurelia](http://aurelia.io/) (Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5)
+* [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
+* [Vue](https://vuejs.org/) Add support for combined .vue files
 
 # CI
 

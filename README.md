@@ -80,7 +80,7 @@ You can use this command with no parameters to update an existing installation t
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
 | title               | plain text                                   | Used on the web index page                       |
 | license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|
-| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Preact](#pr)/[React](#re)               | The application framework to use                 |
+| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Preact](#pr)/[React](#re)/[Vue](#vu)               | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
 | linter              | ESLint/TSLint/None                           | The linter                                       |
 |                     |                                              |   None - means no linting                        |
@@ -211,6 +211,7 @@ Creates components for use in your application, your application framework, sour
 * PlainApp - class, enum, interface
 * Preact - class, component, enum, interface
 * React - class, component, enum, interface
+* Vue - class, component, enum, interface
 
 # Example
 
@@ -369,6 +370,8 @@ The following configuration profiles are currently available, they provide a set
 * PreactTypeScript
 * ReactJavaScript
 * ReactTypeScript
+* VueJavaScript
+* VueTypeScript
 
 # <a name="clientpackageprofiles"></a>Client Package Profiles
 
@@ -403,6 +406,12 @@ Preact can only be used with CommonJS module type as there is currently no UMD b
 ## <a name="re"></a>React
 
 Nothing else to mention at the moment.
+
+## <a name="vu"></a>Vue
+
+The recommended way of combining all your source/view/style in to one vue file is **not** currently supported, due to the granular way in which the build is carried out. Instead you can import your .css files, and the templates are included using the **url:** syntax from the [gulp-inline-vue](https://www.npmjs.com/package/gulp-inline-vue) plugin.
+
+All the content in your .vue files apart from that enclosed in the &lt;template&gt;...&lt;/template&gt; tags will be ignored by the inlining process.
 
 # Unit Test Runners
 

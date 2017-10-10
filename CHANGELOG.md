@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.2.4
+
+* Added Vue
+
 ## v1.2.3
 
 * Added Preact

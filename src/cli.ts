@@ -177,6 +177,7 @@ export class CLI extends CLIBase {
                         outputDirectory
                     });
                 }
+                break;
             }
 
             case CommandLineCommandConstants.GENERATE: {

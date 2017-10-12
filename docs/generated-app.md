@@ -158,7 +158,7 @@ For more information about the options see the [Electron Documentation](https://
 
 You can choose to use a specific version of the Electron runtime, if not specified it defaults to the most recent stable version see [Electron Releases](https://github.com/electron/electron/releases).
 
-You can specify one or more of the platform architecture combinations, if this is not specified it defaults to win32/ia32.
+You can specify one or more of the platform architecture combinations, if you don't specify any platforms the packager will try and identify your current platform/architecture and create a package accordingly.
 
 Any others keys in the Electron settings will be converted into -- params and passed to the packager, this allows for other options like those specific to the darwin/mas or win32 targets [Electron Usage](https://github.com/electron-userland/electron-packager/blob/master/usage.txt) to be used.
 

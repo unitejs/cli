@@ -4,32 +4,14 @@ Items highlighted in **bold** are the highest priority features.
 
 ## General
 
-* Add root README.md info about www, packages, CI integration
 * Add JSON parser that can accept comments
 * Convert gulp scripts to TypeScript with compile steps
 * Create source/unit/e2e tests from descriptor language to avoid massive repetition
 
-## Documentation
-
-* Web site cheat sheet for other CLIs
-* Compatability Matrix
-
-## Assets
-
-* Add additional assets that are copied to dist e.g. web.config, .well-known folder
-
-## Build Configurations
-
-* Allow buildConfiguration variables to reference local file instead of embedded values in unite.json
-
 ## Engine Pipeline
 
-* **Make pluggable from other npm modules**
-* **Separate the application framework pipeline steps into their own repos**
-
-## Tasks
-
-* Add package view task so you can see which files get included in bundling
+* Make pluggable from other npm modules
+* Separate the application framework pipeline steps into their own repos
 
 ## Licenses
 
@@ -37,7 +19,6 @@ Items highlighted in **bold** are the highest priority features.
 
 ## HTML Index
 
-* Default progress indicator
 * Meta tags author (use same info as licensing?)
 
 # App Frameworks
@@ -48,6 +29,10 @@ Items highlighted in **bold** are the highest priority features.
 * Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
 * [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
 * [Vue](https://vuejs.org/) Add support for combined .vue files
+
+# Module Types
+
+* Add ES6
 
 # CI
 

@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.2.6
+
+* App Configuration and Root Assets additions
+
 ## v1.2.5
 
 * Fixed platform command falling through to generate command

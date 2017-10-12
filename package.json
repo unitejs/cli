@@ -87,7 +87,7 @@
     },
     "dependencies": {
         "unitejs-framework": "^1.0.2",
-        "unitejs-engine": "^1.2.4",
+        "unitejs-engine": "^1.2.5",
         "unitejs-cli-core": "^1.0.2"
     },
     "bin": {

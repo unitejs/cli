@@ -309,7 +309,7 @@ unite clientPackage --operation=remove --packageName=moment
 
 Perform operations to add or remove platforms. This provides tasks that allow you to wrap your web application for different platforms.
 
-One you have added a platform you can manually edit your unite.json to specify other options for the platform packaging, see the [Platforms](./docs/generated-app.md#platforms) section.
+Once you have added a platform you can manually edit your unite.json to specify other options for the platform packaging, see the [Platforms](./docs/generated-app.md#platforms) section. If you don't specify any platforms the packager will try and identify your current platform/architecture and create a package accordingly.
 
 ### --operation=add
 

@@ -409,9 +409,32 @@ Nothing else to mention at the moment.
 
 ## <a name="vu"></a>Vue
 
-The recommended way of combining all your source/view/style in to one vue file is **not** currently supported, due to the granular way in which the build is carried out. Instead you can import your .css files, and the templates are included using the **url:** syntax from the [gulp-inline-vue](https://www.npmjs.com/package/gulp-inline-vue) plugin.
+The recommended way of combining all your source/view/style in to one vue file is **not** currently supported due to the granular way in which the build is performed. Instead you should import your .css and .vue files as shown below:
 
-All the content in your .vue files apart from that enclosed in the &lt;template&gt;...&lt;/template&gt; tags will be ignored by the inlining process.
+```
+import "./my-component.css";
+import importedTemplate from "./my-component.vue";
+
+@Component({
+    "template": importedTemplate
+})
+export class MyComponent extends Vue {
+}
+```
+
+The .vue import must be named **importedTemplate** and all the content in your .vue file apart from that enclosed in the &lt;template&gt;...&lt;/template&gt; tags will be ignored by the build process.
+
+Regular inline templates will also still work:
+```
+import "./my-component.css";
+
+@Component({
+    "template": "<span>hello</span>"
+})
+export class MyComponent extends Vue {
+}
+```
+Scoped css is **not** supported due to the different loading mechanism. Other style formats less, sass and stylus are built to a css file for the component during the normal build process so you should always import the .css file in your code file.
 
 # Unit Test Runners
 

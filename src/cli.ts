@@ -211,7 +211,7 @@ export class CLI extends CLIBase {
         logger.info("");
         this.markdownTableToCli(logger, "| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |");
         this.markdownTableToCli(logger, "| title               | plain text                                   | Used on the web index page                       |");
-        this.markdownTableToCli(logger, "| license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|");
+        this.markdownTableToCli(logger, "| license             | None/{ See [SPDX](https://spdx.org/licenses/) for options } | The license file to generate if required |");
         this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/Preact/React/Vue    | The application framework to use                 |");
         this.markdownTableToCli(logger, "| sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |");
         this.markdownTableToCli(logger, "| linter              | ESLint/TSLint/None                           | The linter                                       |");

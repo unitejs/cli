@@ -79,7 +79,7 @@ You can use this command with no parameters to update an existing installation t
 |---------------------|----------------------------------------------|--------------------------------------------------|
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
 | title               | plain text                                   | Used on the web index page                       |
-| license             | plain text                                   | See [SPDX](https://spdx.org/licenses/) for options|
+| license             | None/{See [SPDX](https://spdx.org/licenses/) for options} | The license file to generate if required |
 | appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Preact](#pr)/[React](#re)/[Vue](#vu)               | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
 | linter              | ESLint/TSLint/None                           | The linter                                       |
@@ -109,9 +109,11 @@ You can use this command with no parameters to update an existing installation t
 # Example
 
 ``` shell
-unite configure --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=MIT --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --unitTestEngine=PhantomJS --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass --cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project
+unite configure --packageName=test-project --title="Test TypeScript Jasmine RequireJS" --license=None --sourceLanguage=TypeScript --moduleType=AMD --bundler=RequireJS --unitTestRunner=Karma --unitTestFramework=Jasmine --unitTestEngine=PhantomJS --e2eTestRunner=Protractor --e2eTestFramework=Jasmine --linter=TSLint --cssPre=Sass --cssPost=PostCss --appFramework=PlainApp --packageManager=Yarn --outputDirectory=/unite/test-project
 
 unite configure --packageName=test-project --title="Test JavaScript Mocha Chai SystemJS" --license=Apache-2.0 --sourceLanguage=JavaScript --moduleType=SystemJS --bundler=SystemJSBuilder --unitTestRunner=Karma --unitTestFramework=MochaChai --unitTestEngine=ChromeHeadless --e2eTestRunner=None --linter=ESLint --cssPre=Css --cssPost=None --appFramework=Aurelia --packageManager=Npm --force=true --outputDirectory=/unite/test-project
+
+unite configure --packageName=test-angular --title="Test Angular" --profile=AngularTypeScript --outputDirectory=/unite/test-project
 ```
 
 ## Command buildConfiguration
@@ -164,32 +166,51 @@ unite buildConfiguration --operation=remove --configurationName=prod-debug
 
 # Build Configuration Variables
 
-The configuration sections created in unite.json have a variables property which you can modify manually to add your own values that will be include in the build. The values are then available in the window.unite.config namespace at runtime. As this is just JSON your value can be any data that can be JSON serialized. The TypeScript definitions for this object are in this repo [UniteJS Types](https://github.com/unitejs/types) and can be reference using:
+With each configuration that is created a .json file is created in the configuration folder with the same name. The values that you store in the config files are then available in the window.unite.config namespace at runtime depending on the type of build you create. Also in the configuration folder is a common.json file which you can use to store any values common to all configurations. The TypeScript definitions for this object are in this repo [UniteJS Types](https://github.com/unitejs/types) and can be reference using:
 
 ``` typescript
 /// <reference types="unitejs-types" />
 ```
 
-unite.json
+configuration/common.json
 
 ``` json
-"buildConfigurations": {
-    "myconfiguration": {
-        ...
-        "variables": {
-            "value1": 12345,
-            "someFlag: true
-        }
-    }
+{
+    "myCommonVariable": "myValue"
+}
+
+```
+
+configuration/dev.json
+
+``` json
+{
+    "myApiKey": "--dev-key--"
 }
 ```
 
-At runtime you can access the variables as follows:
+configuration/prod.json
+
+``` json
+{
+    "myApiKey": "--prod-key--"
+}
+```
+
+At runtime a dev build would allow you to access the variables as follows:
 
 ``` javascript
-console.log(window.unite.config["value1"]);
-console.log(window.unite.config["someFlag"]);
+console.log(window.unite.config["myCommonVariable"]); // myValue
+console.log(window.unite.config["myApiKey"]); // --dev-key--
 ```
+
+At runtime a prod build would allow you to access the variables as follows:
+
+``` javascript
+console.log(window.unite.config["myCommonVariable"]); // myValue
+console.log(window.unite.config["myApiKey"]); // --prod-key--
+```
+
 
 ## unite generate
 
@@ -409,31 +430,22 @@ Nothing else to mention at the moment.
 
 ## <a name="vu"></a>Vue
 
-The recommended way of combining all your source/view/style in to one vue file is **not** currently supported due to the granular way in which the build is performed. Instead you should import your .css and .vue files as shown below:
+The 'Vue' way of combining all your source/view/style in to one .vue file is **not** currently supported due to the granular way in which the build is performed. Instead you should import your .css and .vue files as shown below:
 
 ```
 import "./my-component.css";
-import importedTemplate from "./my-component.vue";
 
 @Component({
-    "template": importedTemplate
+    "template": "./my-component.vue"
 })
 export class MyComponent extends Vue {
 }
 ```
 
-The .vue import must be named **importedTemplate** and all the content in your .vue file apart from that enclosed in the &lt;template&gt;...&lt;/template&gt; tags will be ignored by the build process.
+If the template property looks like a file path the .vue file will be imported and compiled, all the content in your .vue file apart from that enclosed in the &lt;template&gt;...&lt;/template&gt; tags will be ignored by the build process.
 
-Regular inline templates will also still work:
-```
-import "./my-component.css";
+Regular inline templates of course will also still work and will be compiled as well.
 
-@Component({
-    "template": "<span>hello</span>"
-})
-export class MyComponent extends Vue {
-}
-```
 Scoped css is **not** supported due to the different loading mechanism. Other style formats less, sass and stylus are built to a css file for the component during the normal build process so you should always import the .css file in your code file.
 
 # Unit Test Runners

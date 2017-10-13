@@ -13,13 +13,10 @@ Items highlighted in **bold** are the highest priority features.
 * Make pluggable from other npm modules
 * Separate the application framework pipeline steps into their own repos
 
-## Licenses
+## Meta data substitutions
 
 * License file substitutions e.g. 'name of author', 'owner'
-
-## HTML Index
-
-* Meta tags author (use same info as licensing?)
+* Meta tags author in index.html
 
 # App Frameworks
 
@@ -28,11 +25,11 @@ Items highlighted in **bold** are the highest priority features.
 * Add [Ionic](https://ionicframework.com/)
 * Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
 * [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
-* [Vue](https://vuejs.org/) Add support for combined .vue files
 
 # Module Types
 
 * Add ES6
+* Auto wrap libraries with UMD that don't support AMD/SystemJS/CommonJS
 
 # CI
 

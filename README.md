@@ -448,6 +448,8 @@ Regular inline templates of course will also still work and will be compiled as 
 
 Scoped css is **not** supported due to the different loading mechanism. Other style formats less, sass and stylus are built to a css file for the component during the normal build process so you should always import the .css file in your code file.
 
+Vue 2.5.0 can not yet be used due to the way the module compilation has changed, although this change was to improve TypeScript support it also breaks the behaviour of default exports when used with other module loaders. This is actually an issue with the TypeScript compiler which should be addressed in the TypeScript 2.7 release [https://github.com/Microsoft/TypeScript/issues/19168](https://github.com/Microsoft/TypeScript/issues/19168) and more specifically Issue [#16093](https://github.com/Microsoft/TypeScript/issues/16093).
+
 # Unit Test Runners
 
 ## <a name="jest"></a>Jest

@@ -115,6 +115,7 @@ Items highlighted in **bold** are the highest priority features.
 ## E2E Test Runner
 
 * Add [Nightwatch](http://nightwatchjs.org/)
+* Add [Cypress](https://www.cypress.io/)
 
 ## E2E Frameworks
 

@@ -23,7 +23,7 @@ So if this sounds like the tool for you just dive in.
 
 # Documentation
 
-In depth documentation can be found on the web site at [http://unitejs.com/#/documentation](http://unitejs.com/#/documentation)
+In depth CLI documentation can be found on the web site at [http://unitejs.com/#/cli](http://unitejs.com/#/cli)
 
 # Generator
 
@@ -160,7 +160,7 @@ This will remove an existing configuration.
 
 # Example
 
-```shell
+``` shell
 unite buildConfiguration --operation=remove --configurationName=prod-debug
 ```
 
@@ -236,7 +236,7 @@ Creates components for use in your application, your application framework, sour
 
 # Example
 
-```shell
+``` shell
 unite generate --name=thing --type=component
 unite generate --name="My Thing" --type=class --subFolder=./myClasses/sub2
 ```
@@ -322,7 +322,7 @@ This will remove an existing clientPackage and modify all the necessary configur
 
 # Example
 
-```shell
+``` shell
 unite clientPackage --operation=remove --packageName=moment
 ```
 
@@ -330,7 +330,7 @@ unite clientPackage --operation=remove --packageName=moment
 
 Perform operations to add or remove platforms. This provides tasks that allow you to wrap your web application for different platforms.
 
-Once you have added a platform you can manually edit your unite.json to specify other options for the platform packaging, see the [Platforms](./docs/generated-app.md#platforms) section. If you don't specify any platforms the packager will try and identify your current platform/architecture and create a package accordingly.
+Once you have added a platform you can manually edit your unite.json to specify other options for the platform packaging, see the [Platforms](https://github.com/unitejs/engine/blob/master/assets/README.md#platforms) section. If you don't specify any platforms the packager will try and identify your current platform/architecture and create a package accordingly.
 
 ### --operation=add
 
@@ -362,7 +362,7 @@ This will remove an existing platform and modify all the necessary configuration
 
 # Example
 
-```shell
+``` shell
 unite platform --operation=remove --platformName=Electron
 ```
 
@@ -377,7 +377,7 @@ unite platform --operation=remove --platformName=Electron
 
 # Generated App
 
-For more information on the generated app see [Generated App](./docs/generated-app.md)
+For more information on the generated app see [Generated App](https://github.com/unitejs/engine/blob/master/assets/README.md)
 
 # <a name="configprofiles"></a>Configuration Profiles
 
@@ -432,7 +432,7 @@ Nothing else to mention at the moment.
 
 The 'Vue' way of combining all your source/view/style in to one .vue file is **not** currently supported due to the granular way in which the build is performed. Instead you should import your .css and .vue files as shown below:
 
-```
+``` javascript
 import "./my-component.css";
 
 @Component({

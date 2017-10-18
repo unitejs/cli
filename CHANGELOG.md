@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.4.0
+
+* Added docker supportS
+
 ## v1.3.1
 
 * Linux electron improvements

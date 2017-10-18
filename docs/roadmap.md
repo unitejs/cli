@@ -20,7 +20,7 @@ Items highlighted in **bold** are the highest priority features.
 
 # App Frameworks
 
-* Add [Ember](https://www.emberjs.com/)
+* Add [Ember](https://www.emberjs.com/) When it supports TypeScript
 * Add [Backbone](http://backbonejs.org/)
 * Add [Ionic](https://ionicframework.com/)
 * Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
@@ -29,7 +29,7 @@ Items highlighted in **bold** are the highest priority features.
 # Module Types
 
 * Add ES6
-* Auto wrap libraries with UMD that don't support AMD/SystemJS/CommonJS
+* Auto wrap libraries with UMD that don't support AMD/SystemJS/CommonJS if using different loader
 
 # CI
 
@@ -51,11 +51,6 @@ Items highlighted in **bold** are the highest priority features.
 ## Test
 
 * Add [Coveralls](https://coveralls.io/)
-
-## Distribution
-
-* Add [Docker](https://www.docker.com/)
-* Add [Azure](https://azure.microsoft.com/en-gb/)
 
 # Platform
 
@@ -105,7 +100,7 @@ Items highlighted in **bold** are the highest priority features.
 
 ## Unit Testing
 
-* Add report deployment
+* Add report zipping/deployment
 
 ## E2E Testing
 
@@ -125,6 +120,7 @@ Items highlighted in **bold** are the highest priority features.
 # IDE Integration
 
 * Add WebStorm
+* Add VSCode tasks/launch etc
 
 ## VSCode Plugin
 

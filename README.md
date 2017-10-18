@@ -339,7 +339,7 @@ This will add a new platform and modify all the necessary configuration files to
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | operation           | add                                       |                                                  |
-| platformName        | Web/Electron                              | Name of the platform to add                      |
+| platformName        | Docker/Electron/Web                       | Name of the platform to add                      |
 | outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
 |                     |                                           |   optional - defaults to current directory       |
 
@@ -356,7 +356,7 @@ This will remove an existing platform and modify all the necessary configuration
 | Argument            | Value                                     | Used For                                         |
 |---------------------|-------------------------------------------|--------------------------------------------------|
 | operation           | remove                                    |                                                  |
-| platformName        | Web/Electron                              | Name of the platform to remove                   |
+| platformName        | Docker/Electron/Web                       | Name of the platform to remove                   |
 | outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
 |                     |                                           |   optional - defaults to current directory       |
 

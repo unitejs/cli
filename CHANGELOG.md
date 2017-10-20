@@ -2,9 +2,14 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## v1.5.0
+
+* Added support for vscode extension
+* Change list parameters now use comma for separator not semi-colon (BREAKING)
+
 ## v1.4.0
 
-* Added docker supportS
+* Added docker support
 
 ## v1.3.1
 

@@ -172,7 +172,7 @@ describe("CLI", () => {
 
         it("can handle platform", async () => {
             await fileSystemStub.directoryCreate("./test/unit/temp/www/");
-            await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", {});
+            await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", { packageManager: "npm"});
             await fileSystemStub.fileWriteJson("./test/unit/temp/www/", "package.json", {});
 
             const obj = new CLI();

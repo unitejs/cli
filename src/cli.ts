@@ -227,7 +227,7 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |");
         this.markdownTableToCli(logger, "| cssPost             | PostCss/None                                 | The css postprocessor to use                     |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css post processor             |");
-        this.markdownTableToCli(logger, "| ides                | VSCode                                       | This can be a semi-colon separated list          |");
+        this.markdownTableToCli(logger, "| ides                | VSCode                                       | This can be a comma separated list               |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional can be blank                          |");
         this.markdownTableToCli(logger, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to npm if not already set  |");
@@ -298,11 +298,11 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to not package             |");
         this.markdownTableToCli(logger, "| assets              | comma separated globs                     | These files are packed in platform builds        |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| testingAdditions    | key1=value1;key2=value2                   | Additional scripts for testing                   |");
+        this.markdownTableToCli(logger, "| testingAdditions    | key1=value1,key2=value2                   | Additional scripts for testing                   |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| map                 | key1=value1;key2=value2                   | Additional module config maps                    |");
+        this.markdownTableToCli(logger, "| map                 | key1=value1,key2=value2                   | Additional module config maps                    |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| loaders             | key1=value1;key2=value2                   | Additional module config loaders                 |");
+        this.markdownTableToCli(logger, "| loaders             | key1=value1,key2=value2                   | Additional module config loaders                 |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
         this.markdownTableToCli(logger, "| packageManager      | npm/yarn                                  | The package manager to use for the add           |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to npm if not already set  |");

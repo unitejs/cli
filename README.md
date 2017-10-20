@@ -95,7 +95,7 @@ You can use this command with no parameters to update an existing installation t
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
 | cssPost             | PostCss/None                                 | The css postprocessor to use                     |
 |                     |                                              |   None - means no css post processor             |
-| ides                | VSCode                                       | This can be a semi-colon separated list          |
+| ides                | VSCode                                       | This can be a comma separated list               |
 |                     |                                              |   optional can be blank                          |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
 |                     |                                              |   optional - defaults to Npm if not already set  |
@@ -272,13 +272,13 @@ You can use the profile parameter to use one of the in-built clientPackage profi
 |                     |                                           |   optional - defaults to none                    |
 | isPackage           |                                           | This is included as a package in module loaders  |
 |                     |                                           |   optional - defaults to not package             |
-| assets              | semi-colon separated globs                | These files are packed in platform builds        |
+| assets              | comma separated globs                     | These files are packed in platform builds        |
 |                     |                                           |   optional - defaults to empty                   |
-| testingAdditions    | key1=value1;key2=value2                   | Additional scripts for testing                   |
+| testingAdditions    | key1=value1,key2=value2                   | Additional scripts for testing                   |
 |                     |                                           |   optional - defaults to empty                   |
-| map                 | key1=value1;key2=value2                   | Additional module config maps                    |
+| map                 | key1=value1,key2=value2                   | Additional module config maps                    |
 |                     |                                           |   optional - defaults to empty                   |
-| loaders             | key1=value1;key2=value2                   | Additional module config loaders                 |
+| loaders             | key1=value1,key2=value2                   | Additional module config loaders                 |
 |                     |                                           |   optional - defaults to empty                   |
 | packageManager      | npm/yarn                                  | The package manager to use for the add           |
 |                     |                                           |   optional - defaults to npm if not already set  |
@@ -300,9 +300,9 @@ unite clientPackage --operation=add --packageName=sinon --includeMode=test
 
 unite clientPackage --operation=add --packageName=@angular/core --includeMode=both --testingAdditions=@angular/core/testing=bundles/core-testing.umd.js
 
-unite clientPackage --operation=add --packageName=requirejs-text --includeMode=both --map=text=requirejs-text --loaders=*.html=text;*.css=text
+unite clientPackage --operation=add --packageName=requirejs-text --includeMode=both --map=text=requirejs-text --loaders=*.html=text,*.css=text
 
-unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*;fonts/**/*
+unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*,fonts/**/*
 
 unite clientPackage --operation=add --packageName=bootstrap --version=4.0.0-beta --noScript
 ```

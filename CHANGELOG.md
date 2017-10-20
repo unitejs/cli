@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.5.1
+
+* Change Decreased size of dependencies
+
 ## v1.5.0
 
 * Added support for vscode extension

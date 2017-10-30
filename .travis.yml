@@ -15,7 +15,7 @@ install:
   - cd unitejs/engine
   - npm link "unitejs-framework"
   - npm link
-  - cd ../../unitejs/cli
+  - cd ../../
   - npm link "unitejs-framework" "unitejs-cli-core" "unitejs-engine"
 script: 
   - gulp build || travis_terminate 1

@@ -1,12 +1,11 @@
 # Core
 
-Items highlighted in **bold** are the highest priority features.
-
 ## General
 
+* Version check after run complete
 * Add JSON parser that can accept comments
-* Convert gulp scripts to TypeScript with compile steps
-* Create source/unit/e2e tests from descriptor language to avoid massive repetition
+* Convert gulp script from JavaScript to TypeScript with compilation to improve resiliency
+* Create source/unit/e2e tests from descriptor language to avoid massive repetition and possibly easier introduction of other languages (vscode snippet format ?)
 
 ## Engine Pipeline
 
@@ -20,16 +19,13 @@ Items highlighted in **bold** are the highest priority features.
 
 # App Frameworks
 
-* Add [Ember](https://www.emberjs.com/) When it supports TypeScript
-* Add [Backbone](http://backbonejs.org/)
-* Add [Ionic](https://ionicframework.com/)
-* Add [Polymer](https://www.polymer-project.org/) Waiting for v3 so no more bower
+* Add [Ember](https://www.emberjs.com/) When it supports TypeScript ?
 * [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
 
 # Module Types
 
-* Add ES6
-* Auto wrap libraries with UMD that don't support AMD/SystemJS/CommonJS if using different loader
+* Add ES6 as a module type (long term), browser support not yet solidified
+* Find a way to make RequireJS bundled version work with mapped modules e.g. polymer/rxjs
 
 # CI
 
@@ -57,7 +53,7 @@ Items highlighted in **bold** are the highest priority features.
 ## Wrappers
 
 * Add [Cordova](https://cordova.apache.org/)
-* Add Windows Universal App
+* Add Windows Universal App (Could use Cordova)
 
 # Code
 
@@ -65,6 +61,11 @@ Items highlighted in **bold** are the highest priority features.
 
 * Add [Coffee Script](http://coffeescript.org/)
 * Add [Flow](https://flow.org/)
+
+# Code Linting
+
+* Add [JSHint](http://jshint.com/)
+* Add [JSLint](http://jslint.com/)
 
 ## CSS Linting
 
@@ -90,6 +91,7 @@ Items highlighted in **bold** are the highest priority features.
 ## Documentation
 
 * Add [JSDoc](http://usejsdoc.org/)
+* Add [ESDoc](https://esdoc.org/)
 
 # Test
 
@@ -100,11 +102,12 @@ Items highlighted in **bold** are the highest priority features.
 
 ## Unit Testing
 
+* Add [QUnit](https://qunitjs.com/)
 * Add report zipping/deployment
 
 ## E2E Testing
 
-* **Add selenium remote testing for use with CI**
+* Add selenium remote testing for use with CI
 * Protractor read existing config and modify
 
 ## E2E Test Runner
@@ -122,11 +125,7 @@ Items highlighted in **bold** are the highest priority features.
 * Add WebStorm
 * Add VSCode tasks/launch etc
 
-## VSCode Plugin
-
-* Access the commands directly from VSCode, with repo lookup for common modules using profiles
-
-# Profiles
+# Client Package Profiles
 
 * Common libraries
   * lodash

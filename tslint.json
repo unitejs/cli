@@ -239,6 +239,8 @@
         "no-submodule-imports": false,
         "no-object-literal-type-assertion": false,
         "no-unbound-method": false,
+        "no-unnecessary-class": false,
+        "no-implicit-dependencies": false,
 
         /**
          * Deprecated rules.  The following rules are deprecated for various reasons.

@@ -1,6 +1,6 @@
 {
     "name": "unitejs-cli",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "description": "Command line interface to the UniteJS zero configuration web app creation tool.",
     "main": "dist/cli.js",
     "repository": {
@@ -39,6 +39,7 @@
         "selenium",
         "angular",
         "aurelia",
+        "polymer",
         "preact",
         "react",
         "vue",
@@ -63,9 +64,9 @@
     },
     "devDependencies": {
         "@types/chai": "^4.0.4",
-        "@types/mocha": "^2.2.43",
-        "@types/node": "^8.0.31",
-        "@types/sinon": "^2.3.5",
+        "@types/mocha": "^2.2.44",
+        "@types/node": "^8.0.47",
+        "@types/sinon": "^2.3.7",
         "chai": "^4.1.2",
         "coveralls": "^3.0.0",
         "del": "^3.0.0",
@@ -76,20 +77,20 @@
         "gulp-replace": "^0.6.1",
         "gulp-sourcemaps": "^2.6.1",
         "gulp-tslint": "^8.1.2",
-        "gulp-typescript": "^3.2.2",
+        "gulp-typescript": "^3.2.3",
         "merge2": "^1.2.0",
         "minimist": "^1.2.0",
         "remap-istanbul": "^0.9.5",
         "run-sequence": "^2.2.0",
-        "sinon": "^4.0.0",
-        "tslint": "^5.7.0",
+        "sinon": "^4.0.2",
+        "tslint": "^5.8.0",
         "tslint-microsoft-contrib": "^5.0.1",
         "typescript": "^2.5.3"
     },
     "dependencies": {
         "unitejs-framework": "^1.0.2",
-        "unitejs-engine": "^1.5.1",
-        "unitejs-cli-core": "^1.1.0"
+        "unitejs-engine": "^1.6.0",
+        "unitejs-cli-core": "^1.1.1"
     },
     "bin": {
         "unite": "bin/unite.js"

@@ -109,12 +109,19 @@ export class CLI extends CLIBase {
                 const isPackage = commandLineParser.getBooleanArgument(CommandLineArgConstants.IS_PACKAGE);
                 const main = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN);
                 const mainMinified = commandLineParser.getStringArgument(CommandLineArgConstants.MAIN_MINIFIED);
+                const mainLib = commandLineParser.getStringArrayArgument(CommandLineArgConstants.MAIN_LIB);
                 const noScript = commandLineParser.getBooleanArgument(CommandLineArgConstants.NO_SCRIPT);
-                const testingAdditions = commandLineParser.getStringArgument(CommandLineArgConstants.TESTING_ADDITIONS);
-                const map = commandLineParser.getStringArgument(CommandLineArgConstants.MAP);
-                const loaders = commandLineParser.getStringArgument(CommandLineArgConstants.LOADERS);
-                const assets = commandLineParser.getStringArgument(CommandLineArgConstants.ASSETS);
+                const testingAdditions = commandLineParser.getStringArrayArgument(CommandLineArgConstants.TESTING_ADDITIONS);
+                const map = commandLineParser.getStringArrayArgument(CommandLineArgConstants.MAP);
+                const loaders = commandLineParser.getStringArrayArgument(CommandLineArgConstants.LOADERS);
+                const assets = commandLineParser.getStringArrayArgument(CommandLineArgConstants.ASSETS);
                 const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
+                const transpileAlias = commandLineParser.getStringArgument(CommandLineArgConstants.TRANSPILE_ALIAS);
+                const transpileLanguage = commandLineParser.getStringArgument(CommandLineArgConstants.TRANSPILE_LANGUAGE);
+                const transpileSources = commandLineParser.getStringArrayArgument(CommandLineArgConstants.TRANSPILE_SOURCES);
+                const transpileModules = commandLineParser.getStringArrayArgument(CommandLineArgConstants.TRANSPILE_MODULES);
+                const transpileStripExt = commandLineParser.getBooleanArgument(CommandLineArgConstants.TRANSPILE_STRIP_EXT);
+                const transpileTransforms = commandLineParser.getStringArrayArgument(CommandLineArgConstants.TRANSPILE_TRANSFORMS);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
                     ret = await this._engine.command<IClientPackageCommandParams>(command, {
@@ -126,12 +133,19 @@ export class CLI extends CLIBase {
                         scriptIncludeMode,
                         main,
                         mainMinified,
-                        testingAdditions,
+                        mainLib,
                         isPackage,
+                        testingAdditions,
                         assets,
                         map,
                         loaders,
                         noScript,
+                        transpileAlias,
+                        transpileLanguage,
+                        transpileSources,
+                        transpileModules,
+                        transpileStripExt,
+                        transpileTransforms,
                         profile,
                         packageManager,
                         outputDirectory
@@ -212,7 +226,8 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |");
         this.markdownTableToCli(logger, "| title               | plain text                                   | Used on the web index page                       |");
         this.markdownTableToCli(logger, "| license             | None/{ See [SPDX](https://spdx.org/licenses/) for options } | The license file to generate if required |");
-        this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/Preact/React/Vue    | The application framework to use                 |");
+        this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/Polymer/            | The application framework to use                 |");
+        this.markdownTableToCli(logger, "|                     |     Preact/React/Vue                         |                                                  |");
         this.markdownTableToCli(logger, "| sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |");
         this.markdownTableToCli(logger, "| linter              | ESLint/TSLint/None                           | The linter                                       |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no linting                        |");
@@ -303,6 +318,18 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| map                 | key1=value1,key2=value2                   | Additional module config maps                    |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
         this.markdownTableToCli(logger, "| loaders             | key1=value1,key2=value2                   | Additional module config loaders                 |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| transpileAlias      | 'path'                                    | The location to build a transpiled version       |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| transpileLanguage   | JavaScript/TypeScript                     | The source language to transpile from            |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| transpileSources    | comma separated globs                     | The source files to transpile                    |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| transpileModules    | comma separated module names              | Relative module name import to replace with map  |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| transpileStripExt   |                                           | Should we strip extensions from imports          |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to false                   |");
+        this.markdownTableToCli(logger, "| transpileTransforms | from1,to1,from2,to2...                    | Regex transforms to apply during transpilation   |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
         this.markdownTableToCli(logger, "| packageManager      | npm/yarn                                  | The package manager to use for the add           |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to npm if not already set  |");

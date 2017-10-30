@@ -2,6 +2,11 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.6.0
+
+* Added polymer support
+* Added transpile options for clientPackages
+
 ## 1.5.1
 
 * Change Decreased size of dependencies

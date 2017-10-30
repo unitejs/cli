@@ -53,7 +53,7 @@ where command is one of:
 * clientPackage
 * platform
 
-Argument names are case sensitive but values are case insensitive, argument values with spaces should be enclosed in quotes.
+Argument names are case sensitive but values are case insensitive, argument values with spaces should be enclosed in quotes, apostrophes or backticks.
 
 # Commands
 
@@ -80,7 +80,7 @@ You can use this command with no parameters to update an existing installation t
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
 | title               | plain text                                   | Used on the web index page                       |
 | license             | None/{See [SPDX](https://spdx.org/licenses/) for options} | The license file to generate if required |
-| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Preact](#pr)/[React](#re)/[Vue](#vu)               | The application framework to use                 |
+| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Polymer](#po)/[Preact](#pr)/[React](#re)/[Vue](#vu)               | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
 | linter              | ESLint/TSLint/None                           | The linter                                       |
 |                     |                                              |   None - means no linting                        |
@@ -230,6 +230,7 @@ Creates components for use in your application, your application framework, sour
 * Angular - class, component, directive, enum, guard, interface, module, pipe, service
 * Aurelia - attribute, binding-behavior, class, component, element, enum, interface, pipeline-step, value-converter
 * PlainApp - class, enum, interface
+* Polymer - class, component, enum, interface
 * Preact - class, component, enum, interface
 * React - class, component, enum, interface
 * Vue - class, component, enum, interface
@@ -261,9 +262,11 @@ You can use the profile parameter to use one of the in-built clientPackage profi
 |                     |                                           |   optional - defaults to not preload             |
 | main                | 'path'                                    | The path to the main js file in the package      |
 |                     |                                           |   optional - defaults to looking it up           |
-|                     |                                           |   use * to mean all files to be mapped          |
+|                     |                                           |   use * to mean all files to be mapped           |
 | mainMinified        | 'path'                                    | The path to the minified main js file            |
 |                     |                                           |   optional - defaults to using main              |
+| mainLib             | comma separated globs                     | A specific set of files to include when main=*   |
+|                     |                                           |   optional - defaults to all js in the package   |
 | noScript            |                                           | Don't include any scripts from the package       |
 |                     |                                           |   optional - defaults to false                   |
 | includeMode         | app/test/both                             | When should the package be loaded as a module    |
@@ -279,6 +282,18 @@ You can use the profile parameter to use one of the in-built clientPackage profi
 | map                 | key1=value1,key2=value2                   | Additional module config maps                    |
 |                     |                                           |   optional - defaults to empty                   |
 | loaders             | key1=value1,key2=value2                   | Additional module config loaders                 |
+|                     |                                           |   optional - defaults to empty                   |
+| transpileAlias      | 'path'                                    | The location to build a transpiled version       |
+|                     |                                           |   optional - defaults to empty                   |
+| transpileLanguage   | JavaScript/TypeScript                     | The source language to transpile from            |
+|                     |                                           |   optional - defaults to empty                   |
+| transpileSources    | comma separated globs                     | The source files to transpile                    |
+|                     |                                           |   optional - defaults to empty                   |
+| transpileModules    | comma separated module names              | Relative module name imports to replace with map |
+|                     |                                           |   optional - defaults to empty                   |
+| transpileStripExt   |                                           | Should we strip extensions from imports          |
+|                     |                                           |   optional - defaults to false                   |
+| transpileTransforms | from1,to1,from2,to2...                    | Regex transforms to apply during transpilation   |
 |                     |                                           |   optional - defaults to empty                   |
 | packageManager      | npm/yarn                                  | The package manager to use for the add           |
 |                     |                                           |   optional - defaults to npm if not already set  |
@@ -305,6 +320,8 @@ unite clientPackage --operation=add --packageName=requirejs-text --includeMode=b
 unite clientPackage --operation=add --packageName=font-awesome --assets=css/**/*,fonts/**/*
 
 unite clientPackage --operation=add --packageName=bootstrap --version=4.0.0-beta --noScript
+
+unite clientPackage --operation=add --packageName=@polymer/polymer --transpileAlias=@polymer-transpiled/polymer --transpileLanguage=JavaScript --transpileSources=polymer.js,polymer-element.js,lib/**/*.js --transpileModules=@webcomponents --transpileStripExt
 ```
 
 ### --operation=remove
@@ -387,6 +404,10 @@ The following configuration profiles are currently available, they provide a set
 * AngularTypeScript
 * AureliaJavaScript
 * AureliaTypeScript
+* PlainAppJavaScript
+* PlainAppTypeScript
+* PolymerJavaScript
+* PolymerTypeScript
 * PreactJavaScript
 * PreactTypeScript
 * ReactJavaScript
@@ -410,7 +431,7 @@ Although we try to support all the different framework and tool combinations thi
 
 ## <a name="ng"></a>Angular
 
-Angular does not currently support bundling with RequireJS because there is no longer an AMD build of RXJS in modular form.
+AMD/RequireJS can not be used as the module type/bundler due to the way the libraries are utilised (RequireJS does not support wildcard bundling).
 
 ## <a name="au"></a>Aurelia
 
@@ -420,9 +441,17 @@ Aurelia does not currently support bundling with Browserify or Webpack.
 
 This is a vanilla app with no framework libraries included.
 
+## <a name="po"></a>Polymer
+
+@polymer/decorators is curently based on a fork so that it will work with npm on windows due to [Issue #16](https://github.com/Polymer/polymer-decorators/issues/16).
+
+AMD/RequireJS can not be used as the module type/bundler due to the way the libraries are utilised (RequireJS does not support wildcard bundling).
+
+Jest (and more specifically JSDOM) and PhantomJS can not be used as unit test runners as they lack some of the JavaScript features required.
+
 ## <a name="pr"></a>Preact
 
-Preact can only be used with CommonJS module type as there is currently no UMD build of the library.
+Nothing else to mention at the moment.
 
 ## <a name="re"></a>React
 
@@ -448,7 +477,7 @@ Regular inline templates of course will also still work and will be compiled as 
 
 Scoped css is **not** supported due to the different loading mechanism. Other style formats less, sass and stylus are built to a css file for the component during the normal build process so you should always import the .css file in your code file.
 
-Vue 2.5.0 can not yet be used due to the way the module compilation has changed, although this change was to improve TypeScript support it also breaks the behaviour of default exports when used with other module loaders. This is actually an issue with the TypeScript compiler which should be addressed in the TypeScript 2.7 release [https://github.com/Microsoft/TypeScript/issues/19168](https://github.com/Microsoft/TypeScript/issues/19168) and more specifically Issue [#16093](https://github.com/Microsoft/TypeScript/issues/16093).
+Vue 2.5.0 can not yet be used due to the way the module compilation has changed, although this change was to improve TypeScript support it also breaks the behaviour of default exports when used with other module loaders. This is actually an issue with the TypeScript compiler which should be addressed in the TypeScript 2.7 release [Issue #19168](https://github.com/Microsoft/TypeScript/issues/19168) and more specifically [Issue #16093](https://github.com/Microsoft/TypeScript/issues/16093).
 
 # Unit Test Runners
 

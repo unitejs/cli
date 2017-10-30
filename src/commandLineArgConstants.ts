@@ -30,6 +30,7 @@ export class CommandLineArgConstants {
     public static SCRIPT_INCLUDE_MODE: string = "scriptIncludeMode";
     public static MAIN: string = "main";
     public static MAIN_MINIFIED: string = "mainMinified";
+    public static MAIN_LIB: string = "mainLib";
     public static TESTING_ADDITIONS: string = "testingAdditions";
     public static IS_PACKAGE: string = "isPackage";
     public static ASSETS: string = "assets";
@@ -38,6 +39,12 @@ export class CommandLineArgConstants {
     public static NO_SCRIPT: string = "noScript";
     public static PACKAGE_MANAGER: string = "packageManager";
     public static PROFILE: string = "profile";
+    public static TRANSPILE_ALIAS: string = "transpileAlias";
+    public static TRANSPILE_LANGUAGE: string = "transpileLanguage";
+    public static TRANSPILE_SOURCES: string = "transpileSources";
+    public static TRANSPILE_MODULES: string = "transpileModules";
+    public static TRANSPILE_STRIP_EXT: string = "transpileStripExt";
+    public static TRANSPILE_TRANSFORMS: string = "transpileTransforms";
 
     public static CONFIGURATION_NAME: string = "configurationName";
     public static BUNDLE: string = "bundle";

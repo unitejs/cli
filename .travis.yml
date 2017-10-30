@@ -2,7 +2,21 @@ language: node_js
 node_js:
   - "node"
 install:
-  - npm install
+  - git clone --branch=develop https://github.com/unitejs/framework.git unitejs/framework
+  - cd unitejs/framework
+  - npm link
+  - cd ../../
+  - git clone --branch=develop https://github.com/unitejs/cli-core.git unitejs/cli-core
+  - cd unitejs/cli-core
+  - npm link "unitejs-framework"
+  - npm link
+  - cd ../../
+  - git clone --branch=develop https://github.com/unitejs/engine.git unitejs/engine
+  - cd unitejs/engine
+  - npm link "unitejs-framework"
+  - npm link
+  - cd ../../unitejs/cli
+  - npm link "unitejs-framework" "unitejs-cli-core" "unitejs-engine"
 script: 
   - gulp build || travis_terminate 1
   - gulp unit || travis_terminate 1

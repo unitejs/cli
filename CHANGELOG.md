@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.6.1
+
+* Added pwa (Progressive Web App) buildConfiguration option
+
 ## 1.6.0
 
 * Added polymer support

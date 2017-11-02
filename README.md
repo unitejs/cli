@@ -134,6 +134,8 @@ This will either add a new configuration or update any existing configurations w
 |                     |                                           |   optional - defaults to off                     |
 | sourcemaps          |                                           | Should the final output include sourcemaps       |
 |                     |                                           |   optional - defaults to on                      |
+| pwa                 |                                           | Include Progressive Web App functionality        |
+|                     |                                           |   optional - defaults to off                     |
 | outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
 |                     |                                           |   optional - defaults to current directory       |
 
@@ -145,6 +147,8 @@ unite buildConfiguration --operation=add --configurationName=dev --sourcemaps
 unite buildConfiguration --operation=add --configurationName=prod --bundle --minify
 
 unite buildConfiguration --operation=add --configurationName=prod-debug --bundle --minify --sourcemaps
+
+unite buildConfiguration --operation=add --configurationName=prod-pwa --bundle --minify --pwa
 ```
 
 ### --operation=remove

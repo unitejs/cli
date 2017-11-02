@@ -2,10 +2,9 @@
 
 ## General
 
-* Version check after run complete
 * Add JSON parser that can accept comments
 * Convert gulp script from JavaScript to TypeScript with compilation to improve resiliency
-* Create source/unit/e2e tests from descriptor language to avoid massive repetition and possibly easier introduction of other languages (vscode snippet format ?)
+* Create source/unit/e2e tests from descriptor language to avoid repetition and possibly easier introduction of other languages (vscode snippet format ?)
 
 ## Engine Pipeline
 
@@ -19,6 +18,8 @@
 
 # App Frameworks
 
+* Add [StencilJs](https://stenciljs.com/)
+* Add native Web Components
 * Add [Ember](https://www.emberjs.com/) When it supports TypeScript ?
 * [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
 
@@ -35,14 +36,12 @@
 
 ## Build
 
-* Add [Travis](https://travis-ci.org/)
-* Add [Circle](https://circleci.com/)
-* Add [Appveyor](https://www.appveyor.com/)
-* Add [Jenkins](https://jenkins.io/)
-* Add [TeamCity](https://www.jetbrains.com/teamcity/)
-* Add [Visual Studio Online](https://www.visualstudio.com/vso/)
-* Add build number to window.unite variable
-* Add build date/time to window.unite variable
+* Add [Travis](https://travis-ci.org/) integration
+* Add [Circle](https://circleci.com/) integration
+* Add [Appveyor](https://www.appveyor.com/) integration
+* Add [Jenkins](https://jenkins.io/) integration
+* Add [TeamCity](https://www.jetbrains.com/teamcity/) integration
+* Add [Visual Studio Online](https://www.visualstudio.com/vso/) integration
 
 ## Test
 

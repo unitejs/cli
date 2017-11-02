@@ -162,6 +162,7 @@ export class CLI extends CLIBase {
                 const bundle = commandLineParser.getBooleanArgument(CommandLineArgConstants.BUNDLE);
                 const minify = commandLineParser.getBooleanArgument(CommandLineArgConstants.MINIFY);
                 const sourcemaps = commandLineParser.getBooleanArgument(CommandLineArgConstants.SOURCE_MAPS);
+                const pwa = commandLineParser.getBooleanArgument(CommandLineArgConstants.PWA);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
@@ -171,6 +172,7 @@ export class CLI extends CLIBase {
                         bundle,
                         minify,
                         sourcemaps,
+                        pwa,
                         outputDirectory
                     });
                 }
@@ -261,6 +263,8 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to off                     |");
         this.markdownTableToCli(logger, "| sourcemaps          |                                           | Should the final output include sourcemaps       |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to on                      |");
+        this.markdownTableToCli(logger, "| pwa                 |                                           | Include Progressive Web App functionality        |");
+        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to off                     |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
         logger.info("");

@@ -395,6 +395,7 @@ unite platform --operation=remove --platformName=Electron
 |                     |                                           |   optional - defaults to on                      |
 | logFile             | 'filename'                                | The log file to store the logging in             |
 |                     |                                           |   optional - default to no file logging          |
+| disableVersionCheck |                                           | Switch off the check for a new version           |
 
 # Generated App
 

@@ -89,8 +89,8 @@
     },
     "dependencies": {
         "unitejs-framework": "^1.0.2",
-        "unitejs-engine": "^1.6.0",
-        "unitejs-cli-core": "^1.1.1"
+        "unitejs-engine": "^1.6.1",
+        "unitejs-cli-core": "^1.1.2"
     },
     "bin": {
         "unite": "bin/unite.js"

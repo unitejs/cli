@@ -371,6 +371,7 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to on                      |");
         this.markdownTableToCli(logger, "| logFile             | 'filename'                                | The log file to store the logging in             |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to no file logging         |");
+        this.markdownTableToCli(logger, "| disableVersionCheck |                                           | Switch off the check for a new version           |");
         this.markdownTableToCli(logger, "");
         logger.info("");
 

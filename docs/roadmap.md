@@ -13,8 +13,7 @@
 
 ## Meta data substitutions
 
-* License file substitutions e.g. 'name of author', 'owner'
-* Meta tags author in index.html
+* License file substitutions e.g. 'name of author', 'owner' - needs work by spdx to get list of all fields
 
 # App Frameworks
 

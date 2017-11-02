@@ -93,6 +93,8 @@
 
 # Test
 
+Unit Testing add custom setup script than can do things like disable development mode for Vue warning.
+
 ## Test Frameworks
 
 * Add [Wallaby](https://wallabyjs.com/) (Requires License)

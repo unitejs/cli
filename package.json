@@ -82,10 +82,10 @@
         "minimist": "^1.2.0",
         "remap-istanbul": "^0.9.5",
         "run-sequence": "^2.2.0",
-        "sinon": "^4.0.2",
+        "sinon": "^4.1.0",
         "tslint": "^5.8.0",
         "tslint-microsoft-contrib": "^5.0.1",
-        "typescript": "^2.5.3"
+        "typescript": "^2.6.1"
     },
     "dependencies": {
         "unitejs-framework": "^1.0.2",

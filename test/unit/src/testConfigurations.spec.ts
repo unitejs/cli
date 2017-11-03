@@ -8,18 +8,14 @@ import { FileSystem } from "unitejs-cli-core/dist/fileSystem";
 import { UniteConfiguration } from "unitejs-engine/dist/configuration/models/unite/uniteConfiguration";
 import { IFileSystem } from "unitejs-framework/dist/interfaces/IFileSystem";
 import { ILogger } from "unitejs-framework/dist/interfaces/ILogger";
-import { DefaultLogger } from "unitejs-framework/dist/loggers/defaultLogger";
 import { CLI } from "../../../src/cli";
 
 describe("TestConfigurations", () => {
     let sandbox: Sinon.SinonSandbox;
     let loggerStub: ILogger;
     let fileSystemStub: IFileSystem;
-    let defaultLoggerStub: Sinon.SinonStub;
     let commandLineParser: CommandLineParser;
-    let loggerInfoSpy: Sinon.SinonSpy;
     let loggerErrorSpy: Sinon.SinonSpy;
-    let loggerBannerSpy: Sinon.SinonSpy;
 
     beforeEach(() => {
         sandbox = Sinon.sandbox.create();
@@ -31,11 +27,7 @@ describe("TestConfigurations", () => {
 
         fileSystemStub = new FileSystem();
 
-        defaultLoggerStub = sandbox.stub(DefaultLogger, "log");
-
-        loggerInfoSpy = sandbox.spy(loggerStub, "info");
         loggerErrorSpy = sandbox.spy(loggerStub, "error");
-        loggerBannerSpy = sandbox.spy(loggerStub, "banner");
 
         commandLineParser = new CommandLineParser();
     });

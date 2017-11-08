@@ -2,7 +2,6 @@
 
 ## General
 
-* Add JSON parser that can accept comments
 * Convert gulp script from JavaScript to TypeScript with compilation to improve resiliency
 * Create source/unit/e2e tests from descriptor language to avoid repetition and possibly easier introduction of other languages (vscode snippet format ?)
 
@@ -11,13 +10,8 @@
 * Make pluggable from other npm modules
 * Separate the application framework pipeline steps into their own repos
 
-## Meta data substitutions
-
-* License file substitutions e.g. 'name of author', 'owner' - needs work by spdx to get list of all fields
-
 # App Frameworks
 
-* Add [StencilJs](https://stenciljs.com/)
 * Add native Web Components
 * Add [Ember](https://www.emberjs.com/) When it supports TypeScript ?
 * [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
@@ -47,11 +41,6 @@
 * Add [Coveralls](https://coveralls.io/)
 
 # Platform
-
-## Wrappers
-
-* Add [Cordova](https://cordova.apache.org/)
-* Add Windows Universal App (Could use Cordova)
 
 # Code
 

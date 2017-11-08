@@ -78,7 +78,6 @@ You can use this command with no parameters to update an existing installation t
 | Argument            | Value                                        | Used For                                         |
 |---------------------|----------------------------------------------|--------------------------------------------------|
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
-| title               | plain text                                   | Used on the web index page                       |
 | license             | None/{See [SPDX](https://spdx.org/licenses/) for options} | The license file to generate if required |
 | appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Polymer](#po)/[Preact](#pr)/[React](#re)/[Vue](#vu)               | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
@@ -105,6 +104,29 @@ You can use this command with no parameters to update an existing installation t
 |                     |                                              |   optional - defaults to off                     |
 | outputDirectory     | 'path'                                       | The location that you want the project generated |
 |                     |                                              |   optional - defaults to current directory       |
+| **Meta Data**           | **All Optional**                                 |                                                  |
+| title               | plain text                                   | Used on the web index page                       |
+|                     |                                              |   optional - defaults to packageName             |
+| description         | plain text                                   | Meta data description                            |
+|                     |                                              |   optional - defaults to title                   |
+| shortName           | plain text (usually <= 12 chars)             | Meta data short name                             |
+|                     |                                              |   optional - defaults to title                   |
+| keywords            | comma separated plain text                   | Meta data keywords                               |
+|                     |                                              |   optional - defaults to title split on space    |
+| organization        | plain text                                   | Meta data organization                           |
+|                     |                                              |   optional - defaults to empty                   |
+| webSite             | url                                          | Url for web site associated with organization    |
+|                     |                                              |   optional - defaults to empty                   |
+| copyright           | plain text                                   | Copyright notice for application                 |
+|                     |                                              |   optional - defaults to empty                   |
+| namespace           | dotted name                                  | Namespace to use in packaging e.g. org.myorg     |
+|                     |                                              |   optional - defaults to empty                   |
+| author              | plain text                                   | Name of the app author                           |
+|                     |                                              |   optional - defaults to empty                   |
+| authorEmail         | email address                                | E-mail of the app author                         |
+|                     |                                              |   optional - defaults to empty                   |
+| authorWebSite       | url                                          | Web Site of the app author                       |
+|                     |                                              |   optional - defaults to empty                   |
 
 # Example
 

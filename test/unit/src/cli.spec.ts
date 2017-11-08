@@ -166,6 +166,7 @@ describe("CLI", () => {
 
         it("can handle platform", async () => {
             await fileSystemStub.directoryCreate("./test/unit/temp/www/");
+            await fileSystemStub.directoryCreate("./test/unit/temp/www/assetsSrc/theme/");
             await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", { packageManager: "npm"});
             await fileSystemStub.fileWriteJson("./test/unit/temp/www/", "package.json", {});
 

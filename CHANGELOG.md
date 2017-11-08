@@ -2,6 +2,12 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.6.4
+
+* Added cordova support
+* Added additional optional meta data for configure command (description, shortName, organization, keywords,
+* namespace, webSite, copyright, author, authorEmail, authorWebSite)
+
 ## 1.6.2
 
 * Updated Angular to v5

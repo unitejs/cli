@@ -21,6 +21,16 @@ export class CommandLineArgConstants {
     public static SERVER: string = "server";
     public static IDES: string = "ides";
     public static FORCE: string = "force";
+    public static DESCRIPTION: string = "description";
+    public static SHORT_NAME: string = "shortName";
+    public static KEYWORDS: string = "keywords";
+    public static WEB_SITE: string = "webSite";
+    public static ORGANIZATION: string = "organization";
+    public static COPYRIGHT: string = "copyright";
+    public static NAMESPACE: string = "namespace";
+    public static AUTHOR: string = "author";
+    public static AUTHOR_EMAIL: string = "authorEmail";
+    public static AUTHOR_WEBSITE: string = "authorWebSite";
     public static OUTPUT_DIRECTORY: string = "outputDirectory";
 
     public static OPERATION: string = "operation";

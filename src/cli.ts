@@ -63,6 +63,16 @@ export class CLI extends CLIBase {
                 const applicationFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
                 const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
                 const force = commandLineParser.getBooleanArgument(CommandLineArgConstants.FORCE);
+                const description = commandLineParser.getStringArgument(CommandLineArgConstants.DESCRIPTION);
+                const shortName = commandLineParser.getStringArgument(CommandLineArgConstants.SHORT_NAME);
+                const keywords = commandLineParser.getStringArrayArgument(CommandLineArgConstants.KEYWORDS);
+                const webSite = commandLineParser.getStringArgument(CommandLineArgConstants.WEB_SITE);
+                const organization = commandLineParser.getStringArgument(CommandLineArgConstants.ORGANIZATION);
+                const copyright = commandLineParser.getStringArgument(CommandLineArgConstants.COPYRIGHT);
+                const namespace = commandLineParser.getStringArgument(CommandLineArgConstants.NAMESPACE);
+                const author = commandLineParser.getStringArgument(CommandLineArgConstants.AUTHOR);
+                const authorEmail = commandLineParser.getStringArgument(CommandLineArgConstants.AUTHOR_EMAIL);
+                const authorWebSite = commandLineParser.getStringArgument(CommandLineArgConstants.AUTHOR_WEBSITE);
                 const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
 
                 ret = this.checkRemaining(logger, commandLineParser);
@@ -89,6 +99,16 @@ export class CLI extends CLIBase {
                         applicationFramework,
                         profile,
                         force,
+                        description,
+                        shortName,
+                        keywords,
+                        webSite,
+                        organization,
+                        copyright,
+                        namespace,
+                        author,
+                        authorEmail,
+                        authorWebSite,
                         outputDirectory
                     });
                 }
@@ -226,7 +246,6 @@ export class CLI extends CLIBase {
         logger.banner("configure");
         logger.info("");
         this.markdownTableToCli(logger, "| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |");
-        this.markdownTableToCli(logger, "| title               | plain text                                   | Used on the web index page                       |");
         this.markdownTableToCli(logger, "| license             | None/{ See [SPDX](https://spdx.org/licenses/) for options } | The license file to generate if required |");
         this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/Polymer/            | The application framework to use                 |");
         this.markdownTableToCli(logger, "|                     |     Preact/React/Vue                         |                                                  |");
@@ -252,6 +271,30 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to off                     |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                       | The location that you want the project generated |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to current directory       |");
+        this.markdownTableToCli(logger, "Meta Data (All Optional)");
+        this.markdownTableToCli(logger, "| title               | plain text                                   | Used on the web index page                       |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to packageName             |");
+        this.markdownTableToCli(logger, "| description         | plain text                                   | Meta data description                            |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to title                   |");
+        this.markdownTableToCli(logger, "| shortName           | plain text (usually <= 12 chars)             | Meta data short name                             |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to title                   |");
+        this.markdownTableToCli(logger, "| keywords            | comma separated plain text                   | Meta data keywords                               |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to title split on space    |");
+        this.markdownTableToCli(logger, "| organization        | plain text                                   | Meta data organization                           |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| webSite             | url                                          | Url for web site associated with organization    |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| copyright           | plain text                                   | Copyright notice for application                 |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| namespace           | dotted name                                  | Namespace to use in packaging e.g. org.myorg     |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| author              | plain text                                   | Name of the app author                           |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| authorEmail         | email address                                | E-mail of the app author                         |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to empty                   |");
+        this.markdownTableToCli(logger, "| authorWebSite       | url                                          | Web Site of the app author                       |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to empty                   |");
+
         logger.info("");
 
         logger.banner("buildConfiguration --operation=add");

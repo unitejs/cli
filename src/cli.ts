@@ -395,7 +395,7 @@ export class CLI extends CLIBase {
 
         logger.banner("platform --operation=add");
         logger.info("");
-        this.markdownTableToCli(logger, "| platformName        | Docker/Electron/Web                       | Name of the platform to add                      |");
+        this.markdownTableToCli(logger, "| platformName        | Cordova/Docker/Electron/Web               | Name of the platform to add                      |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
         logger.info("");
@@ -403,7 +403,7 @@ export class CLI extends CLIBase {
         logger.banner("platform --operation=remove");
         logger.info("");
         this.markdownTableToCli(logger, "| operation           | remove                                    |                                                  |");
-        this.markdownTableToCli(logger, "| platformName        | Docker/Electron/Web                       | Name of the platform to remove                   |");
+        this.markdownTableToCli(logger, "| platformName        | Cordova/Docker/Electron/Web               | Name of the platform to remove                   |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
         logger.info("");

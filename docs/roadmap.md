@@ -40,8 +40,6 @@
 
 * Add [Coveralls](https://coveralls.io/)
 
-# Platform
-
 # Code
 
 ## Source Languages

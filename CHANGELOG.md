@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.6.6
+
+* Change Improved webdriver tasks
+
 ## 1.6.5
 
 * Added cordova support

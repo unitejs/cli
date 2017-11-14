@@ -2,12 +2,13 @@
 
 ## General
 
-* Convert gulp script from JavaScript to TypeScript with compilation to improve resiliency
 * Create source/unit/e2e tests from descriptor language to avoid repetition and possibly easier introduction of other languages (vscode snippet format ?)
 
 ## Engine Pipeline
 
 * Make pluggable from other npm modules
+* Add custom generators
+* Add custom build tasks
 * Separate the application framework pipeline steps into their own repos
 
 # App Frameworks
@@ -80,7 +81,7 @@
 
 # Test
 
-Unit Testing add custom setup script than can do things like disable development mode for Vue warning.
+Unit Testing add custom setup script than can do things like disable multiple development mode warnings in Vue.
 
 ## Test Frameworks
 

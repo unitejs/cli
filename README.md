@@ -91,7 +91,7 @@ This command will generate your skeleton application with the options you specif
 |---------------------|----------------------------------------------|--------------------------------------------------|
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
 | license             | None/{See [SPDX](https://spdx.org/licenses/) for options} | The license file to generate if required |
-| appFramework        | [Angular](#ng)/[Aurelia](#au)/[PlainApp](#pa)/[Polymer](#po)/[Preact](#pr)/[React](#re)/[Vue](#vu)               | The application framework to use                 |
+| appFramework        | Angular/Aurelia/PlainApp/Polymer/React/Vue   | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
 | linter              | ESLint/TSLint/None                           | The linter                                       |
 |                     |                                              |   None - means no linting                        |

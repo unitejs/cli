@@ -1,6 +1,6 @@
 {
     "name": "unitejs-cli",
-    "version": "1.6.8",
+    "version": "1.7.0",
     "description": "Command line interface to the UniteJS zero configuration web app creation tool.",
     "main": "dist/cli.js",
     "repository": {
@@ -90,7 +90,7 @@
     },
     "dependencies": {
         "unitejs-framework": "^1.0.3",
-        "unitejs-engine": "^1.6.8",
+        "unitejs-engine": "^1.7.0",
         "unitejs-cli-core": "^1.1.2"
     },
     "bin": {

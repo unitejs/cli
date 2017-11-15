@@ -2,6 +2,12 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.7.0
+
+* Change Gulp tasks converted to TypeScript source
+* Added Minification improvements
+* Added Loading spinner separated into loader.html and loader.css
+
 ## 1.6.8
 
 * Minor fixes

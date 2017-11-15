@@ -16,5 +16,6 @@
 	"taskManager": "Gulp",
 	"server": "BrowserSync",
     "cssPre": "Sass",
-    "cssPost": "PostCss"
+    "cssPost": "PostCss",
+    "cssLinter": "StyleLint"
 }

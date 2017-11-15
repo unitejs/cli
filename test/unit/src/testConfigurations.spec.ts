@@ -64,6 +64,7 @@ describe("TestConfigurations", () => {
                 uniteConfig.linter ? `--linter=${uniteConfig.linter}` : "",
                 uniteConfig.cssPre ? `--cssPre=${uniteConfig.cssPre}` : "",
                 uniteConfig.cssPost ? `--cssPost=${uniteConfig.cssPost}` : "",
+                uniteConfig.cssLinter ? `--cssLinter=${uniteConfig.cssLinter}` : "",
                 uniteConfig.applicationFramework ? `--appFramework=${uniteConfig.applicationFramework}` : "",
                 "--outputDirectory=./test/unit/temp"
             ]);
@@ -106,6 +107,7 @@ describe("TestConfigurations", () => {
                 uniteConfig.linter ? `--linter=${uniteConfig.linter}` : "",
                 uniteConfig.cssPre ? `--cssPre=${uniteConfig.cssPre}` : "",
                 uniteConfig.cssPost ? `--cssPost=${uniteConfig.cssPost}` : "",
+                uniteConfig.cssLinter ? `--cssLinter=${uniteConfig.cssLinter}` : "",
                 uniteConfig.applicationFramework ? `--appFramework=${uniteConfig.applicationFramework}` : "",
                 "--outputDirectory=./test/unit/temp"
             ]);

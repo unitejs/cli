@@ -106,6 +106,8 @@ This command will generate your skeleton application with the options you specif
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
 | cssPost             | PostCss/None                                 | The css postprocessor to use                     |
 |                     |                                              |   None - means no css post processor             |
+| cssLinter           | None/StyleLint                              | The css linter to use                             |
+|                     |                                              |   None - means no css linter                     |
 | ides                | VSCode                                       | This can be a comma separated list               |
 |                     |                                              |   optional can be blank                          |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |

@@ -14,7 +14,6 @@
 # App Frameworks
 
 * Add native Web Components
-* Add [Ember](https://www.emberjs.com/) When it supports TypeScript ?
 * [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
 
 # Module Types
@@ -48,15 +47,8 @@
 * Add [Coffee Script](http://coffeescript.org/)
 * Add [Flow](https://flow.org/)
 
-# Code Linting
-
-* Add [JSHint](http://jshint.com/)
-* Add [JSLint](http://jslint.com/)
-
 ## CSS Linting
 
-* Add [stylelint](https://stylelint.io/)
-* Add [sass-lint](https://github.com/sasstools/sass-lint)
 * Add [less-hint](https://github.com/lesshint/lesshint)
 * Add [stylint](https://github.com/SimenB/stylint)
 
@@ -120,3 +112,16 @@ Unit Testing add custom setup script than can do things like disable multiple de
   * underscore
   * jquery
   * sinon
+
+---
+
+# Not going to include
+
+## App Frameworks
+
+* Add [Ember](https://www.emberjs.com/) until it supports TypeScript
+
+## Code Linting
+
+* [JSHint](http://jshint.com/) - No decorator support http://jshint.com/blog/new-lang-features/
+* [JSLint](http://jslint.com/) - Not configurable enough for ES6 use

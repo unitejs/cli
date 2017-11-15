@@ -68,6 +68,7 @@ describe("CLI", () => {
                 "--linter=ESLint",
                 "--cssPre=Sass",
                 "--cssPost=None",
+                "--cssLinter=None",
                 "--appFramework=PlainApp",
                 "--outputDirectory=./test/unit/temp"
             ]);
@@ -95,6 +96,7 @@ describe("CLI", () => {
                 "--linter=JSLint",
                 "--cssPre=Sass",
                 "--cssPost=None",
+                "--cssLinter=None",
                 "--appFramework=PlainApp",
                 "--outputDirectory=./test/unit/temp",
                 "--someArg=foo"

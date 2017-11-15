@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "node"
 install:
-  - cd unitejs
+  - cd ..
   - git clone --branch=develop https://github.com/unitejs/framework.git framework
   - cd framework
   - npm link

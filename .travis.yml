@@ -18,8 +18,8 @@ install:
   - npm link
   - cd ../cli
   - npm install gulp -g
-  - npm install
   - npm link "unitejs-framework" "unitejs-cli-core" "unitejs-engine"
+  - npm install
 script: 
   - gulp build || travis_terminate 1
   - gulp unit || travis_terminate 1

@@ -47,11 +47,6 @@
 * Add [Coffee Script](http://coffeescript.org/)
 * Add [Flow](https://flow.org/)
 
-## CSS Linting
-
-* Add [less-hint](https://github.com/lesshint/lesshint)
-* Add [stylint](https://github.com/SimenB/stylint)
-
 ## Code Style
 
 * Add [Prettier](https://prettier.io/)

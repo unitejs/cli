@@ -29,6 +29,7 @@ Create your app with any combination of the options below, all guaranteed to wor
 * **E2E Test Frameworks**: Jasmine, Mocha
 * **CSS Pro Processors**: Css, Less, Sass, Stylus
 * **CSS Post Processors**: PostCss
+* **CSS Linter**: LessHint, SassLint, Stylint, StyleLint
 * **Task Runners**: Gulp
 * **Package Managers**: Npm, Yarn
 * **Platforms**: Cordova, Docker, Electron, Web
@@ -106,7 +107,7 @@ This command will generate your skeleton application with the options you specif
 | cssPre              | Css/Less/Sass/Stylus                         | The css preprocessor to use                      |
 | cssPost             | PostCss/None                                 | The css postprocessor to use                     |
 |                     |                                              |   None - means no css post processor             |
-| cssLinter           | None/StyleLint                              | The css linter to use                             |
+| cssLinter           | LessHint/None/SassLint/Stylint/StyleLint     | The css linter to use                            |
 |                     |                                              |   None - means no css linter                     |
 | ides                | VSCode                                       | This can be a comma separated list               |
 |                     |                                              |   optional can be blank                          |

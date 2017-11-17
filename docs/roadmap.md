@@ -2,6 +2,8 @@
 
 ## General
 
+* Add configure --noGenerate option so src/styles etc don't get recreated
+* Fix Configure with new profile should update fields and only merge missing fields from unite.json
 * Create source/unit/e2e tests from descriptor language to avoid repetition and possibly easier introduction of other languages (vscode snippet format ?)
 
 ## Engine Pipeline

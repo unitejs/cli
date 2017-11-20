@@ -16,5 +16,6 @@
 	"server": "BrowserSync",
     "cssPre": "Sass",
     "cssPost": "PostCss",
-    "cssLinter": "StyleLint"
+    "cssLinter": "StyleLint",
+    "documentor": "ESDoc"
 }

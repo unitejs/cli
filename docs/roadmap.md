@@ -63,11 +63,6 @@
 * Add [NPM scripts](https://docs.npmjs.com/misc/scripts)
 * Add [Gulp 4](https://github.com/gulpjs/gulp/tree/4.0)
 
-## Documentation
-
-* Add [JSDoc](http://usejsdoc.org/)
-* Add [ESDoc](https://esdoc.org/)
-
 # Test
 
 Unit Testing add custom setup script than can do things like disable multiple development mode warnings in Vue.
@@ -109,16 +104,3 @@ Unit Testing add custom setup script than can do things like disable multiple de
   * underscore
   * jquery
   * sinon
-
----
-
-# Not going to include
-
-## App Frameworks
-
-* Add [Ember](https://www.emberjs.com/) until it supports TypeScript
-
-## Code Linting
-
-* [JSHint](http://jshint.com/) - No decorator support http://jshint.com/blog/new-lang-features/
-* [JSLint](http://jslint.com/) - Not configurable enough for ES6 use

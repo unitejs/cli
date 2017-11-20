@@ -109,6 +109,8 @@ This command will generate your skeleton application with the options you specif
 |                     |                                              |   None - means no css post processor             |
 | cssLinter           | LessHint/None/SassLint/Stylint/StyleLint     | The css linter to use                            |
 |                     |                                              |   None - means no css linter                     |
+| documentor          | ESDoc/JSDoc/None/TSDoc                       | The documentor to use                            |
+|                     |                                              |   None - means no documentor                     |
 | ides                | VSCode                                       | This can be a comma separated list               |
 |                     |                                              |   optional can be blank                          |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |

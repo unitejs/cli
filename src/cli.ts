@@ -58,6 +58,7 @@ export class CLI extends CLIBase {
                 const cssPre = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
                 const cssPost = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const cssLinter = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_LINTER);
+                const documentor = commandLineParser.getStringArgument(CommandLineArgConstants.DOCUMENTOR);
                 const server = "BrowserSync"; // commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const taskManager = "Gulp"; //commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const ides = commandLineParser.getStringArrayArgument(CommandLineArgConstants.IDES);
@@ -94,6 +95,7 @@ export class CLI extends CLIBase {
                         cssPre,
                         cssPost,
                         cssLinter,
+                        documentor,
                         server,
                         taskManager,
                         ides,
@@ -267,6 +269,8 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css post processor             |");
         this.markdownTableToCli(logger, "| cssLinter           | LessHint/None/SassLint/Stylint/StyleLint     | The css linter to use                            |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css linter                     |");
+        this.markdownTableToCli(logger, "| documentor          | ESDoc/JSDoc/None/TSDoc                       | The documentor to use                            |");
+        this.markdownTableToCli(logger, "|                     |                                              |   None - means no documentor                     |");
         this.markdownTableToCli(logger, "| ides                | VSCode                                       | This can be a comma separated list               |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional can be blank                          |");
         this.markdownTableToCli(logger, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");

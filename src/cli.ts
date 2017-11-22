@@ -271,7 +271,7 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css post processor             |");
         this.markdownTableToCli(logger, "| cssLinter           | LessHint/None/SassLint/Stylint/StyleLint     | The css linter to use                            |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css linter                     |");
-        this.markdownTableToCli(logger, "| documenter          | ESDoc/JSDoc/None/TSDoc                       | The documenter to use                            |");
+        this.markdownTableToCli(logger, "| documenter          | ESDoc/JSDoc/None/TypeDoc                     | The documenter to use                            |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no documenter                     |");
         this.markdownTableToCli(logger, "| ides                | VSCode                                       | This can be a comma separated list               |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional can be blank                          |");

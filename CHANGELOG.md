@@ -4,7 +4,8 @@ See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHA
 
 ## 1.7.2
 
-* Added Documenter ESDoc/JSDoc/None/TSDoc
+* Added Documenter ESDoc/JSDoc/None/TypeDoc
+* Added noCreateSource option to configure
 
 ## 1.7.1
 

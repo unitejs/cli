@@ -109,7 +109,7 @@ This command will generate your skeleton application with the options you specif
 |                     |                                              |   None - means no css post processor             |
 | cssLinter           | LessHint/None/SassLint/Stylint/StyleLint     | The css linter to use                            |
 |                     |                                              |   None - means no css linter                     |
-| documenter          | ESDoc/JSDoc/None/TSDoc                       | The documenter to use                            |
+| documenter          | ESDoc/JSDoc/None/TypeDoc                     | The documenter to use                            |
 |                     |                                              |   None - means no documenter                     |
 | ides                | VSCode                                       | This can be a comma separated list               |
 |                     |                                              |   optional can be blank                          |

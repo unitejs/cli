@@ -2,7 +2,7 @@
 	"packageName": "eslint-typescript",
 	"title": "ESLint TypeScript",
 	"license": "MIT",
-    "applicationFramework": "PlainApp",
+    "applicationFramework": "Vanilla",
 	"moduleType": "AMD",
 	"bundler": "RequireJS",
 	"sourceLanguage": "TypeScript",
@@ -18,5 +18,5 @@
     "cssPre": "Sass",
     "cssPost": "PostCss",
     "cssLinter": "StyleLint",
-    "documentor": "ESDoc"
+    "documenter": "ESDoc"
 }

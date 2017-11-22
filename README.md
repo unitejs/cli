@@ -17,7 +17,7 @@ We try not to be too opinionated with what our CLI produces, but sometimes that 
 
 Create your app with any combination of the options below, all guaranteed to work with no additional configuration.
 
-* **Application Frameworks**: Angular, Aurelia, PlainApp, Polymer, Preact, React, Vue.
+* **Application Frameworks**: Angular, Aurelia, Polymer, Preact, React, Vanilla, Vue.
 * **Languages**: JavaScript, TypeScript
 * **Module Types**: AMD, CommonJS, SystemJS
 * **Bundlers**: Browserify, RequireJS, SystemJS, Webpack
@@ -92,7 +92,7 @@ This command will generate your skeleton application with the options you specif
 |---------------------|----------------------------------------------|--------------------------------------------------|
 | packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |
 | license             | None/{See [SPDX](https://spdx.org/licenses/) for options} | The license file to generate if required |
-| appFramework        | Angular/Aurelia/PlainApp/Polymer/React/Vue   | The application framework to use                 |
+| appFramework        | Angular/Aurelia/Polymer/React/Vanilla/Vue    | The application framework to use                 |
 | sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |
 | linter              | ESLint/TSLint/None                           | The linter                                       |
 |                     |                                              |   None - means no linting                        |
@@ -109,8 +109,8 @@ This command will generate your skeleton application with the options you specif
 |                     |                                              |   None - means no css post processor             |
 | cssLinter           | LessHint/None/SassLint/Stylint/StyleLint     | The css linter to use                            |
 |                     |                                              |   None - means no css linter                     |
-| documentor          | ESDoc/JSDoc/None/TSDoc                       | The documentor to use                            |
-|                     |                                              |   None - means no documentor                     |
+| documenter          | ESDoc/JSDoc/None/TSDoc                       | The documenter to use                            |
+|                     |                                              |   None - means no documenter                     |
 | ides                | VSCode                                       | This can be a comma separated list               |
 |                     |                                              |   optional can be blank                          |
 | packageManager      | Npm/Yarn                                     | The package manager to use                       |
@@ -118,6 +118,8 @@ This command will generate your skeleton application with the options you specif
 | profile             | [See Profiles](#configprofiles)                                     | The profile to use                       |
 |                     |                                              |   optional - defaults to no profile              |
 | force               |                                              | Force overwrite of all existing configuration    |
+|                     |                                              |   optional - defaults to off                     |
+| noCreateSource      |                                              | Skip source file creation if already deleted     |
 |                     |                                              |   optional - defaults to off                     |
 | outputDirectory     | 'path'                                       | The location that you want the project generated |
 |                     |                                              |   optional - defaults to current directory       |
@@ -196,10 +198,10 @@ Creates components for use in your application, your application framework, sour
 
 * Angular - class, component, directive, enum, guard, interface, module, pipe, service
 * Aurelia - attribute, binding-behavior, class, component, element, enum, interface, pipeline-step, value-converter
-* PlainApp - class, enum, interface
 * Polymer - class, component, enum, interface
 * Preact - class, component, enum, interface
 * React - class, component, enum, interface
+* Vanilla - class, enum, interface
 * Vue - class, component, enum, interface
 
 ---
@@ -311,14 +313,14 @@ The following configuration profiles are currently available, they provide a set
 * AngularTypeScript
 * AureliaJavaScript
 * AureliaTypeScript
-* PlainAppJavaScript
-* PlainAppTypeScript
 * PolymerJavaScript
 * PolymerTypeScript
 * PreactJavaScript
 * PreactTypeScript
 * ReactJavaScript
 * ReactTypeScript
+* VanillaJavaScript
+* VanillaTypeScript
 * VueJavaScript
 * VueTypeScript
 

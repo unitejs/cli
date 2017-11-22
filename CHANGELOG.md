@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.7.2
+
+* Added Documenter ESDoc/JSDoc/None/TSDoc
+
 ## 1.7.1
 
 * Added Style Linting

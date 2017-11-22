@@ -2,7 +2,7 @@
 	"packageName": "sjs-webpack",
 	"title": "SJS Webpack",
 	"license": "MIT",
-    "applicationFramework": "PlainApp",
+    "applicationFramework": "Vanilla",
 	"moduleType": "SystemJS",
 	"bundler": "Webpack",
 	"sourceLanguage": "JavaScript",
@@ -18,5 +18,5 @@
     "cssPre": "Sass",
     "cssPost": "PostCss",
     "cssLinter": "StyleLint",
-    "documentor": "ESDoc"
+    "documenter": "ESDoc"
 }

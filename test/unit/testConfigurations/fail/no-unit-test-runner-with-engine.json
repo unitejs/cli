@@ -2,7 +2,7 @@
 	"packageName": "no-unit-test-runner-with-engine",
 	"title": "No Unit Test Runner With Engine",
 	"license": "MIT",
-    "applicationFramework": "PlainApp",
+    "applicationFramework": "Vanilla",
 	"moduleType": "AMD",
 	"bundler": "RequireJS",
 	"sourceLanguage": "JavaScript",
@@ -17,5 +17,5 @@
     "cssPre": "Sass",
     "cssPost": "PostCss",
     "cssLinter": "StyleLint",
-    "documentor": "ESDoc"
+    "documenter": "ESDoc"
 }

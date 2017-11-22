@@ -1,12 +1,12 @@
 {
-	"packageName": "amd-webpack",
-	"title": "AMD Webpack",
+	"packageName": "jsdoc-typescript",
+	"title": "JSDoc TypeScript",
 	"license": "MIT",
     "applicationFramework": "Vanilla",
-	"moduleType": "Amd",
-	"bundler": "Webpack",
-	"sourceLanguage": "JavaScript",
-	"linter": "EsLint",
+	"moduleType": "AMD",
+	"bundler": "RequireJS",
+	"sourceLanguage": "TypeScript",
+	"linter": "TSLint",
 	"unitTestRunner": "Karma",
 	"unitTestFramework": "Jasmine",
 	"unitTestEngine": "PhantomJs",
@@ -18,5 +18,5 @@
     "cssPre": "Sass",
     "cssPost": "PostCss",
     "cssLinter": "StyleLint",
-    "documenter": "ESDoc"
+    "documenter": "JSDoc"
 }

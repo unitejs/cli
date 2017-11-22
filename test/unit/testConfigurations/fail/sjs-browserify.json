@@ -2,7 +2,7 @@
 	"packageName": "sjs-browserify",
 	"title": "SJS Browserify",
 	"license": "MIT",
-    "applicationFramework": "PlainApp",
+    "applicationFramework": "Vanilla",
 	"moduleType": "SystemJS",
 	"bundler": "Browserify",
 	"sourceLanguage": "JavaScript",
@@ -18,5 +18,5 @@
     "cssPre": "Sass",
     "cssPost": "PostCss",
     "cssLinter": "StyleLint",
-    "documentor": "ESDoc"
+    "documenter": "ESDoc"
 }

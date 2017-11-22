@@ -2,7 +2,7 @@
 	"packageName": "tslint-javascript",
 	"title": "TSLint JavaScript",
 	"license": "MIT",
-    "applicationFramework": "PlainApp",
+    "applicationFramework": "Vanilla",
 	"moduleType": "AMD",
 	"bundler": "RequireJS",
 	"sourceLanguage": "JavaScript",
@@ -18,5 +18,5 @@
     "cssPre": "Sass",
     "cssPost": "PostCss",
     "cssLinter": "StyleLint",
-    "documentor": "ESDoc"
+    "documenter": "ESDoc"
 }

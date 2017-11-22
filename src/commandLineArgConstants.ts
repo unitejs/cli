@@ -17,7 +17,7 @@ export class CommandLineArgConstants {
     public static CSS_PRE_PROCESSOR: string = "cssPre";
     public static CSS_POST_PROCESSOR: string = "cssPost";
     public static CSS_LINTER: string = "cssLinter";
-    public static DOCUMENTOR: string = "documentor";
+    public static DOCUMENTER: string = "documenter";
     public static APP_FRAMEWORK: string = "appFramework";
     public static TASK_MANAGER: string = "taskManager";
     public static SERVER: string = "server";
@@ -34,6 +34,7 @@ export class CommandLineArgConstants {
     public static AUTHOR_EMAIL: string = "authorEmail";
     public static AUTHOR_WEBSITE: string = "authorWebSite";
     public static OUTPUT_DIRECTORY: string = "outputDirectory";
+    public static NO_CREATE_SOURCE: string = "noCreateSource";
 
     public static OPERATION: string = "operation";
     public static VERSION: string = "version";

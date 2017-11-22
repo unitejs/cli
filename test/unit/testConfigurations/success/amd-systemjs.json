@@ -2,7 +2,7 @@
 	"packageName": "amd-systemjs",
 	"title": "AMD SystemJS",
 	"license": "MIT",
-    "applicationFramework": "PlainApp",
+    "applicationFramework": "Vanilla",
 	"moduleType": "Amd",
 	"bundler": "SystemJSBuilder",
 	"sourceLanguage": "JavaScript",
@@ -18,5 +18,5 @@
     "cssPre": "Sass",
     "cssPost": "PostCss",
     "cssLinter": "StyleLint",
-    "documentor": "ESDoc"
+    "documenter": "ESDoc"
 }

@@ -69,8 +69,8 @@ describe("CLI", () => {
                 "--cssPre=Sass",
                 "--cssPost=None",
                 "--cssLinter=None",
-                "--documentor=None",
-                "--appFramework=PlainApp",
+                "--documenter=None",
+                "--appFramework=Vanilla",
                 "--outputDirectory=./test/unit/temp"
             ]);
             await obj.initialise(loggerStub, fileSystemStub);
@@ -98,8 +98,8 @@ describe("CLI", () => {
                 "--cssPre=Sass",
                 "--cssPost=None",
                 "--cssLinter=None",
-                "--documentor=None",
-                "--appFramework=PlainApp",
+                "--documenter=None",
+                "--appFramework=Vanilla",
                 "--outputDirectory=./test/unit/temp",
                 "--someArg=foo"
             ]);
@@ -206,7 +206,7 @@ describe("CLI", () => {
         it("can handle generate", async () => {
             await fileSystemStub.directoryCreate("./test/unit/temp/www/");
             await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", {
-                applicationFramework: "PlainApp",
+                applicationFramework: "Vanilla",
                 unitTestFramework: "Jasmine",
                 dirs: {
                     wwwRoot: "./www/",

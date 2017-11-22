@@ -1,12 +1,12 @@
 {
-	"packageName": "amd-webpack",
-	"title": "AMD Webpack",
+	"packageName": "sass-lesshint",
+	"title": "Sass LessHint",
 	"license": "MIT",
     "applicationFramework": "Vanilla",
-	"moduleType": "Amd",
-	"bundler": "Webpack",
+	"moduleType": "AMD",
+	"bundler": "RequireJS",
 	"sourceLanguage": "JavaScript",
-	"linter": "EsLint",
+	"linter": "ESLint",
 	"unitTestRunner": "Karma",
 	"unitTestFramework": "Jasmine",
 	"unitTestEngine": "PhantomJs",
@@ -17,6 +17,6 @@
 	"server": "BrowserSync",
     "cssPre": "Sass",
     "cssPost": "PostCss",
-    "cssLinter": "StyleLint",
+    "cssLinter": "LessHint",
     "documenter": "ESDoc"
 }

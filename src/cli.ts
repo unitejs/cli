@@ -58,13 +58,14 @@ export class CLI extends CLIBase {
                 const cssPre = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_PRE_PROCESSOR);
                 const cssPost = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const cssLinter = commandLineParser.getStringArgument(CommandLineArgConstants.CSS_LINTER);
-                const documentor = commandLineParser.getStringArgument(CommandLineArgConstants.DOCUMENTOR);
+                const documenter = commandLineParser.getStringArgument(CommandLineArgConstants.DOCUMENTER);
                 const server = "BrowserSync"; // commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const taskManager = "Gulp"; //commandLineParser.getStringArgument(CommandLineArgConstants.CSS_POST_PROCESSOR);
                 const ides = commandLineParser.getStringArrayArgument(CommandLineArgConstants.IDES);
                 const applicationFramework = commandLineParser.getStringArgument(CommandLineArgConstants.APP_FRAMEWORK);
                 const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
                 const force = commandLineParser.getBooleanArgument(CommandLineArgConstants.FORCE);
+                const noCreateSource = commandLineParser.getBooleanArgument(CommandLineArgConstants.NO_CREATE_SOURCE);
                 const description = commandLineParser.getStringArgument(CommandLineArgConstants.DESCRIPTION);
                 const shortName = commandLineParser.getStringArgument(CommandLineArgConstants.SHORT_NAME);
                 const keywords = commandLineParser.getStringArrayArgument(CommandLineArgConstants.KEYWORDS);
@@ -95,7 +96,7 @@ export class CLI extends CLIBase {
                         cssPre,
                         cssPost,
                         cssLinter,
-                        documentor,
+                        documenter,
                         server,
                         taskManager,
                         ides,
@@ -103,6 +104,7 @@ export class CLI extends CLIBase {
                         applicationFramework,
                         profile,
                         force,
+                        noCreateSource,
                         description,
                         shortName,
                         keywords,
@@ -251,8 +253,8 @@ export class CLI extends CLIBase {
         logger.info("");
         this.markdownTableToCli(logger, "| packageName         | plain text, package.json name rules apply    | Name to be used for your package                 |");
         this.markdownTableToCli(logger, "| license             | None/{ See [SPDX](https://spdx.org/licenses/) for options } | The license file to generate if required |");
-        this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/PlainApp/Polymer/            | The application framework to use                 |");
-        this.markdownTableToCli(logger, "|                     |     Preact/React/Vue                         |                                                  |");
+        this.markdownTableToCli(logger, "| appFramework        | Angular/Aurelia/Polymer/                     | The application framework to use                 |");
+        this.markdownTableToCli(logger, "|                     |     Preact/React/Vanilla/Vue                 |                                                  |");
         this.markdownTableToCli(logger, "| sourceLanguage      | JavaScript/TypeScript                        | The language you want to code in                 |");
         this.markdownTableToCli(logger, "| linter              | ESLint/TSLint/None                           | The linter                                       |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no linting                        |");
@@ -269,13 +271,15 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css post processor             |");
         this.markdownTableToCli(logger, "| cssLinter           | LessHint/None/SassLint/Stylint/StyleLint     | The css linter to use                            |");
         this.markdownTableToCli(logger, "|                     |                                              |   None - means no css linter                     |");
-        this.markdownTableToCli(logger, "| documentor          | ESDoc/JSDoc/None/TSDoc                       | The documentor to use                            |");
-        this.markdownTableToCli(logger, "|                     |                                              |   None - means no documentor                     |");
+        this.markdownTableToCli(logger, "| documenter          | ESDoc/JSDoc/None/TSDoc                       | The documenter to use                            |");
+        this.markdownTableToCli(logger, "|                     |                                              |   None - means no documenter                     |");
         this.markdownTableToCli(logger, "| ides                | VSCode                                       | This can be a comma separated list               |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional can be blank                          |");
         this.markdownTableToCli(logger, "| packageManager      | Npm/Yarn                                     | The package manager to use                       |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to npm if not already set  |");
         this.markdownTableToCli(logger, "| force               |                                              | Force overwrite of all existing configuration    |");
+        this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to off                     |");
+        this.markdownTableToCli(logger, "| noCreateSource      |                                              | Skip source file creation if already deleted     |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to off                     |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                       | The location that you want the project generated |");
         this.markdownTableToCli(logger, "|                     |                                              |   optional - defaults to current directory       |");
@@ -341,8 +345,11 @@ export class CLI extends CLIBase {
         logger.info("");
         logger.info("Angular - class, component, directive, enum, guard, interface, module, pipe, service");
         logger.info("Aurelia - attribute, binding-behavior, class, component, element, enum, interface, pipeline-step, value-converter");
-        logger.info("PlainApp - class, enum, interface");
+        logger.info("Polymer - class, component, enum, interface");
+        logger.info("Preact - class, component, enum, interface");
         logger.info("React - class, component, enum, interface");
+        logger.info("Vanilla - class, enum, interface");
+        logger.info("Vue - class, component, enum, interface");
         logger.info("");
 
         logger.banner("clientPackage --operation=add");

@@ -30,6 +30,7 @@ Create your app with any combination of the options below, all guaranteed to wor
 * **CSS Pro Processors**: Css, Less, Sass, Stylus
 * **CSS Post Processors**: PostCss
 * **CSS Linter**: LessHint, SassLint, Stylint, StyleLint
+* **Documenters**: ESDoc, JSDoc, TypeDoc
 * **Task Runners**: Gulp
 * **Package Managers**: Npm, Yarn
 * **Platforms**: Cordova, Docker, Electron, Web

@@ -1,9 +1,5 @@
 # Core
 
-## General
-
-* Add configure --noCreate option so src/styles etc don't get recreated if you are just updating
-
 ## Engine Pipeline
 
 * Make pluggable from other npm modules
@@ -13,7 +9,7 @@
 
 # App Frameworks
 
-* Add native Web Components
+* Add vanilla native Web Components
 * [Aurelia](http://aurelia.io/) Add Webpack bundling - module resolution is currently too flaky as of 2.0.0-rc.5
 
 # Module Types

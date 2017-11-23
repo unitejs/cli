@@ -3,16 +3,16 @@ node_js:
   - "node"
 install:
   - cd ..
-  - git clone --branch=develop https://github.com/unitejs/framework.git framework
+  - git clone --branch=TRAVIS_BRANCH https://github.com/unitejs/framework.git framework
   - cd framework
   - npm link
   - cd ..
-  - git clone --branch=develop https://github.com/unitejs/cli-core.git cli-core
+  - git clone --branch=TRAVIS_BRANCH https://github.com/unitejs/cli-core.git cli-core
   - cd cli-core
   - npm link "unitejs-framework"
   - npm link
   - cd ..
-  - git clone --branch=develop https://github.com/unitejs/engine.git engine
+  - git clone --branch=TRAVIS_BRANCH https://github.com/unitejs/engine.git engine
   - cd engine
   - npm link "unitejs-framework"
   - npm link

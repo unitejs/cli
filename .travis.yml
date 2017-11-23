@@ -3,7 +3,7 @@ node_js:
   - "node"
 install:
   - cd ..
-  - git clone --branch=T$RAVIS_BRANCH https://github.com/unitejs/framework.git framework
+  - git clone --branch=$TRAVIS_BRANCH https://github.com/unitejs/framework.git framework
   - cd framework
   - npm link
   - cd ..

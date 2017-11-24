@@ -2,6 +2,7 @@
 
 ## Engine Pipeline
 
+* Separate configure.json and clientPackage.json profiles into another package, add generate examples
 * Make pluggable from other npm modules
 * Add custom generators
 * Add custom build tasks

@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.7.4
+
+* Unified protractor and webdriver application framework plugins
+
 ## 1.7.3
 
 * Fixes

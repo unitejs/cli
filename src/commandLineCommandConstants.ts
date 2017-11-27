@@ -6,6 +6,7 @@ export class CommandLineCommandConstants {
     public static HELP: string = "help";
     public static CONFIGURE: string = "configure";
     public static CLIENT_PACKAGE: string = "clientPackage";
+    public static PACKAGE: string = "package";
     public static BUILD_CONFIGURATION: string = "buildConfiguration";
     public static PLATFORM: string = "platform";
     public static GENERATE: string = "generate";

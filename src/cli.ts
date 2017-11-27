@@ -13,6 +13,7 @@ import { IClientPackageCommandParams } from "unitejs-engine/dist/interfaces/ICli
 import { IConfigureCommandParams } from "unitejs-engine/dist/interfaces/IConfigureCommandParams";
 import { IEngine } from "unitejs-engine/dist/interfaces/IEngine";
 import { IGenerateCommandParams } from "unitejs-engine/dist/interfaces/IGenerateCommandParams";
+import { IPackageCommandParams } from "unitejs-engine/dist/interfaces/IPackageCommandParams";
 import { IPlatformCommandParams } from "unitejs-engine/dist/interfaces/IPlatformCommandParams";
 import { PlatformOperation } from "unitejs-engine/dist/interfaces/platformOperation";
 import { IFileSystem } from "unitejs-framework/dist/interfaces/IFileSystem";
@@ -238,6 +239,21 @@ export class CLI extends CLIBase {
                         outputDirectory
                     });
                 }
+                break;
+            }
+
+            case CommandLineCommandConstants.PACKAGE: {
+                logger.info("command", { command });
+
+                const packageName = commandLineParser.getStringArgument(CommandLineArgConstants.PACKAGE_NAME);
+                const outputDirectory = commandLineParser.getStringArgument(CommandLineArgConstants.OUTPUT_DIRECTORY);
+                ret = this.checkRemaining(logger, commandLineParser);
+                if (ret === 0) {
+                    ret = await this._engine.command<IPackageCommandParams>(command, {
+                        packageName,
+                        outputDirectory
+                    });
+                }
             }
         }
 
@@ -421,6 +437,11 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| platformName        | Cordova/Docker/Electron/Web               | Name of the platform to remove                   |");
         this.markdownTableToCli(logger, "| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to current directory       |");
+        logger.info("");
+
+        logger.banner("package");
+        logger.info("");
+        this.markdownTableToCli(logger, "| packageName         | plain text                                | Name of the package to add                       |");
         logger.info("");
 
         logger.banner("Global Arguments");

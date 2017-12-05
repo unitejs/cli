@@ -233,7 +233,7 @@ describe("CLI", () => {
             Chai.expect(fileExists).to.be.equal(true);
         });
 
-        it("can fail platform with unknown args", async () => {
+        it("can fail generate with unknown args", async () => {
             await fileSystemStub.directoryCreate("./test/unit/temp/");
             await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", {});
 
@@ -248,6 +248,62 @@ describe("CLI", () => {
             Chai.expect(res).to.be.equal(1);
         });
 
+        it("can handle package", async () => {
+            await fileSystemStub.directoryCreate("./test/unit/temp/www/");
+            await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", {
+                applicationFramework: "Vanilla",
+                moduleType: "CommonJs",
+                packageManager: "Npm",
+                dirs: {
+                    wwwRoot: "./www/",
+                    www: {
+                        src: "./src/"
+                    }
+                },
+                sourceExtensions: [
+                    "ts"
+                ]
+            });
+            await fileSystemStub.fileWriteJson("./test/unit/temp/www/", "package.json", {});
+
+            const obj = new CLI();
+            commandLineParser.parse(["node", "./bin/unite.js", "package",
+                "--packageName=moment",
+                "--outputDirectory=./test/unit/temp"
+            ]);
+            await obj.initialise(loggerStub, fileSystemStub);
+            const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
+            Chai.expect(res).to.be.equal(0);
+            const fileExists = await fileSystemStub.fileExists("./test/unit/temp/www/src/examples/", "example-moment.ts");
+            Chai.expect(fileExists).to.be.equal(true);
+        });
+
+        it("can fail package with unknown args", async () => {
+            await fileSystemStub.directoryCreate("./test/unit/temp/");
+            await fileSystemStub.fileWriteJson("./test/unit/temp/", "unite.json", {
+                applicationFramework: "Vanilla",
+                moduleType: "CommonJs",
+                packageManager: "Npm",
+                dirs: {
+                    wwwRoot: "./www/",
+                    www: {
+                        src: "./src/"
+                    }
+                },
+                sourceExtensions: [
+                    "ts"
+                ]
+            });
+
+            const obj = new CLI();
+            commandLineParser.parse(["node", "./bin/unite.js", "package",
+                "--packageName=moment",
+                "--outputDirectory=./test/unit/temp",
+                "--someArg=foo"
+            ]);
+            const res = await obj.handleCustomCommand(loggerStub, fileSystemStub, commandLineParser);
+            Chai.expect(res).to.be.equal(1);
+        });
     });
 
     describe("displayHelp", () => {

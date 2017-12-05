@@ -68,6 +68,7 @@ where command is one of:
 * generate
 * clientPackage
 * platform
+* package
 
 Argument names are case sensitive but values are case insensitive, argument values with spaces should be enclosed in quotes, apostrophes or backticks.
 
@@ -306,6 +307,18 @@ This will remove an existing platform and modify all the necessary configuration
 | outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
 |                     |                                           |   optional - defaults to current directory       |
 
+---
+
+## unite package
+
+Add a pre-configured package to your application.
+
+| Argument            | Value                                     | Used For                                         |
+|---------------------|-------------------------------------------|--------------------------------------------------|
+| packageName         | [See Packages](#packages)                              | Name of the package to add                       |
+| outputDirectory     | 'path'                                    | Location of the unite.json from configure        |
+|                     |                                           |   optional - defaults to current directory       |
+
 # <a name="configprofiles"></a>Configuration Profiles
 
 The following configuration profiles are currently available, they provide a set of defaults recommended by the application framework providers.
@@ -329,11 +342,24 @@ The following configuration profiles are currently available, they provide a set
 
 The following clientPackage profiles are currently available, they provide a set of defaults for the libraries.
 
-* font-awesome
-* bootstrap4
 * bluebird
+* bootstrap4
+* font-awesome
+* moment
 * primsjs
 * rxjs
+
+# <a name="packages"></a>Packages
+
+Packages for use with the UniteJS JavaScript framework management tool.
+
+Each package includes the npm modules and example code for a specific library.
+
+When installed the package will also endeavour to create a router entry to link to the new example page.
+
+* moment
+
+See the [UniteJS Packages](https://github.com/unitejs/packages) repo for more details.
 
 # Disclaimer
 

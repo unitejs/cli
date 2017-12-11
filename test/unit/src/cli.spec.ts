@@ -5,6 +5,7 @@ import * as Chai from "chai";
 import * as Sinon from "sinon";
 import { CommandLineParser } from "unitejs-cli-core/dist/commandLineParser";
 import { FileSystem } from "unitejs-cli-core/dist/fileSystem";
+import { PackageUtils } from "unitejs-engine/dist/pipelineSteps/packageUtils";
 import { IFileSystem } from "unitejs-framework/dist/interfaces/IFileSystem";
 import { ILogger } from "unitejs-framework/dist/interfaces/ILogger";
 import { CLI } from "../../../src/cli";
@@ -31,6 +32,8 @@ describe("CLI", () => {
         loggerBannerSpy = sandbox.spy(loggerStub, "banner");
 
         commandLineParser = new CommandLineParser();
+
+        sandbox.stub(PackageUtils, "exec").resolves("{}");
     });
 
     afterEach(async () => {

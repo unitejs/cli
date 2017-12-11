@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.7.6
+
+* E2E Install drivers can be versioned
+
 ## 1.7.5
 
 * Added package command to provide access to unitejs-packages

@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.7.7
+
+* Fixed sibling node_modules location
+
 ## 1.7.6
 
 * E2E Install drivers can be versioned

@@ -22,7 +22,7 @@ install:
   - npm link
   - cd ../cli
   - npm install gulp -g
-  - npm link "unitejs-framework" "unitejs-cli-core" "unitejs-engine"
+  - npm link unitejs-framework unitejs-cli-core unitejs-engine unitejs-packages
   - npm install
 script: 
   - gulp build || travis_terminate 1

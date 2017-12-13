@@ -2,10 +2,6 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
-## 1.7.8
-
-* Added package command extensions
-
 ## 1.7.7
 
 * Fixed sibling node_modules location

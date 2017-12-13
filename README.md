@@ -346,6 +346,7 @@ The following clientPackage profiles are currently available, they provide a set
 * bootstrap4
 * font-awesome
 * moment
+* lodash
 * primsjs
 * rxjs
 
@@ -358,6 +359,7 @@ Each package includes the npm modules and example code for a specific library.
 When installed the package will also endeavour to create a router entry to link to the new example page.
 
 * moment
+* lodash
 
 See the [UniteJS Packages](https://github.com/unitejs/packages) repo for more details.
 

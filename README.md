@@ -349,6 +349,7 @@ The following clientPackage profiles are currently available, they provide a set
 * lodash
 * primsjs
 * rxjs
+* underscore
 
 # <a name="packages"></a>Packages
 
@@ -360,6 +361,8 @@ When installed the package will also endeavour to create a router entry to link 
 
 * moment
 * lodash
+* rxjs
+* underscore
 
 See the [UniteJS Packages](https://github.com/unitejs/packages) repo for more details.
 

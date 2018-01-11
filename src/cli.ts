@@ -22,7 +22,7 @@ import { CommandLineArgConstants } from "./commandLineArgConstants";
 import { CommandLineCommandConstants } from "./commandLineCommandConstants";
 
 export class CLI extends CLIBase {
-    private static APP_NAME: string = "UniteJS";
+    private static readonly APP_NAME: string = "UniteJS";
     private _engine: IEngine;
 
     constructor() {

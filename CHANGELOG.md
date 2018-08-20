@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.7.12
+
+* Update dependencies
+
 ## 1.7.10
 
 * Update dependencies

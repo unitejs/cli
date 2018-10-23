@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const gutil = require("gulp-util");
+const log = require("fancy-log");
 const replace = require("gulp-replace");
 const tsc = require("gulp-typescript");
 const gulpTslint = require("gulp-tslint");
@@ -179,8 +179,8 @@ gulp.task("unit-runner", () => {
             "reporter": "spec",
             "timeout": "360000"
         }).on("error", (err) => {
-            gutil.log(err.message);
-            gutil.log(err.stack);
+            log.error(err.message);
+            log.error(err.stack);
             process.exit(1);
         }))
         .pipe(istanbul.writeReports({

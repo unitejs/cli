@@ -2,6 +2,22 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.8.0
+
+* Major dependency update
+* Angular v8
+* Babel v7
+* Electron v3.0.5
+* Eslint v5
+* Jest v23
+* Jsdom v12
+* Karma v3
+* Mocha v5
+* Polymer v3
+* Rxjs v6
+* Webpack v4
+* Removed all gulp-util usage
+
 ## 1.7.12
 
 * Update dependencies

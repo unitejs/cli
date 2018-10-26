@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 9
+  - 11
 install:
   - cd ..
   - git clone --branch=$TRAVIS_BRANCH https://github.com/unitejs/framework.git unitejs-framework
@@ -28,10 +28,3 @@ script:
   - gulp build || travis_terminate 1
   - gulp unit || travis_terminate 1
   - gulp coveralls || travis_terminate 1
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/18d04b26e3da5f9fa9dc
-    on_success: change
-    on_failure: always
-    on_start: never

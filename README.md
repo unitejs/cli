@@ -1,4 +1,4 @@
-[![Join the chat at https://gitter.im/unitejs/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/unitejs/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NPM version][npm-version-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls][coveralls-image]][coveralls-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] 
+[![NPM version][npm-version-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls][coveralls-image]][coveralls-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] 
 
 # UniteJS CLI - Zero Configuration Web App Creation
 
@@ -376,7 +376,7 @@ If you are still having issues just let us know in the [Issues](https://github.c
 
 # Feature Requests
 
-You can see the planned features in the [roadmap](./docs/roadmap.md) if there is any other technologies you would like to see added just drop us a message on the [Gitter Channel](https://gitter.im/unitejs/discuss)
+You can see the planned features in the [roadmap](./docs/roadmap.md) if there is any other technologies you would like to see added just drop us a message.
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE

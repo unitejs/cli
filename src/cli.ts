@@ -143,12 +143,6 @@ export class CLI extends CLIBase {
                 const loaders = commandLineParser.getStringArrayArgument(CommandLineArgConstants.LOADERS);
                 const assets = commandLineParser.getStringArrayArgument(CommandLineArgConstants.ASSETS);
                 const profile = commandLineParser.getStringArgument(CommandLineArgConstants.PROFILE);
-                const transpileAlias = commandLineParser.getStringArgument(CommandLineArgConstants.TRANSPILE_ALIAS);
-                const transpileLanguage = commandLineParser.getStringArgument(CommandLineArgConstants.TRANSPILE_LANGUAGE);
-                const transpileSources = commandLineParser.getStringArrayArgument(CommandLineArgConstants.TRANSPILE_SOURCES);
-                const transpileModules = commandLineParser.getStringArrayArgument(CommandLineArgConstants.TRANSPILE_MODULES);
-                const transpileStripExt = commandLineParser.getBooleanArgument(CommandLineArgConstants.TRANSPILE_STRIP_EXT);
-                const transpileTransforms = commandLineParser.getStringArrayArgument(CommandLineArgConstants.TRANSPILE_TRANSFORMS);
                 ret = this.checkRemaining(logger, commandLineParser);
                 if (ret === 0) {
                     ret = await this._engine.command<IClientPackageCommandParams>(command, {
@@ -167,12 +161,6 @@ export class CLI extends CLIBase {
                         map,
                         loaders,
                         noScript,
-                        transpileAlias,
-                        transpileLanguage,
-                        transpileSources,
-                        transpileModules,
-                        transpileStripExt,
-                        transpileTransforms,
                         profile,
                         packageManager,
                         outputDirectory
@@ -396,18 +384,6 @@ export class CLI extends CLIBase {
         this.markdownTableToCli(logger, "| map                 | key1=value1,key2=value2                   | Additional module config maps                    |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
         this.markdownTableToCli(logger, "| loaders             | key1=value1,key2=value2                   | Additional module config loaders                 |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| transpileAlias      | 'path'                                    | The location to build a transpiled version       |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| transpileLanguage   | JavaScript/TypeScript                     | The source language to transpile from            |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| transpileSources    | comma separated globs                     | The source files to transpile                    |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| transpileModules    | comma separated module names              | Relative module name import to replace with map  |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
-        this.markdownTableToCli(logger, "| transpileStripExt   |                                           | Should we strip extensions from imports          |");
-        this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to false                   |");
-        this.markdownTableToCli(logger, "| transpileTransforms | from1,to1,from2,to2...                    | Regex transforms to apply during transpilation   |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to empty                   |");
         this.markdownTableToCli(logger, "| packageManager      | npm/yarn                                  | The package manager to use for the add           |");
         this.markdownTableToCli(logger, "|                     |                                           |   optional - defaults to npm if not already set  |");

@@ -2,6 +2,10 @@
 
 See [UniteJS Engine Changelog](https://github.com/unitejs/engine/blob/master/CHANGELOG.md) for more details of latest engine changes.
 
+## 1.8.1
+
+* Removed module transpile options
+
 ## 1.8.0
 
 * Major dependency update

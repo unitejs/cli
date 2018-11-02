@@ -52,12 +52,6 @@ export class CommandLineArgConstants {
     public static NO_SCRIPT: string = "noScript";
     public static PACKAGE_MANAGER: string = "packageManager";
     public static PROFILE: string = "profile";
-    public static TRANSPILE_ALIAS: string = "transpileAlias";
-    public static TRANSPILE_LANGUAGE: string = "transpileLanguage";
-    public static TRANSPILE_SOURCES: string = "transpileSources";
-    public static TRANSPILE_MODULES: string = "transpileModules";
-    public static TRANSPILE_STRIP_EXT: string = "transpileStripExt";
-    public static TRANSPILE_TRANSFORMS: string = "transpileTransforms";
 
     public static CONFIGURATION_NAME: string = "configurationName";
     public static BUNDLE: string = "bundle";

@@ -255,6 +255,7 @@
         "no-switch-case-fall-through": false,  // now supported by TypeScript compiler
         "typeof-compare": false,               // the valid-typeof rule is currently superior to this version
         "file-name-casing": false,
-        "no-unused-variable": false
+        "no-unused-variable": false,
+        "ban-ts-ignore": false
     }
 }

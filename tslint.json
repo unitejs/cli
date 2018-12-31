@@ -59,6 +59,7 @@
         "no-for-in-array": true,
         "no-import-side-effect": true,
         "no-increment-decrement": false,
+        "increment-decrement": false,
         "no-invalid-regexp": true,
         "no-invalid-template-strings": true,
         "no-invalid-this": true,
